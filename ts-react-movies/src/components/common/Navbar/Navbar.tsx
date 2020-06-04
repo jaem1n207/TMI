@@ -2,6 +2,7 @@ import * as React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Navbar.scss";
 import classNames from "classnames/bind";
+import { RiMovieLine } from "react-icons/all";
 
 const cx = classNames.bind(style);
 
@@ -9,7 +10,11 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = (props) => {
   return (
     <div className={cx("NavItem")}>
-      <div className={cx("NavItem-Logo")}>TMI</div>
+      <div className={cx("NavItem-Logo")}>
+        <RiMovieLine className={cx("NavItem-Logo-icon")} viewBox="0 0 34 34" />
+
+        <div>TMI</div>
+      </div>
       <div>
         <ul className={cx("NavItem-Ul")}>
           <li className={cx("NavItem-Ul-Title")}>MOVIE</li>

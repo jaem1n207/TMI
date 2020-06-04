@@ -2,10 +2,10 @@ import * as React from "react";
 import { CSSProperties } from "styled-components";
 
 interface ButtonProps {
-  text: string;
+  text: string | JSX.Element;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   type?: "button" | "submit" | "reset" | undefined;
-  style?: CSSProperties;
+  style?: CSSProperties | undefined;
 }
 const Button: React.SFC<ButtonProps> = ({
   style,

@@ -10,9 +10,25 @@ const HeaderContainer: React.SFC<HeaderContainerProps> = () => {
     alert("엔터 쳤어용!");
   };
 
+  const WarnMsg = () => {
+    alert("최소 2글자 이상을 입력해주세요!");
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent<Element>) => {
     if (e.key === "Enter") {
+      if (keyword.length > 1) {
+        handleOnSubmit();
+      } else {
+        WarnMsg();
+      }
+    }
+  };
+
+  const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (keyword.length > 1) {
       handleOnSubmit();
+    } else {
+      WarnMsg();
     }
   };
 
@@ -21,6 +37,7 @@ const HeaderContainer: React.SFC<HeaderContainerProps> = () => {
       keyword={keyword}
       setKeyword={setKeyword}
       handleKeyPress={handleKeyPress}
+      onClick={onClick}
     />
   );
 };

@@ -20,12 +20,15 @@
         cursor: pointer;
         & > a {
           text-decoration: none;
-          color: $gray-4;
+          color: $gray-5;
         }
       }
     }
   }
   &-Input {
+    margin-top: 1%;
     width: 40%;
+  }
+  &-Button {
   }
 }
