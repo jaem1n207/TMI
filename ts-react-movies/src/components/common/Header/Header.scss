@@ -1,0 +1,31 @@
+@import "styles/ColorScheme.scss";
+
+.Header-Wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &-Nav {
+    margin-left: 4%;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    &-Ul {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      &-Li {
+        margin-right: 4%;
+        list-style: none;
+        cursor: pointer;
+        & > a {
+          text-decoration: none;
+          color: $gray-4;
+        }
+      }
+    }
+  }
+  &-Input {
+    width: 40%;
+  }
+}

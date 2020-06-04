@@ -2,8 +2,14 @@ import React from "react";
 import { MOVIE_API_KEY } from "config/config.json";
 import Template from "./common/PageTemplate/PageTemplate";
 
-function App() {
-  return <Template></Template>;
+interface AppProps {
+  Components: {
+    Navbar: JSX.Element;
+    Header: JSX.Element;
+  };
 }
+const App: React.SFC<AppProps> = ({ Components }) => {
+  return <Template Components={Components}></Template>;
+};
 
 export default App;

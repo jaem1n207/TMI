@@ -1,0 +1,29 @@
+@import "styles/ColorScheme.scss";
+
+.NavItem {
+  &-Logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $white-1;
+  }
+  &-Ul {
+    font-size: 1.1rem;
+    list-style: none;
+    font-weight: 500;
+    &-Title {
+      font-size: 1.2rem;
+      margin-bottom: 0.8%;
+      color: $white;
+    }
+    &-Li {
+      cursor: pointer;
+      & > a {
+        text-decoration: none;
+        color: $gray-4;
+      }
+      &-Current {
+        color: $mint;
+      }
+    }
+  }
+}
