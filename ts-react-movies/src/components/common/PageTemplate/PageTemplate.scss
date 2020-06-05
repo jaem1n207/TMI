@@ -28,8 +28,22 @@
       width: 100%;
       height: 92%;
       display: flex;
+      flex-direction: row;
+
       background-color: $dark-2;
       // box-shadow: inset 1px 1px 0 2px rgba($color: #000000, $alpha: 0.5);
+      &-Wrap {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &-VideoWrap {
+        }
+        &-TopRatedWrap {
+        }
+      }
+      &-NowWrap {
+      }
     }
   }
 }

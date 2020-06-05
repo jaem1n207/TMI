@@ -1,10 +1,11 @@
 import React from "react";
 
-const NowPlayingPage = () => {
+interface NowPlayingPageProps {}
+const NowPlayingPage: React.SFC<NowPlayingPageProps> = () => {
   return (
-    <div>
+    <>
       <h1>Now Playing</h1>
-    </div>
+    </>
   );
 };
 
