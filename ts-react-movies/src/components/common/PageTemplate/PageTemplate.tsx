@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./PageTemplate.scss";
 import classNames from "classnames/bind";
-import NowPlayingPage from "pages/NowPlayingPage";
-import VideosPage from "pages/VideosPage";
 
 const cx = classNames.bind(style);
 
