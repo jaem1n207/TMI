@@ -1,5 +1,4 @@
 export interface NowPlayingState {
-  readonly type?: string;
   readonly loading?: boolean;
   page?: number;
   total_pages?: number;
@@ -21,7 +20,7 @@ export interface ObjectType {
 }
 
 export interface Action {
-  type: string;
+  type?: string;
   page?: number;
   total_pages?: number;
   payload: {
