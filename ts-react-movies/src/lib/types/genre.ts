@@ -1,4 +1,4 @@
-const genre: any = {
+const genres: any = {
   "28": "액션",
   "12": "모험",
   "16": "애니메이션",
@@ -20,4 +20,4 @@ const genre: any = {
   "37": "서부",
 };
 
-export default genre;
+export default genres;

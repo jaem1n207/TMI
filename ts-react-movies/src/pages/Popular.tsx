@@ -1,10 +1,11 @@
 import React from "react";
+import PopularContainer from "containers/Popular/PopularContainer";
 
 interface TopRatedPageProps {}
 const TopRatedPage: React.SFC<TopRatedPageProps> = () => {
   return (
     <>
-      <div>Hello</div>
+      <PopularContainer />
     </>
   );
 };
