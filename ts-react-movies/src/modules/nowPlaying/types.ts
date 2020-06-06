@@ -1,5 +1,3 @@
-import genre from "lib/types/genre";
-
 export interface NowPlayingState {
   readonly type?: string;
   readonly loading?: boolean;
