@@ -1,8 +1,8 @@
 export interface NowPlayingState {
-  readonly loading?: boolean;
+  loading?: boolean;
   page?: number;
   total_pages?: number;
-  readonly nowPlaying?: Object;
+  nowPlaying?: Array<Object>;
 }
 
 export interface ObjectType {

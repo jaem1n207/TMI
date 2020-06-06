@@ -29,10 +29,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ Components }) => {
         <div className={cx("PageTemplate-Wrap-header")}>{Header}</div>
         <div className={cx("PageTemplate-Wrap-Content")}>
           <div className={cx("PageTemplate-Wrap-Content-Wrap")}>
-            <div className={cx("PageTemplate-Wrap-Content-VideoWrap")}>
+            <div className={cx("PageTemplate-Wrap-Content-Wrap-VideoWrap")}>
               {VideosPage}
             </div>
-            <div className={cx("PageTemplate-Wrap-Content-TopRatedWrap")}>
+            <div className={cx("PageTemplate-Wrap-Content-Wrap-TopRatedWrap")}>
               {TopRatedPage}
             </div>
           </div>

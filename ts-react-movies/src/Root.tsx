@@ -17,6 +17,7 @@ const Root: React.SFC<RootProps> = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/nowPlaying" component={NowPlayingPage} />
+        {/* <Route exact path="/detail/:id" component={Detail} /> */}
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

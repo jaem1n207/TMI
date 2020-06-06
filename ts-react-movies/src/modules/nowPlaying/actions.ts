@@ -33,3 +33,18 @@ export const getNowPlaying = (page: number = 1) => {
     }
   };
 };
+
+export const getMoreNowPlaying = (page: number) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch(getNowRequest({ loading: true }));
+
+      const result = await api.movies.nowPlaying(page + 1);
+      const nowPlaying = result.data.results;
+
+      dispatch(getNowSuccess({ loading: false, nowPlaying }));
+    } catch (e) {
+      dispatch(getNowFail({ loading: false }));
+    }
+  };
+};

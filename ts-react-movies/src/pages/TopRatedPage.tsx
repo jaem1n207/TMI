@@ -4,7 +4,7 @@ interface TopRatedPageProps {}
 const TopRatedPage: React.SFC<TopRatedPageProps> = () => {
   return (
     <>
-      <h1>TopRatedPage</h1>
+      <div>Hello</div>
     </>
   );
 };

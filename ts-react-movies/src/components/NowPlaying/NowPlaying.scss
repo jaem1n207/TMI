@@ -1,0 +1,33 @@
+@import "styles/ColorScheme.scss";
+
+.NowPlaying-Wrap {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &-Title {
+    margin-bottom: 2%;
+    font-weight: 700;
+    color: $white-1;
+  }
+  &-Content {
+    width: 92%;
+    margin-bottom: 6%;
+    &-Img {
+      width: 92%;
+    }
+    &-Info {
+      &-Title {
+        color: $white-1;
+        font-weight: 500;
+      }
+      &-Vote {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 10%;
+      }
+    }
+  }
+}

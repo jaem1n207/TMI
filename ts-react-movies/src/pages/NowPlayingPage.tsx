@@ -1,10 +1,11 @@
 import React from "react";
+import NowPlayingContainer from "containers/NowPlayingContainer";
 
 interface NowPlayingPageProps {}
 const NowPlayingPage: React.SFC<NowPlayingPageProps> = () => {
   return (
     <>
-      <h1>Now Playing</h1>
+      <NowPlayingContainer />
     </>
   );
 };

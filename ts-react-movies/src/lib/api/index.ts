@@ -1,4 +1,6 @@
 import defaultApi from "./defaultApi";
+import Axios from "axios";
+import { MOVIE_API_KEY } from "config/config.json";
 
 export const movies = {
   /* pupular movies */
@@ -7,11 +9,9 @@ export const movies = {
   upcoming: () => defaultApi.get("movie/upcoming"),
   /* show noyplaying movies */
   nowPlaying: (page: number) =>
-    defaultApi.get("movie/now_playing", {
-      params: {
-        page: page, // used for show more
-      },
-    }),
+    Axios.get(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${MOVIE_API_KEY}&language=ko&region=KR`
+    ),
   /* search movies */
   search: (text: string) =>
     defaultApi.get("search/movie", {
