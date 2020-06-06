@@ -3,7 +3,7 @@ import App from "components/common/PageTemplate/PageTemplate";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
 import NowPlayingPage from "pages/NowPlayingPage";
-import TopRatedPage from "./TopRatedPage";
+import PopularPage from "./Popular";
 import VideosPage from "./VideosPage";
 
 interface HomePageProps {}
@@ -12,7 +12,7 @@ const HomePage: React.SFC<HomePageProps> = (props) => {
     Navbar: <Navbar />,
     Header: <Header />,
     NowPlayingPage: <NowPlayingPage />,
-    TopRatedPage: <TopRatedPage />,
+    PopularPage: <PopularPage />,
     VideosPage: <VideosPage />,
   };
 

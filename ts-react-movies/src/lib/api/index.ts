@@ -4,7 +4,10 @@ import { MOVIE_API_KEY } from "config/config.json";
 
 export const movies = {
   /* pupular movies */
-  popular: () => defaultApi.get("movie/popular"),
+  popular: () =>
+    Axios.get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${MOVIE_API_KEY}&language=ko&region=KR`
+    ),
   /* coming soon */
   upcoming: () => defaultApi.get("movie/upcoming"),
   /* show noyplaying movies */

@@ -6,7 +6,7 @@ interface AppProps {
     Navbar: JSX.Element;
     Header: JSX.Element;
     NowPlayingPage: JSX.Element;
-    TopRatedPage: JSX.Element;
+    PopularPage: JSX.Element;
     VideosPage: JSX.Element;
   };
 }

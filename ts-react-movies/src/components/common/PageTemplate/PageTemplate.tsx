@@ -9,7 +9,7 @@ interface PageTemplateProps {
     Navbar: JSX.Element;
     Header: JSX.Element;
     NowPlayingPage: JSX.Element;
-    TopRatedPage: JSX.Element;
+    PopularPage: JSX.Element;
     VideosPage: JSX.Element;
   };
 }
@@ -18,7 +18,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ Components }) => {
     Navbar,
     Header,
     NowPlayingPage,
-    TopRatedPage,
+    PopularPage,
     VideosPage,
   } = Components;
   console.log(Components);
@@ -32,8 +32,8 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ Components }) => {
             <div className={cx("PageTemplate-Wrap-Content-Wrap-VideoWrap")}>
               {VideosPage}
             </div>
-            <div className={cx("PageTemplate-Wrap-Content-Wrap-TopRatedWrap")}>
-              {TopRatedPage}
+            <div className={cx("PageTemplate-Wrap-Content-Wrap-PopularWrap")}>
+              {PopularPage}
             </div>
           </div>
           <div className={cx("PageTemplate-Wrap-Content-NowWrap")}>
