@@ -95,7 +95,7 @@ const PopularCard: React.SFC<PopularCardProps> = ({
         {backdrop_path !== null ? (
           <img
             className="Popular-Wrap-Content-Img"
-            src={`https://image.tmdb.org/t/p/w1280${backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w400${backdrop_path}`}
           />
         ) : (
           <img className="Popular-Wrap-Content-Img" src={backdrop} />
@@ -104,14 +104,15 @@ const PopularCard: React.SFC<PopularCardProps> = ({
       <div className="Popular-Wrap-Content-Info">
         <div className="Popular-Wrap-Content-Info-TDG">
           <div className="Popular-Wrap-Content-Info-TDG-Title">{title}</div>
-          <div className="Popular-Wrap-Content-Info-TDG-Date">
-            {year}.{month}
-          </div>
+
           {/* <div className="Popular-Wrap-Content-Info-TDG-Genre">
             {genresArr.map((genre, i) => (
               <div key={i}>{genre}</div>
             ))}
           </div> */}
+        </div>
+        <div className="Popular-Wrap-Content-Info-TDG-Date">
+          {year}.{month}
         </div>
         <div className="Popular-Wrap-Content-Info-Vote">{vote_average} ☆</div>
       </div>
