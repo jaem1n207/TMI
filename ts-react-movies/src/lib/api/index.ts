@@ -22,11 +22,9 @@ export const movies = {
     ),
   /* search movies */
   search: (text: string) =>
-    defaultApi.get("search/movie", {
-      params: {
-        query: text,
-      },
-    }),
+    Axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&language=ko&query=${text}&page=1&include_adult=false&region=KR`
+    ),
   /* show detail movie */
   detail: (id: string) =>
     defaultApi.get(`movie/${id}`, {
