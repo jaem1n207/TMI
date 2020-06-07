@@ -4,6 +4,16 @@ import genres from "lib/types/genre";
 import Slider from "react-slick";
 import "./Popular.scss";
 
+function SampleNextArrow(props: any) {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick} />;
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, onClick } = props;
+  return <div className={className} onClick={onClick} />;
+}
+
 interface PopularProps {
   popular:
     | Array<{
@@ -23,7 +33,11 @@ const Popular: React.FC<PopularProps> = ({ popular }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 4500,
   };
 
   return (
@@ -70,7 +84,8 @@ const PopularCard: React.SFC<PopularCardProps> = ({
   backdrop_path,
   genre_ids,
 }) => {
-  const date: string = release_date.split("-")[0];
+  const year: string = release_date.split("-")[0];
+  const month: string = release_date.split("-")[1];
   const genresArr: string[] = genre_ids.map((genre) => genres[genre]);
   const backdrop = require("assets/backdrop.png");
 
@@ -89,7 +104,9 @@ const PopularCard: React.SFC<PopularCardProps> = ({
       <div className="Popular-Wrap-Content-Info">
         <div className="Popular-Wrap-Content-Info-TDG">
           <div className="Popular-Wrap-Content-Info-TDG-Title">{title}</div>
-          <div className="Popular-Wrap-Content-Info-TDG-Date">{date}</div>
+          <div className="Popular-Wrap-Content-Info-TDG-Date">
+            {year}.{month}
+          </div>
           {/* <div className="Popular-Wrap-Content-Info-TDG-Genre">
             {genresArr.map((genre, i) => (
               <div key={i}>{genre}</div>
