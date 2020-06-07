@@ -1,8 +1,8 @@
 import React from "react";
 import PopularContainer from "containers/Popular/PopularContainer";
 
-interface TopRatedPageProps {}
-const TopRatedPage: React.SFC<TopRatedPageProps> = () => {
+interface PopularPageProps {}
+const PopularPage: React.SFC<PopularPageProps> = () => {
   return (
     <>
       <PopularContainer />
@@ -10,4 +10,4 @@ const TopRatedPage: React.SFC<TopRatedPageProps> = () => {
   );
 };
 
-export default TopRatedPage;
+export default PopularPage;

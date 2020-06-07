@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import genres from "lib/types/genre";
 import Slider from "react-slick";
+import "./Popular.scss";
 
 interface PopularProps {
   popular:
@@ -9,7 +10,7 @@ interface PopularProps {
         poster_path?: string; // 영화 포스터 (세로 큼)
         id: number; // 고유 id
         backdrop_path?: string; // 영화 배경이미지 (가로 큼)
-        genre_ids?: number[]; // 장르
+        genre_ids: number[]; // 장르
         title: string; // 제목
         vote_average: number; // 평점 (10점 만점)
         overview?: string; // 줄거리
@@ -19,22 +20,19 @@ interface PopularProps {
 }
 const Popular: React.FC<PopularProps> = ({ popular }) => {
   const setting = {
-    dots: true,
-    arrows: false,
     infinite: true,
-    speed: 300,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    slidesToShow: 1,
+    speed: 500,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
 
   return (
-    <div>
-      <Slider {...setting}>
+    <div className="Popular-Wrap">
+      <div className="Popular-Wrap-Title">Popular</div>
+      <Slider {...setting} className="Popular-Wrap-Slider">
         {popular && popular.length > 0 ? (
           popular
-            .slice(0, 5)
+            .slice(0, 18)
             .map((p, i) => (
               <PopularCard
                 key={i}
@@ -77,25 +75,28 @@ const PopularCard: React.SFC<PopularCardProps> = ({
   const backdrop = require("assets/backdrop.png");
 
   return (
-    <div>
+    <div className="Popular-Wrap-Content">
       <Link to={`/detail:/${id}`}>
         {backdrop_path !== null ? (
-          <img src={`https://image.tmdb.org/t/p/w1280${backdrop_path}`} />
+          <img
+            className="Popular-Wrap-Content-Img"
+            src={`https://image.tmdb.org/t/p/w1280${backdrop_path}`}
+          />
         ) : (
-          <img src={backdrop} />
+          <img className="Popular-Wrap-Content-Img" src={backdrop} />
         )}
       </Link>
-      <div>
-        <div>
-          <div>{title}</div>
-          <div>{date}</div>
-          <div>
+      <div className="Popular-Wrap-Content-Info">
+        <div className="Popular-Wrap-Content-Info-TDG">
+          <div className="Popular-Wrap-Content-Info-TDG-Title">{title}</div>
+          <div className="Popular-Wrap-Content-Info-TDG-Date">{date}</div>
+          {/* <div className="Popular-Wrap-Content-Info-TDG-Genre">
             {genresArr.map((genre, i) => (
               <div key={i}>{genre}</div>
             ))}
-          </div>
+          </div> */}
         </div>
-        <div>{vote_average}</div>
+        <div className="Popular-Wrap-Content-Info-Vote">{vote_average} ☆</div>
       </div>
     </div>
   );

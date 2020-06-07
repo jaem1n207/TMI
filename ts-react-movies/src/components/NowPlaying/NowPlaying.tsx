@@ -77,7 +77,7 @@ const NowCard: React.SFC<NowCardProps> = ({
             src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
           />
         ) : (
-          <img src={backdrop} />
+          <img src={backdrop} className="NowPlaying-Wrap-Content-Img" />
         )}
       </Link>
       <div className="NowPlaying-Wrap-Content-Info">

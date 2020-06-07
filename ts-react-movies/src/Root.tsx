@@ -7,6 +7,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import NotFoundPage from "./pages/NotFoundPage";
 import HomePage from "pages/HomePage";
 import NowPlayingPage from "pages/NowPlayingPage";
+import PopularPage from "pages/PopularPage";
 
 library.add(faSearch);
 
@@ -17,6 +18,7 @@ const Root: React.SFC<RootProps> = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/nowPlaying" component={NowPlayingPage} />
+        <Route exact path="/popular" component={PopularPage} />
         {/* <Route exact path="/detail/:id" component={Detail} /> */}
         <Route component={NotFoundPage} />
       </Switch>
