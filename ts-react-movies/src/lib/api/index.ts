@@ -6,7 +6,7 @@ export const movies = {
   /* movie trailer */
   videos: (id: string) =>
     Axios.get(
-      `https://api.themoviedb.org/3/movie/videos?api_key=${MOVIE_API_KEY}&language=ko`
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${MOVIE_API_KEY}&language=ko`
     ),
   /* pupular movies */
   popular: () =>

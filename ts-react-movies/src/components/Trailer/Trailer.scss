@@ -1,0 +1,113 @@
+@import "styles/ColorScheme.scss";
+
+.VideoTitle {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  height: 7%;
+  font-family: -webkit-pictograph;
+}
+.Video-Wrap {
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: 87%;
+  width: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-Slider {
+    width: 100%;
+    height: 100%;
+  }
+  &-Content {
+    width: 100%;
+  }
+}
+
+.slick-slider .slick-initialized {
+  height: 90%;
+  .slick-track {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 1271px;
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  .slick-slide {
+    height: 100%;
+    width: 1271px;
+    outline: none;
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.slick-list {
+  overflow-x: visible;
+  width: 100%;
+  height: 100%;
+  .slick-track {
+    // width: 100% !important;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .slick-slide {
+      // width: 30% !important;
+      height: 100%;
+    }
+  }
+}
+.slick-dots {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 62%;
+  left: 38%;
+}
+/* .slick-prev {
+  position: absolute;
+  top: 68%;
+  right: 21%;
+  height: 33px;
+  border: none;
+  outline: none;
+  border-right: 1px solid gray;
+  padding-right: 4px;
+}
+.slick-next {
+  position: absolute;
+  top: 68%;
+  right: 20%;
+  height: 33px;
+  border: none;
+  outline: none;
+} */
+.slick-prev:before {
+  content: "<";
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.slick-next:before {
+  content: ">";
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+.video-stream .html5-main-video {
+  width: 102% !important;
+  height: 661px !important;
+  /* left: 191.056px; */
+  top: -76px !important;
+  position: absolute !important;
+  display: block !important;
+}

@@ -44,6 +44,9 @@
           padding-right: 19px;
           border-right: 1px outset gray;
           border-width: thin;
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
         &-PopularWrap {
           height: 33%;
