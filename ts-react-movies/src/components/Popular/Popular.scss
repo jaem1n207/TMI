@@ -6,6 +6,7 @@
   width: 100%;
 
   &-Title {
+    font-size: 1.85rem;
     margin-bottom: 12px;
     font-weight: 700;
     color: $white-1;
@@ -79,7 +80,7 @@
 }
 .slick-prev {
   position: absolute;
-  top: 70%;
+  top: 69%;
   right: 21%;
   height: 33px;
   border: none;
@@ -89,7 +90,7 @@
 }
 .slick-next {
   position: absolute;
-  top: 70%;
+  top: 69%;
   right: 20%;
   height: 33px;
   border: none;

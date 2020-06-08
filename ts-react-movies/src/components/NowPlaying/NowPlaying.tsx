@@ -24,7 +24,7 @@ interface NowPlayingProps {
 const NowPlaying: React.FC<NowPlayingProps> = ({ nowPlaying }) => {
   return (
     <div className="NowPlaying-Wrap">
-      <div className="NowPlaying-Wrap-Title">현재 상영 중</div>
+      <div className="NowPlaying-Wrap-Title">Now Playing</div>
       {nowPlaying && nowPlaying.length > 0 ? (
         nowPlaying
           .slice(0, 20)

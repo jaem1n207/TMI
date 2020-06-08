@@ -36,9 +36,6 @@ const SubTemplate: React.SFC<SubTemplateProps> = ({ Components }) => {
               {PopularPage}
             </div>
           </div>
-          <div className={cx("SubTemplate-Wrap-Content-NowWrap")}>
-            {NowPlayingPage}
-          </div>
         </div>
       </div>
     </div>

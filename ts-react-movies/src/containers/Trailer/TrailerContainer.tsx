@@ -17,22 +17,21 @@ function getRandomId() {
     "299534", // 어벤져스: 엔드 게임
     "429617", // 스파이더맨
     "475557", // 조커
+    "1726", // 아이언맨1
     "299536", // 어벤져스: 인피니티 워
     "315635", // 스파이더맨
+    "420817", // 알라딘
     "99861", // 어벤져스
     "572164", // 엑시트
-    "420817", // 알라딘
-    "1726", // 아이언맨1
     "10138", // 아이언맨2
   ];
   const shuffle = [];
   while (a.length > 0) {
     shuffle.push(a.splice(Math.floor(Math.random() * a.length), 1)[0]);
   }
-  const getId = shuffle.splice(0, 3);
-  console.log(getId);
+  const getId = shuffle.splice(0, 1);
 
-  return [...getId];
+  return getId;
 }
 
 const TrailerContainer: React.SFC<TrailerContainerProps> = ({
@@ -42,7 +41,7 @@ const TrailerContainer: React.SFC<TrailerContainerProps> = ({
 }) => {
   const randomId = useMemo(() => getRandomId(), []);
   useEffect(() => {
-    getVideos(randomId[0]);
+    getVideos(randomId);
   }, []);
 
   return <>{loading ? <LoadingPage /> : <TrailerList videos={videos} />}</>;

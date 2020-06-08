@@ -24,7 +24,7 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 200,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     dotsClass: "Trailer-Dots",
@@ -45,8 +45,8 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
             {videos?.map((k, i) => (
               <ReactPlayer
                 url={`https://www.youtube.com/embed/${k.key}`}
-                width="1200px"
-                height="500px"
+                width="1264px"
+                height="517px"
                 left="0px !important"
                 muted={true}
                 playing={i === 0 ? playing : false}
