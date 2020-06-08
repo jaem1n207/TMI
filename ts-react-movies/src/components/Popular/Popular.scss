@@ -1,8 +1,7 @@
 @import "styles/ColorScheme.scss";
 
 .Popular-Wrap {
-  overflow-x: scroll;
-  overflow-y: scroll;
+  overflow: hidden;
   height: 100%;
   width: 100%;
 
@@ -28,7 +27,7 @@
       float: left;
       margin-right: 20px;
       width: 300px;
-      height: 210px;
+      height: 180px;
     }
     &-Info {
       display: flex;
@@ -80,7 +79,7 @@
 }
 .slick-prev {
   position: absolute;
-  top: 68%;
+  top: 70%;
   right: 21%;
   height: 33px;
   border: none;
@@ -90,7 +89,7 @@
 }
 .slick-next {
   position: absolute;
-  top: 68%;
+  top: 70%;
   right: 20%;
   height: 33px;
   border: none;

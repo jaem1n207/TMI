@@ -10,6 +10,7 @@ import { logger } from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "modules";
+import { ToastProvider } from "react-toast-notifications";
 
 const middlewares = [Thunk, logger];
 const store = createStore(
@@ -19,7 +20,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Root />
+    <ToastProvider autoDismissTimeout={2000}>
+      <Root />
+    </ToastProvider>
   </Provider>,
   document.getElementById("root")
 );

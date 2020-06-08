@@ -53,26 +53,30 @@ const Header: React.SFC<HeaderProps> = ({
         </ul>
       </div>
       <div className={cx("Header-Wrap-Input")}>
-        <label className={cx("Header-Wrap-Button")}>
-          <Button
-            style={btnStyle}
-            text={
-              <FontAwesomeIcon
-                className="fa-2x"
-                color="#38393e"
-                icon="search"
-              />
-            }
+        <Link to="/search">
+          <label className={cx("Header-Wrap-Button")}>
+            <Button
+              style={btnStyle}
+              text={
+                <FontAwesomeIcon
+                  className="fa-2x"
+                  color="#38393e"
+                  icon="search"
+                />
+              }
+              onClick={onClick}
+            ></Button>
+          </label>
+
+          <Input
+            type="text"
             onClick={onClick}
-          ></Button>
-        </label>
-        <Input
-          type="text"
-          keyword={keyword}
-          setKeyword={setKeyword}
-          handleKeyPress={handleKeyPress}
-          style={inputStyle}
-        />
+            keyword={keyword}
+            setKeyword={setKeyword}
+            handleKeyPress={handleKeyPress}
+            style={inputStyle}
+          />
+        </Link>
       </div>
     </div>
   );

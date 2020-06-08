@@ -13,6 +13,7 @@ export interface InputProps {
   onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
   type?: string | undefined;
   style?: CSSProperties | undefined;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Input: React.SFC<InputProps> = ({
@@ -21,6 +22,7 @@ const Input: React.SFC<InputProps> = ({
   setKeyword,
   handleKeyPress,
   style,
+  onClick,
 }) => {
   return (
     <input

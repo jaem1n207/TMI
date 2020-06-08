@@ -1,35 +1,25 @@
 import React, { useState } from "react";
 import Header from "components/common/Header/Header";
+import { useToasts } from "react-toast-notifications";
 
 interface HeaderContainerProps {}
 const HeaderContainer: React.SFC<HeaderContainerProps> = () => {
+  const { addToast } = useToasts();
+
   const [keyword, setKeyword] = useState("");
 
-  const handleOnSubmit = () => {
-    /* 영화정보 받아오는 액션함수 */
-    alert("엔터 쳤어용!");
-  };
-
-  const WarnMsg = () => {
-    alert("최소 2글자 이상을 입력해주세요!");
-  };
-
   const handleKeyPress = (e: React.KeyboardEvent<Element>) => {
-    if (e.key === "Enter") {
-      if (keyword.length > 1) {
-        handleOnSubmit();
-      } else {
-        WarnMsg();
-      }
-    }
+    addToast("검색을 위해 검색페이지로 이동하였습니다!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
   };
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (keyword.length > 1) {
-      handleOnSubmit();
-    } else {
-      WarnMsg();
-    }
+    addToast("검색을 위해 검색페이지로 이동하였습니다!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
   };
 
   return (

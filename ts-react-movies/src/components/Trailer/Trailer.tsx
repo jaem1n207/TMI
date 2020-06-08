@@ -5,16 +5,6 @@ import Slider from "react-slick";
 import "./Trailer.scss";
 import ReactPlayer from "react-player";
 
-function SampleNextArrow(props: any) {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-}
-
-function SamplePrevArrow(props: any) {
-  const { className, onClick } = props;
-  return <div className={className} onClick={onClick} />;
-}
-
 interface TrailerProps {
   videos:
     | Array<{
@@ -37,6 +27,7 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
     speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
+    dotsClass: "Trailer-Dots",
   };
 
   const handleOnReady = () => {
@@ -47,7 +38,7 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
     <>
       <div className="VideoTitle">Movie Trailer</div>
       {videos?.length === 0 ? (
-        <div>정보를 얻지 못했습니다 ㅠㅠ</div>
+        <div>Trailer를 제공하지 않는 영화입니다.</div>
       ) : (
         <div className="Video-Wrap">
           <Slider {...settings}>
