@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Header from "components/common/Header/Header";
 import { useToasts } from "react-toast-notifications";
+import * as Props from "./Props";
 
-interface HeaderContainerProps {}
-const HeaderContainer: React.SFC<HeaderContainerProps> = () => {
+const HeaderContainer: React.SFC<Props.HeaderContainerProps> = () => {
   const { addToast } = useToasts();
 
   const [keyword, setKeyword] = useState("");

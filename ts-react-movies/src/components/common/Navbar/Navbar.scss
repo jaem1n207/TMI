@@ -2,6 +2,10 @@
 
 .NavItem {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 8.5%;
+
   &-Logo {
     display: flex;
     flex-direction: row;
@@ -9,7 +13,6 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: $white-1;
-    margin-left: 14%;
     margin-right: 25%;
     height: 6%;
     &-icon {
@@ -21,9 +24,10 @@
     font-size: 1.1rem;
     list-style: none;
     font-weight: 500;
-    margin-top: 9%;
+    padding-left: 0;
     &-Title {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 650;
       margin-bottom: 6%;
       color: $white;
     }
@@ -31,8 +35,15 @@
       margin-bottom: 4%;
       cursor: pointer;
       & > a {
+        margin-top: 5%;
         text-decoration: none;
         color: $gray-5;
+        transition-duration: 0.2s;
+        transition-property: color;
+
+        &:hover {
+          color: $mint;
+        }
       }
       &-Current {
         color: $mint;

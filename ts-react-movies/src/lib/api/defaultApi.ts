@@ -1,7 +1,8 @@
 import axios from "axios";
+import { APIBASE } from "../../config/config.json";
 
 const defaultApi = axios.create({
-  baseURL: "https://api.themoviedb.org/3/",
+  baseURL: APIBASE,
 });
 
 export default defaultApi;

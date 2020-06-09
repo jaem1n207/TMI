@@ -14,13 +14,7 @@ interface SubTemplateProps {
   };
 }
 const SubTemplate: React.SFC<SubTemplateProps> = ({ Components }) => {
-  const {
-    Navbar,
-    Header,
-    NowPlayingPage,
-    PopularPage,
-    VideosPage,
-  } = Components;
+  const { Navbar, Header, PopularPage, VideosPage } = Components;
   console.log(Components);
   return (
     <div className={cx("SubTemplate")}>

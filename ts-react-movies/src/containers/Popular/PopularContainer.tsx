@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-
-import { RootState } from "modules";
 import PopularList from "components/Popular/Popular";
-import { getPopular } from "modules/Popular";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
+import { connect } from "react-redux";
+import * as Props from "./Props";
+import { RootState } from "modules";
+import { getPopular } from "modules/Popular";
 
-interface PopularContainerProps {
-  loading: boolean | undefined;
-  popular: Array<any> | undefined;
-  getPopular: Function;
-}
-const PopularContainer: React.SFC<PopularContainerProps> = ({
+const PopularContainer: React.SFC<Props.PopularContainerProps> = ({
   loading,
   getPopular,
   popular,

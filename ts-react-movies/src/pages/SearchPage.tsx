@@ -1,7 +1,13 @@
 import React from "react";
+import SearchContainer from "containers/Search/SearchContainer";
 
-const SearchPage = () => {
-  return <div></div>;
+interface SearchPageProps {}
+const SearchPage: React.SFC<SearchPageProps> = () => {
+  return (
+    <>
+      <SearchContainer />
+    </>
+  );
 };
 
 export default SearchPage;

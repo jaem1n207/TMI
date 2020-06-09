@@ -4,8 +4,8 @@ export interface SearchState {
 }
 
 export interface ObjectType {
-  popularity: number; // 인기
-  vote_count: number;
+  popularity?: number; // 인기
+  vote_count?: number;
   video?: boolean;
   poster_path: string;
   id: number;
@@ -15,8 +15,8 @@ export interface ObjectType {
   original_title?: string;
   genre_ids?: number[];
   title: string;
-  vote_average: number;
-  overview: string; // 줄거리
+  vote_average?: number;
+  overview?: string; // 줄거리
   release_date: string;
 }
 

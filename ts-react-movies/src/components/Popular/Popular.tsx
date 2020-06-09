@@ -114,7 +114,10 @@ const PopularCard: React.SFC<PopularCardProps> = ({
         <div className="Popular-Wrap-Content-Info-TDG-Date">
           {year}.{month}
         </div>
-        <div className="Popular-Wrap-Content-Info-Vote">{vote_average} ☆</div>
+        <div className="Popular-Wrap-Content-Info-Vote">
+          {vote_average}{" "}
+          <span className="Popular-Wrap-Content-Info-Vote-Star">☆</span>
+        </div>
       </div>
     </div>
   );

@@ -51,6 +51,43 @@ const Navbar: React.FC<NavbarProps> = (props) => {
               Popular
             </NavLink>
           </li>
+
+          <br />
+
+          <li className={cx("NavItem-Ul-Title")}>MOVIE</li>
+          <li className={cx("NavItem-Ul-Li")}>
+            <NavLink
+              exact
+              to="/"
+              className={cx("NavItem-Ul-Li-Current")}
+              activeClassName={cx("NavItem-Ul-Li-Current")}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className={cx("NavItem-Ul-Li")}>
+            <NavLink
+              to="/topRate"
+              className={cx("NavItem-Ul-Li-Current")}
+              activeClassName={cx("NavItem-Ul-Li-Current")}
+            >
+              Top Rated
+            </NavLink>
+          </li>
+          <li className={cx("NavItem-Ul-Li")}>
+            <NavLink
+              to="/nowPlaying"
+              className={cx("NavItem-Ul-Li-Current")}
+              activeClassName={cx("NavItem-Ul-Li-Current")}
+            >
+              Now Playing
+            </NavLink>
+          </li>
+          <li className={cx("NavItem-Ul-Li")}>
+            <NavLink to="/popular" activeClassName="active">
+              Popular
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

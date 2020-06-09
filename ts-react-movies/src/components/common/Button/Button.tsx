@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
   style?: CSSProperties | undefined;
 }
+
 const Button: React.SFC<ButtonProps> = ({
   style,
   text = "",

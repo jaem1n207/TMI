@@ -5,17 +5,11 @@ import Input from "components/common/Input/Input";
 import Button from "components/common/Button/Button";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as Props from "./Props";
 
 const cx = classNames.bind(style);
 
-interface HeaderProps {
-  btnStyle?: CSSProperties;
-  keyword: string;
-  setKeyword: Function;
-  handleKeyPress?: (e: React.KeyboardEvent) => void;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
-const Header: React.SFC<HeaderProps> = ({
+const Header: React.SFC<Props.HeaderProps> = ({
   keyword,
   setKeyword,
   handleKeyPress,
