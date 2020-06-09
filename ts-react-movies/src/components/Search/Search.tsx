@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Search.scss";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const cx = classNames.bind(style);
 
@@ -31,7 +32,6 @@ interface SearchProps {
 }
 const Search: React.SFC<SearchProps> = ({
   keyword,
-  setKeyword,
   searchResult,
   onChange,
   historySearch,
@@ -52,13 +52,13 @@ const Search: React.SFC<SearchProps> = ({
             placeholder="영화 제목을 입력해주세요..."
           />
         </form>
-        {searchResult?.map((s, i) => (
+        {searchResult?.map((item, i) => (
           <SearchCard
             key={i}
-            poster_path={s.poster_path}
-            id={s.id}
-            title={s.title}
-            release_date={s.release_date}
+            poster_path={item.poster_path}
+            id={item.id}
+            title={item.title}
+            release_date={item.release_date}
             historySearch={historySearch}
           />
         ))}
@@ -81,18 +81,32 @@ const SearchCard: React.SFC<SearchCardProps> = ({
   title,
   historySearch,
 }) => {
+  const HistoryWrap = styled.div`
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    filter: brightness(70%);
+    cursor: pointer;
+    &:hover {
+      filter: brightness(100%);
+    }
+  `;
+
   const poster = require("assets/poster.png");
 
   return (
-    <Link to={`/detail/${id}`}>
-      <div className={cx("SearchCard-Wrap")}>
-        {() => {
-          historySearch = historySearch.filter((item) => item !== title);
-          localStorage.setItem(
-            "MOVIE_WORLD",
-            JSON.stringify([...historySearch, title])
-          );
-        }}
+    <div className={cx("SearchCard-Wrap")}>
+      <Link to={`/detail/${id}`}>
+        <HistoryWrap
+          onClick={() => {
+            historySearch = historySearch.filter((item) => item !== title);
+            localStorage.setItem(
+              "TMI",
+              JSON.stringify([...historySearch, title])
+            );
+          }}
+        />
         {poster_path !== null ? (
           <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
         ) : (
@@ -112,8 +126,8 @@ const SearchCard: React.SFC<SearchCardProps> = ({
           )}
           <div className={cx("SearchCard-Wrap-Content-Title")}>{title}</div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

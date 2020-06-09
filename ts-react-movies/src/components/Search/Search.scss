@@ -1,0 +1,13 @@
+@import "styles/ColorScheme.scss";
+
+.SearchCard-Wrap {
+  overflow: visible;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  & > a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

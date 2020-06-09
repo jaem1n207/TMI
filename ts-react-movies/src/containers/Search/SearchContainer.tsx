@@ -14,7 +14,13 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
   const [keyword, setKeyword] = useState<string>("");
   const [historySearch, setHistorySearch] = useState<string[]>([]);
   const [toggle, setToggle] = useState<boolean>(true);
+  const [movies, setMovies] = useState<any[] | undefined>([]);
 
+  useEffect(() => {
+    if (searchResult?.length !== 0) {
+      setMovies(searchResult);
+    }
+  }, [searchResult]);
   /* input 값이 바뀔 때마다 apiCall() 호출 */
   useEffect(() => {
     apiCall();
@@ -30,8 +36,9 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
   const apiCall = () => {
     apiCallTime = setTimeout(() => {
       getSearch(keyword);
-      if (keyword !== "") {
-        getSearch(keyword);
+      if (keyword === "") {
+        setMovies([]);
+      } else {
       }
     }, 200);
   };
@@ -75,7 +82,7 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
       <SearchList
         keyword={keyword}
         setKeyword={setKeyword}
-        searchResult={searchResult}
+        searchResult={movies}
         onChange={onChange}
         historySearch={historySearch}
       />
