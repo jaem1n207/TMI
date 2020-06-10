@@ -2,9 +2,9 @@ import { DetailState } from "./types";
 import { Dispatch } from "redux";
 import * as api from "lib/api";
 
-export const GET_DETAIL_REQUEST = "popular/GET_DETAIL_REQUEST";
-export const GET_DETAIL_SUCCESS = "popular/GET_DETAIL_SUCCESS";
-export const GET_DETAIL_FAIL = "popular/GET_DETAIL_FAIL";
+export const GET_DETAIL_REQUEST = "detail/GET_DETAIL_REQUEST";
+export const GET_DETAIL_SUCCESS = "detail/GET_DETAIL_SUCCESS";
+export const GET_DETAIL_FAIL = "detail/GET_DETAIL_FAIL";
 
 export const getDetailRequest = (payload: DetailState) => ({
   type: GET_DETAIL_REQUEST,
@@ -19,7 +19,7 @@ export const getDetailFail = (payload: DetailState) => ({
   payload,
 });
 
-export const getPopular = (id: string) => {
+export const getDetail = (id: string) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(getDetailRequest({ loading: true }));
