@@ -9,7 +9,7 @@ import HomePage from "pages/HomePage";
 import NowPlayingPage from "pages/NowPlayingPage";
 import PopularPage from "pages/PopularPage";
 import SearchPage from "pages/SearchPage";
-// import DetailPage from "pages/DetailPage";
+import DetailPage from "pages/DetailPage";
 
 library.add(faSearch);
 
@@ -22,7 +22,7 @@ const Root: React.SFC<RootProps> = () => {
         <Route exact path="/nowPlaying" component={NowPlayingPage} />
         <Route exact path="/popular" component={PopularPage} />
         <Route exact path="/search" component={SearchPage} />
-        {/* <Route exact path="/detail/:id" component={DetailPage} /> */}
+        {<Route exact path="/detail/:id" component={DetailPage} />}
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

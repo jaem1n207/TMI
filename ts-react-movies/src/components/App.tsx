@@ -8,6 +8,7 @@ interface AppProps {
     NowPlayingPage: JSX.Element;
     PopularPage: JSX.Element;
     VideosPage: JSX.Element;
+    DetailPage: JSX.Element;
   };
 }
 const App: React.SFC<AppProps> = ({ Components }) => {

@@ -25,6 +25,10 @@ export const movies = {
   /* show detail movie */
   detail: (id: string) =>
     defaultApi.get(
-      `movie/${id}?api_key=${MOVIE_API_KEY}&language=ko&append_to_response=credits%2C%20videos`
+      `movie/${id}?api_key=${MOVIE_API_KEY}&language=ko&append_to_response=credits`
+    ),
+  recommendation: (id: string) =>
+    defaultApi.get(
+      `movie/${id}/recommendations?api_key=${MOVIE_API_KEY}&language=ko&page=1`
     ),
 };
