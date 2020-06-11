@@ -70,7 +70,7 @@ const NowCard: React.SFC<NowCardProps> = ({
 
   return (
     <div className="NowPlaying-Wrap-Content">
-      <Link to={`/detail:/${id}`}>
+      <Link to={`/detail/${id}`}>
         {backdrop_path !== null ? (
           <img
             className="NowPlaying-Wrap-Content-Img"

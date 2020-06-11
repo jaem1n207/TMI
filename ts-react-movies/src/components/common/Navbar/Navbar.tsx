@@ -16,8 +16,14 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           viewBox="0 0 34 34"
           color="#f5c518"
         />
-
-        <div className={cx("NavItem-Logo-Title")}>TMI</div>
+        <NavLink
+          exact
+          to="/"
+          className={cx("NavItem-Ul-Li-Current")}
+          activeClassName={cx("NavItem-Ul-Li-Current")}
+        >
+          <div className={cx("NavItem-Logo-Title")}>TMI</div>
+        </NavLink>
       </div>
       <div>
         <ul className={cx("NavItem-Ul")}>

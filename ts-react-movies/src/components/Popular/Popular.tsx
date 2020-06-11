@@ -91,7 +91,7 @@ const PopularCard: React.SFC<PopularCardProps> = ({
 
   return (
     <div className="Popular-Wrap-Content">
-      <Link to={`/detail:/${id}`}>
+      <Link to={`/detail/${id}`}>
         {backdrop_path !== null ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img
