@@ -56,7 +56,7 @@ export enum Department {
   Camera = "Camera",
   CostumeMakeUp = "Costume & Make-Up",
   Crew = "Crew",
-  Directing = "감독",
+  Directing = "Directing",
   Editing = "Editing",
   Lighting = "Lighting",
   Production = "Production",

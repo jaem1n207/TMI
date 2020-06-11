@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import style from "./Detail.scss";
@@ -8,6 +8,7 @@ import {
   GenresType,
   CreditsType,
   Cast,
+  Department,
 } from "modules/Detail/types";
 
 const cx = classNames.bind(style);
@@ -121,7 +122,39 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Middle")}>
               <div className={cx("Detail-Wrap-Info-Bottom-Middle-Director")}>
-                {credits.cast}
+                {credits.crew.map((item) => (
+                  <div>
+                    {item.job === "Director" ? (
+                      <span>
+                        <span>감독</span> {item.name}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className={cx("Detail-Wrap-Info-Bottom-Middle-Cast")}>
+                출연
+                {credits.cast.slice(0, 5).map((item) => (
+                  <div>{item.name}</div>
+                ))}
+              </div>
+              <div
+                className={cx("Detail-Wrap-Info-Bottom-Middle-Company-Wrap")}
+              >
+                {production_companies.map((item) => (
+                  <div
+                    className={cx(
+                      "Detail-Wrap-Info-Bottom-Middle-Company-Wrap-Div"
+                    )}
+                  >
+                    <img
+                      style={{ width: "70px", height: "20px" }}
+                      src={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
