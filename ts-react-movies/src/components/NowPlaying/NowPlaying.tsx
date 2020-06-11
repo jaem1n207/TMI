@@ -85,8 +85,8 @@ const NowCard: React.SFC<NowCardProps> = ({
         <div className="NowPlaying-Wrap-Content-Info-Vote">
           <div className="NowPlaying-Wrap-Content-Info-Vote-Date">{`${date[0]}.${date[1]}.${date[1]}`}</div>
           <div>
+            <span className="NowPlaying-Wrap-Content-Info-Vote-Star">★</span>
             {vote_average}{" "}
-            <span className="NowPlaying-Wrap-Content-Info-Vote-Star">☆</span>
           </div>
         </div>
       </div>
