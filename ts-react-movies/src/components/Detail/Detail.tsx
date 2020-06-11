@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import style from "./Detail.scss";
@@ -7,8 +7,6 @@ import {
   ProductionCompanyType,
   GenresType,
   CreditsType,
-  Cast,
-  Department,
 } from "modules/Detail/types";
 
 const cx = classNames.bind(style);
@@ -59,6 +57,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
     vote_count, // 18435
   } = detail;
   const poster = require("assets/poster.png");
+  const logo = require("assets/poster.png");
 
   return (
     <div className={cx("Detail-Wrap")}>
@@ -69,6 +68,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               // eslint-disable-next-line jsx-a11y/alt-text
               <img
                 className={cx("Detail-Wrap-Info-Div-Post-Size")}
+                style={{ width: "200px", height: "290px" }}
                 src={`https://image.tmdb.org/t/p/w400${poster_path}`}
               />
             ) : (
@@ -84,8 +84,20 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               {adult === false ? "청소년 관람 가능" : "청소년 관람 불가"}
             </div>
             <div className={cx("Detail-Wrap-Info-Div-Name-KrNm")}>{title}</div>
-            <div className={cx("Detail-Wrap-Info-Div-Name-EnNm")}>
+            {/* <div className={cx("Detail-Wrap-Info-Div-Name-EnNm")}>
               {original_title}
+            </div> */}
+            <div className={cx("Detail-Wrap-Info-Div-Name-Info")}>
+              공식 사이트
+              {homepage !== "" ? (
+                <div>
+                  <a href={homepage} target="_blank">
+                    {title} 공식 사이트로 가기
+                  </a>
+                </div>
+              ) : (
+                <div>공식사이트가 없어요</div>
+              )}
             </div>
           </div>
           <div className={cx("Detail-Wrap-Info-Div-Vote")}>
@@ -126,7 +138,8 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
                   <div>
                     {item.job === "Director" ? (
                       <span>
-                        <span>감독</span> {item.name}
+                        <span>감독</span>{" "}
+                        <Link to={`/people/${item.id}`}>{item.name}</Link>
                       </span>
                     ) : (
                       ""
@@ -137,7 +150,9 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               <div className={cx("Detail-Wrap-Info-Bottom-Middle-Cast")}>
                 출연
                 {credits.cast.slice(0, 5).map((item) => (
-                  <div>{item.name}</div>
+                  <div>
+                    <Link to={`/people/${item.id}`}>{item.name}</Link>
+                  </div>
                 ))}
               </div>
               <div
@@ -149,10 +164,17 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
                       "Detail-Wrap-Info-Bottom-Middle-Company-Wrap-Div"
                     )}
                   >
-                    <img
-                      style={{ width: "70px", height: "20px" }}
-                      src={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
-                    />
+                    {item.logo_path !== null ? (
+                      <img
+                        style={{ width: "70px", height: "20px" }}
+                        src={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
+                      />
+                    ) : (
+                      <img
+                        style={{ width: "70px", height: "20px" }}
+                        src={logo}
+                      />
+                    )}
                   </div>
                 ))}
               </div>

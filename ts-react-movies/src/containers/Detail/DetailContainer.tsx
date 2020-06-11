@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import DetailList from "components/Detail/Detail";
 import DetailTrailerList from "components/Detail/DetailTrailer";
+import DetailCastList from "components/Detail/DetailCast";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import { connect } from "react-redux";
 import { RootState } from "modules";
@@ -33,6 +34,7 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
       getDetail("");
     };
   }, []);
+  console.log(detail);
 
   return (
     <>
@@ -44,6 +46,7 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
       )}
       {loading ? <LoadingPage /> : <DetailTrailerList videos={videos} />}
       <h2>출연</h2>
+      {loading ? <LoadingPage /> : <DetailCastList detail={detail} />}
     </>
   );
 };
@@ -53,6 +56,7 @@ export default connect(
     loading: state.detail.loading,
     detail: state.detail.detail,
     videos: state.videos.videos,
+    detailCast: state.detail.detailCast,
   }),
   { getDetail, getVideos }
 )(DetailContainer);

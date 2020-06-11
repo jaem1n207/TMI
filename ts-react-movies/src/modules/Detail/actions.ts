@@ -26,8 +26,9 @@ export const getDetail = (id: string) => {
 
       const result = await api.movies.detail(id);
       const detail = result.data;
+      const detailCast = result.data.credits;
 
-      dispatch(getDetailSuccess({ loading: false, detail }));
+      dispatch(getDetailSuccess({ loading: false, detail, detailCast }));
     } catch (e) {
       dispatch(getDetailFail({ loading: false }));
     }

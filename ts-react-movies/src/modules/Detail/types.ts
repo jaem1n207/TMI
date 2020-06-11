@@ -1,6 +1,17 @@
 export interface DetailState {
   loading?: boolean;
   detail?: Object;
+  detailCast?: Array<ObjectType>;
+}
+export interface ObjectType {
+  cast_id?: number;
+  character: string; // 역할
+  credit_id?: string;
+  gender: number; // 1:여자 2: 남자
+  id: number;
+  name: string; // 이름
+  order?: number;
+  profile_path: null | string;
 }
 
 export interface Action {
@@ -8,6 +19,7 @@ export interface Action {
   payload: {
     loading: boolean;
     detail: Object;
+    detailCast: Array<ObjectType>;
   };
 }
 
@@ -35,7 +47,7 @@ export interface Cast {
   character: string; // 역할
   credit_id?: string;
   gender: number; // 1:여자 2: 남자
-  id?: number;
+  id: number;
   name: string; // 이름
   order?: number;
   profile_path: null | string;

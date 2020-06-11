@@ -9,6 +9,7 @@ import produce from "immer";
 const initialState: DetailState = {
   loading: false,
   detail: {},
+  detailCast: [],
 };
 
 const reducer = (state = initialState, action: Action): DetailState => {
@@ -21,6 +22,7 @@ const reducer = (state = initialState, action: Action): DetailState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.detail = action.payload.detail;
+        draft.detailCast = action.payload.detailCast;
       });
     case GET_DETAIL_FAIL:
       return produce(state, (draft) => {
