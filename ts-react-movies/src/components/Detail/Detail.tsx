@@ -102,7 +102,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
               장르:{" "}
               {genres.map((m, i) => (
-                <div>{m.name}</div>
+                <span> {m.name} </span>
               ))}
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Date")}>
@@ -112,7 +112,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
                 : "정보가 없어요"}
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Runtime")}>
-              {runtime}분
+              {runtime ? <span>{runtime}분</span> : "정보가 없습니다."}
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Middle")}>
               <div className={cx("Detail-Wrap-Info-Bottom-Middle-")}></div>

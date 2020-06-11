@@ -20,7 +20,7 @@ export const movies = {
   /* search movies */
   search: (text: string) =>
     defaultApi.get(
-      `search/movie?api_key=${MOVIE_API_KEY}&language=ko&query=${text}&page=1&include_adult=false&region=KR`
+      `search/movie?api_key=${MOVIE_API_KEY}&language=ko&query=${text}&page=1&include_adult=true&include_adult=false&region=KR`
     ),
   /* show detail movie */
   detail: (id: string) =>

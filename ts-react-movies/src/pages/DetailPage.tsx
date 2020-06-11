@@ -2,10 +2,10 @@ import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import style from "./DetailPage.scss";
 import classNames from "classnames/bind";
-import SubPage from "components/SubTemplate/SubTemplate";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
 import DetailContainer from "containers/Detail/DetailContainer";
+import Trailer from "containers/Trailer/TrailerContainer";
 
 const cx = classNames.bind(style);
 
@@ -27,7 +27,7 @@ const DetailPage: React.SFC<DetailPageProps> = (props) => {
         </div>
         <div className={cx("PageTemplate-Wrap-Content")}>
           <div className={cx("PageTemplate-Wrap-Content-Wrap")}>
-            <div className={cx("PageTemplate-Wrap-Content-Wrap-VideoWrap")}>
+            <div className={cx("PageTemplate-Wrap-Content-Wrap-InfoWrap")}>
               <DetailContainer movieId={movieId} />
             </div>
           </div>
