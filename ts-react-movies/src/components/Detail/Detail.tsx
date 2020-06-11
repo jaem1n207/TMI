@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
-import genresType from "lib/types/genre";
 import style from "./Detail.scss";
 import {
   BelongsToCollectionType,
   ProductionCompanyType,
+  GenresType,
 } from "modules/Detail/types";
 
 const cx = classNames.bind(style);
@@ -14,7 +14,7 @@ interface DetailProps {
   detail: {
     poster_path: string;
     title: string;
-    genres: number[];
+    genres: Array<GenresType>;
     adult: boolean;
     credits: any;
     belongs_to_collection: Array<BelongsToCollectionType>;
@@ -56,8 +56,6 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
     vote_count, // 18435
   } = detail;
   const poster = require("assets/poster.png");
-  //장르
-  const genresArr: string[] = genres.map((genre) => genresType[genre]);
 
   return (
     <div className={cx("Detail-Wrap")}>
@@ -103,8 +101,8 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
           <div className={cx("Detail-Wrap-Info-Bottom-Top")}>
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
               장르:{" "}
-              {genresArr.map((genre, i) => (
-                <div key={i}>{genre}</div>
+              {genres.map((m, i) => (
+                <div>{m.name}</div>
               ))}
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Date")}>

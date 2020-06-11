@@ -39,3 +39,8 @@ export interface Cast {
   order?: number;
   profile_path: null | string;
 }
+
+export interface GenresType {
+  id?: string;
+  name: string;
+}
