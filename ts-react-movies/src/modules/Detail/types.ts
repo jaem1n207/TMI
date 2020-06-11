@@ -27,6 +27,7 @@ export interface ProductionCompanyType {
 
 export interface CreditsType {
   cast: Cast[];
+  crew: Crew[];
 }
 
 export interface Cast {
@@ -38,6 +39,30 @@ export interface Cast {
   name: string; // 이름
   order?: number;
   profile_path: null | string;
+}
+
+export interface Crew {
+  credit_id: string;
+  department: Department;
+  gender: number;
+  id: number;
+  job: string;
+  name: string;
+  profile_path: null | string;
+}
+
+export enum Department {
+  Art = "Art",
+  Camera = "Camera",
+  CostumeMakeUp = "Costume & Make-Up",
+  Crew = "Crew",
+  Directing = "감독",
+  Editing = "Editing",
+  Lighting = "Lighting",
+  Production = "Production",
+  Sound = "Sound",
+  VisualEffects = "Visual Effects",
+  Writing = "Writing",
 }
 
 export interface GenresType {

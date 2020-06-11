@@ -6,6 +6,8 @@ import {
   BelongsToCollectionType,
   ProductionCompanyType,
   GenresType,
+  CreditsType,
+  Cast,
 } from "modules/Detail/types";
 
 const cx = classNames.bind(style);
@@ -16,7 +18,7 @@ interface DetailProps {
     title: string;
     genres: Array<GenresType>;
     adult: boolean;
-    credits: any;
+    credits: CreditsType;
     belongs_to_collection: Array<BelongsToCollectionType>;
     budget: number;
     homepage: string;
@@ -102,7 +104,10 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
               장르:{" "}
               {genres.map((m, i) => (
-                <span> {m.name} </span>
+                <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre-Div")}>
+                  {" "}
+                  {m.name}{" "}
+                </div>
               ))}
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Date")}>
@@ -115,7 +120,9 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               {runtime ? <span>{runtime}분</span> : "정보가 없습니다."}
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Middle")}>
-              <div className={cx("Detail-Wrap-Info-Bottom-Middle-")}></div>
+              <div className={cx("Detail-Wrap-Info-Bottom-Middle-Director")}>
+                {credits.cast}
+              </div>
             </div>
           </div>
         </div>

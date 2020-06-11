@@ -1,0 +1,17 @@
+.Detail-Wrap-Info-Bottom-Top-Genre-Div {
+  display: inline-block;
+  margin: 5px 0;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #bdbdbd;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 5px;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+  }
+}

@@ -36,12 +36,14 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
 
   return (
     <>
+      <h2>Movie Detail</h2>
       {loading ? (
         <LoadingPage />
       ) : (
         Object.keys(detail).length > 0 && <DetailList detail={detail} />
       )}
       {loading ? <LoadingPage /> : <DetailTrailerList videos={videos} />}
+      <h2>출연</h2>
     </>
   );
 };
