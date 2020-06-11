@@ -93,11 +93,13 @@ const PopularCard: React.SFC<PopularCardProps> = ({
     <div className="Popular-Wrap-Content">
       <Link to={`/detail:/${id}`}>
         {backdrop_path !== null ? (
+          // eslint-disable-next-line jsx-a11y/alt-text
           <img
             className="Popular-Wrap-Content-Img"
             src={`https://image.tmdb.org/t/p/w400${backdrop_path}`}
           />
         ) : (
+          // eslint-disable-next-line jsx-a11y/alt-text
           <img className="Popular-Wrap-Content-Img" src={backdrop} />
         )}
       </Link>

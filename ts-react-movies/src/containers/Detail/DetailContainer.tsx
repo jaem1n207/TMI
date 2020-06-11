@@ -6,20 +6,20 @@ import { RootState } from "modules";
 import { getDetail } from "modules/Detail";
 
 interface DetailContainerProps {
-  movie_id: string;
+  movieId: string;
   loading: boolean | undefined;
   detail: any;
   getDetail: Function;
 }
 const DetailContainer: React.SFC<DetailContainerProps> = ({
-  movie_id,
+  movieId,
   loading,
   detail,
   getDetail,
 }) => {
   useEffect(() => {
-    getDetail(movie_id);
-  }, [movie_id]);
+    getDetail(movieId);
+  }, [movieId]);
 
   useEffect(() => {
     return () => {

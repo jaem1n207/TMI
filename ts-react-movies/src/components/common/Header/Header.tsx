@@ -51,13 +51,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
           <label className={cx("Header-Wrap-Button")}>
             <Button
               style={btnStyle}
-              text={
-                <FontAwesomeIcon
-                  className="fa-2x"
-                  color="#38393e"
-                  icon="search"
-                />
-              }
+              text="검색하러 같이 가시죠~"
               onClick={onClick}
             ></Button>
           </label>

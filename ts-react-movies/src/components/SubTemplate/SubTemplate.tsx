@@ -8,10 +8,11 @@ interface SubTemplateProps {
   Components: {
     Navbar: JSX.Element;
     Header: JSX.Element;
+    DetailPage: JSX.Element;
   };
 }
 const SubTemplate: React.SFC<SubTemplateProps> = ({ Components }) => {
-  const { Navbar, Header } = Components;
+  const { Navbar, Header, DetailPage } = Components;
   console.log(Components);
   return (
     <div className={cx("SubTemplate")}>
@@ -19,7 +20,9 @@ const SubTemplate: React.SFC<SubTemplateProps> = ({ Components }) => {
       <div className={cx("SubTemplate-Wrap")}>
         <div className={cx("SubTemplate-Wrap-header")}>{Header}</div>
         <div className={cx("SubTemplate-Wrap-Content")}>
-          <div className={cx("SubTemplate-Wrap-Content-Wrap")}></div>
+          <div className={cx("SubTemplate-Wrap-Content-Wrap")}>
+            {DetailPage}
+          </div>
         </div>
       </div>
     </div>
