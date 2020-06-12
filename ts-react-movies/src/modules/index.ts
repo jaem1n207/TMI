@@ -5,6 +5,7 @@ import popular, { PopularState } from "./Popular";
 import videos, { VideosState } from "./videos";
 import searchResult, { SearchState } from "./Search";
 import detail, { DetailState } from "./Detail";
+import recommend, { RecommendState } from "./Recommend";
 
 const reducers = combineReducers({
   nowPlaying,
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   videos,
   searchResult,
   detail,
+  recommend,
 });
 
 export default reducers;
@@ -22,4 +24,5 @@ export interface RootState {
   videos: VideosState;
   searchResult: SearchState;
   detail: DetailState;
+  recommend: RecommendState;
 }
