@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import genres from "lib/types/genre";
 import Slider from "react-slick";
 import "./Popular.scss";
 
@@ -82,11 +81,9 @@ const PopularCard: React.SFC<PopularCardProps> = ({
   title,
   vote_average,
   backdrop_path,
-  genre_ids,
 }) => {
   const year: string = release_date.split("-")[0];
   const month: string = release_date.split("-")[1];
-  const genresArr: string[] = genre_ids.map((genre) => genres[genre]);
   const backdrop = require("assets/backdrop.png");
 
   return (
@@ -106,12 +103,6 @@ const PopularCard: React.SFC<PopularCardProps> = ({
       <div className="Popular-Wrap-Content-Info">
         <div className="Popular-Wrap-Content-Info-TDG">
           <div className="Popular-Wrap-Content-Info-TDG-Title">{title}</div>
-
-          {/* <div className="Popular-Wrap-Content-Info-TDG-Genre">
-            {genresArr.map((genre, i) => (
-              <div key={i}>{genre}</div>
-            ))}
-          </div> */}
         </div>
         <div className="Popular-Wrap-Content-Info-TDG-Date">
           {year}.{month}

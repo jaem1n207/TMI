@@ -117,7 +117,10 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
               장르:{" "}
               {genres.map((m, i) => (
-                <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre-Div")}>
+                <div
+                  key={i}
+                  className={cx("Detail-Wrap-Info-Bottom-Top-Genre-Div")}
+                >
                   {" "}
                   {m.name}{" "}
                 </div>
@@ -134,8 +137,8 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             </div>
             <div className={cx("Detail-Wrap-Info-Bottom-Middle")}>
               <div className={cx("Detail-Wrap-Info-Bottom-Middle-Director")}>
-                {credits.crew.map((item) => (
-                  <div>
+                {credits.crew.map((item, i) => (
+                  <div key={i}>
                     {item.job === "Director" ? (
                       <span>
                         <span>감독</span>{" "}
@@ -149,8 +152,8 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               </div>
               <div className={cx("Detail-Wrap-Info-Bottom-Middle-Cast")}>
                 출연
-                {credits.cast.slice(0, 5).map((item) => (
-                  <div>
+                {credits.cast.slice(0, 5).map((item, i) => (
+                  <div key={i}>
                     <Link to={`/people/${item.id}`}>{item.name}</Link>
                   </div>
                 ))}
@@ -158,8 +161,9 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               <div
                 className={cx("Detail-Wrap-Info-Bottom-Middle-Company-Wrap")}
               >
-                {production_companies.map((item) => (
+                {production_companies.map((item, i) => (
                   <div
+                    key={i}
                     className={cx(
                       "Detail-Wrap-Info-Bottom-Middle-Company-Wrap-Div"
                     )}

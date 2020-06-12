@@ -1,0 +1,81 @@
+.DetailCast-People {
+  position: relative;
+  margin-bottom: 60px;
+  /* 제목 */
+  &-Title {
+    &-Info {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+  }
+  /* 배우 정보 */
+  &-Box {
+    height: 360px;
+    overflow: hidden;
+    & > ul,
+    ol {
+      list-style: none;
+    }
+    & > li {
+      float: left;
+      position: relative;
+      width: 25%;
+      height: 90px;
+      margin-bottom: 30px;
+      padding-left: 110px;
+      box-sizing: border-box;
+      & > a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        vertical-align: middle;
+      }
+      & > a:link,
+      a:active,
+      a:hover,
+      a:visited {
+        color: blue;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    /* post span */
+    &-Post {
+      display: block;
+      overflow: hidden;
+      width: 90px;
+      height: 90px;
+      height: 90px;
+      border-radius: 10%;
+      & > img {
+        width: 100%;
+        border-radius: 10;
+        border: none;
+        vertical-align: top;
+      }
+    }
+    /* name */
+    &-Div {
+      display: table;
+      height: 100%;
+      margin-left: 14px;
+      padding-right: 10px;
+      &-Inner {
+        display: table-cell;
+        vertical-align: middle;
+        &-Name {
+          cursor: pointer;
+          display: block;
+          margin-bottom: 4px;
+          font-size: 13px;
+        }
+        &-Ch {
+          display: block;
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+  }
+}
