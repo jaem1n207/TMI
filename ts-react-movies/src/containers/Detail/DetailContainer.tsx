@@ -12,6 +12,7 @@ interface DetailContainerProps {
   movieId: string;
   loading: boolean | undefined;
   detail: any;
+  detailCast: any;
   getDetail: Function;
   videos: Array<any> | undefined;
   getVideos: Function;
@@ -20,6 +21,7 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
   movieId,
   loading,
   detail,
+  detailCast,
   getDetail,
   getVideos,
   videos,
@@ -46,7 +48,7 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
       )}
       {loading ? <LoadingPage /> : <DetailTrailerList videos={videos} />}
       <h2>출연</h2>
-      {loading ? <LoadingPage /> : <DetailCastList detail={detail} />}
+      {loading ? <LoadingPage /> : <DetailCastList detailCast={detailCast} />}
     </>
   );
 };
