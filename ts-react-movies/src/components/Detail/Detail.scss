@@ -1,9 +1,146 @@
+@import "styles/Position.scss";
+@import "styles/ColorScheme.scss";
+
+.Detail-Wrap {
+  position: relative;
+  min-height: 290px;
+  padding-left: 245px;
+  margin-bottom: 2.8rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  &-Post {
+    position: absolute;
+    left: 1.0625rem;
+    width: 205px;
+    height: 305px;
+    z-index: 1;
+    & > img {
+      width: 100%;
+      border-radius: 4px;
+    }
+  }
+  &-Name {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 15px;
+    margin: -2px 0 15px 0;
+    &-Title {
+      color: $white-1;
+      margin-bottom: 5px;
+      font-size: 25px;
+    }
+    &-Info {
+      color: $white;
+      display: flex;
+      flex-direction: row;
+      &-Div {
+        margin-left: 6px;
+        border-left: 1px solid $white;
+        padding-left: 6px;
+        & > a {
+          text-decoration: none;
+          color: $yellow;
+        }
+      }
+    }
+  }
+  &-Info1 {
+    overflow: hidden;
+    padding-bottom: 17px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 0;
+    & > li {
+      float: left;
+      margin-right: 8px;
+      & > span {
+        margin-right: 20px;
+        vertical-align: middle;
+      }
+      & > em {
+        margin-right: 10px;
+        vertical-align: middle;
+        & > span {
+          color: $yellow;
+        }
+      }
+    }
+  }
+  &-Info2 {
+    margin-bottom: 17px;
+    font-size: 13px;
+    margin-top: 0;
+    padding-left: 0;
+    font-size: 0.95rem;
+    & > li:first-child {
+      margin-top: 0;
+    }
+    & > li {
+      margin-top: 11px;
+      & > em {
+        margin-right: 30px;
+      }
+      & > em::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 152px;
+        left: 362px;
+        width: 1px;
+        height: 9px;
+        background: #ddd;
+      }
+      & > strong {
+        color: $white;
+        & > em:first-child {
+          padding-left: 0;
+          position: relative;
+        }
+        & > em {
+          padding-left: 15px;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.Detail-Content {
+  padding-left: 16px;
+  margin-bottom: 2.8rem;
+  &-Tag {
+    padding-bottom: 16px;
+    font-weight: bold;
+    color: $white-1;
+  }
+  &-OverView {
+    line-height: 2;
+    color: $white;
+  }
+}
+
+li {
+  display: list-item;
+}
+ul,
+ol {
+  list-style: none;
+}
+img {
+  border: none;
+  vertical-align: top;
+}
+a {
+  color: $white-1;
+}
+
 .Detail-Wrap-Info-Bottom-Top-Genre-Div {
   display: inline-block;
   margin: 5px 0;
   margin-right: 5px;
-  padding: 5px 10px;
-  background-color: #bdbdbd;
+  padding: 3px 7px;
+  background-color: $gray-4;
   color: #fff;
   font-size: 0.9rem;
   font-weight: bold;

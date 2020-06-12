@@ -58,133 +58,126 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
   const logo = require("assets/poster.png");
 
   return (
-    <div className={cx("Detail-Wrap")}>
-      <div className={cx("Detail-Wrap-Info")}>
-        <div className={cx("Detail-Wrap-Info-Div")}>
-          <div className={cx("Detail-Wrap-Info-Div-Post")}>
-            {poster_path !== null ? (
-              // eslint-disable-next-line jsx-a11y/alt-text
-              <img
-                className={cx("Detail-Wrap-Info-Div-Post-Size")}
-                style={{ width: "200px", height: "290px" }}
-                src={`https://image.tmdb.org/t/p/w400${poster_path}`}
-              />
+    <>
+      <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Detail</h1>
+      <div className={cx("Detail-Wrap")}>
+        <div className={cx("Detail-Wrap-Post")}>
+          {poster_path !== null ? (
+            // eslint-disable-next-line jsx-a11y/alt-text
+            <img
+              className={cx("Detail-Wrap-Post-Size")}
+              style={{ width: "200px", height: "290px" }}
+              src={`https://image.tmdb.org/t/p/w400${poster_path}`}
+            />
+          ) : (
+            // eslint-disable-next-line jsx-a11y/alt-text
+            <img className={cx("Detail-Wrap-Post-Size")} src={poster} />
+          )}
+        </div>
+        <div className={cx("Detail-Wrap-Name")}>
+          <div className={cx("Detail-Wrap-Name-Title")}>{title}</div>
+          <div className={cx("Detail-Wrap-Name-Info")}>
+            공식 사이트
+            {homepage !== "" ? (
+              <div className={cx("Detail-Wrap-Name-Info-Div")}>
+                <a href={homepage} target="_blank">
+                  {title} 공식 사이트로 가기
+                </a>
+              </div>
             ) : (
-              // eslint-disable-next-line jsx-a11y/alt-text
-              <img
-                className={cx("Detail-Wrap-Info-Div-Post-Size")}
-                src={poster}
-              />
+              <span>공식사이트가 없어요</span>
             )}
           </div>
-          <div className={cx("Detail-Wrap-Info-Div-Name")}>
-            <div className={cx("Detail-Wrap-Info-Div-Name-Adult")}>
-              {adult === false ? "청소년 관람 가능" : "청소년 관람 불가"}
-            </div>
-            <div className={cx("Detail-Wrap-Info-Div-Name-KrNm")}>{title}</div>
-            {/* <div className={cx("Detail-Wrap-Info-Div-Name-EnNm")}>
-              {original_title}
-            </div> */}
-            <div className={cx("Detail-Wrap-Info-Div-Name-Info")}>
-              공식 사이트
-              {homepage !== "" ? (
-                <div>
-                  <a href={homepage} target="_blank">
-                    {title} 공식 사이트로 가기
-                  </a>
-                </div>
-              ) : (
-                <div>공식사이트가 없어요</div>
-              )}
-            </div>
-          </div>
-          <div className={cx("Detail-Wrap-Info-Div-Vote")}>
-            <div>
-              관람객 평점 ★{vote_average}
-              <span style={{ marginLeft: "15px" }}>
-                {vote_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}명
-                투표
-              </span>
-            </div>
-          </div>
-          <div className={cx("Detail-Wrap-Info-Div-Tag")}>{tagline}</div>
-          <div className={cx("Detail-Wrap-Info-Div-OverView")}>{overview}</div>
         </div>
-        <div className={cx("Detail-Wrap-Info-Bottom")}>
-          <div className={cx("Detail-Wrap-Info-Bottom-Top")}>
-            <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
-              장르:{" "}
-              {genres.map((m, i) => (
-                <div
-                  key={i}
-                  className={cx("Detail-Wrap-Info-Bottom-Top-Genre-Div")}
-                >
-                  {" "}
-                  {m.name}{" "}
-                </div>
-              ))}
+        <ul className={cx("Detail-Wrap-Info1")}>
+          <li>
+            <em>{adult === false ? "청소년 관람 가능" : "청소년 관람 불가"}</em>
+          </li>
+          <li>
+            <em>
+              관람객 평점 <span>★</span> {vote_average}
+              <em style={{ marginLeft: "7px", fontSize: "14px" }}>
+                ({vote_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}명
+                투표)
+              </em>
+            </em>
+          </li>
+          <li>
+            <em></em>
+          </li>
+        </ul>
+        <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
+          <span style={{ marginRight: "10px" }}>장르</span>
+          {genres.map((m, i) => (
+            <div
+              key={i}
+              className={cx("Detail-Wrap-Info-Bottom-Top-Genre-Div")}
+            >
+              {" "}
+              {m.name}{" "}
             </div>
-            <div className={cx("Detail-Wrap-Info-Bottom-Top-Date")}>
-              개봉:{" "}
+          ))}
+        </div>
+        <ul className={cx("Detail-Wrap-Info2")}>
+          <li>
+            <em>
               {release_date
                 ? release_date.replace(/(\d{4})(\d{2})(\d{2})/, "$1.$2.$3")
                 : "정보가 없어요"}
-            </div>
-            <div className={cx("Detail-Wrap-Info-Bottom-Top-Runtime")}>
-              {runtime ? <span>{runtime}분</span> : "정보가 없습니다."}
-            </div>
-            <div className={cx("Detail-Wrap-Info-Bottom-Middle")}>
-              <div className={cx("Detail-Wrap-Info-Bottom-Middle-Director")}>
-                {credits.crew.map((item, i) => (
-                  <div key={i}>
-                    {item.job === "Director" ? (
-                      <span>
-                        <span>감독</span>{" "}
-                        <Link to={`/people/${item.id}`}>{item.name}</Link>
-                      </span>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className={cx("Detail-Wrap-Info-Bottom-Middle-Cast")}>
-                출연
-                {credits.cast.slice(0, 5).map((item, i) => (
-                  <div key={i}>
+              개봉
+            </em>
+            <em>{runtime ? <span>{runtime}분</span> : "정보가 없습니다."}</em>
+          </li>
+          <li>
+            <em style={{ marginRight: "10px" }}>감독</em>{" "}
+            {credits.crew.map((item, i) => (
+              <strong key={i}>
+                {item.job === "Director" ? (
+                  <span>
                     <Link to={`/people/${item.id}`}>{item.name}</Link>
-                  </div>
-                ))}
-              </div>
-              <div
-                className={cx("Detail-Wrap-Info-Bottom-Middle-Company-Wrap")}
-              >
-                {production_companies.map((item, i) => (
-                  <div
-                    key={i}
-                    className={cx(
-                      "Detail-Wrap-Info-Bottom-Middle-Company-Wrap-Div"
-                    )}
-                  >
-                    {item.logo_path !== null ? (
-                      <img
-                        style={{ width: "70px", height: "20px" }}
-                        src={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
-                      />
-                    ) : (
-                      <img
-                        style={{ width: "70px", height: "20px" }}
-                        src={logo}
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                  </span>
+                ) : (
+                  ""
+                )}
+              </strong>
+            ))}
+          </li>
+          <li>
+            <em style={{ marginRight: "10px" }}>출연</em>{" "}
+            {credits.cast.slice(0, 5).map((item, i) => (
+              <strong key={i}>
+                <Link style={{ marginRight: "10x" }} to={`/people/${item.id}`}>
+                  {item.name}
+                </Link>
+              </strong>
+            ))}
+          </li>
+        </ul>
+        <div>
+          {production_companies.map((item, i) => (
+            <span
+              key={i}
+              className={cx("Detail-Wrap-Info-Bottom-Middle-Company-Wrap-Div")}
+            >
+              {item.logo_path !== null ? (
+                // eslint-disable-next-line jsx-a11y/alt-text
+                <img
+                  style={{ width: "70px", height: "20px", border: "none" }}
+                  src={`https://image.tmdb.org/t/p/w300${item.logo_path}`}
+                />
+              ) : (
+                // eslint-disable-next-line jsx-a11y/alt-text
+                <img style={{ width: "70px", height: "20px" }} src={logo} />
+              )}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
+      <div className={cx("Detail-Content")}>
+        <div className={cx("Detail-Content-Tag")}>{tagline}</div>
+        <div className={cx("Detail-Content-OverView")}>{overview}</div>
+      </div>
+    </>
   );
 };
 

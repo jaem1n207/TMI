@@ -40,7 +40,6 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
 
   return (
     <>
-      <h2>Movie Detail</h2>
       {loading ? (
         <LoadingPage />
       ) : (

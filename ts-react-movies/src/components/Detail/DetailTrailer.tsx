@@ -38,9 +38,9 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
 
   return (
     <>
-      <div className="VideoTitle">Movie Trailer</div>
+      <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Trailer</h1>
       {videos?.length === 0 ? (
-        <div>Trailer를 제공하지 않는 영화입니다.</div>
+        <div className="Video-Wrap">Trailer를 제공하지 않는 영화입니다.</div>
       ) : (
         <div className="Video-Wrap">
           <Slider {...settings}>
