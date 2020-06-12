@@ -8,7 +8,7 @@ export interface ObjectType {
   vote_average: number;
   title: string;
   release_date: string;
-  poster_path: string;
+  backdrop_path: string;
 }
 
 export interface Action {

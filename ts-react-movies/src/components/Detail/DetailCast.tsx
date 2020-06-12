@@ -11,8 +11,6 @@ interface DetailCastProps {
 }
 
 const DetailCast: React.SFC<DetailCastProps> = ({ detailCast }) => {
-  console.log(detailCast.cast);
-
   return (
     <div className={cx("DetailCast-People")}>
       <div className={cx("DetailCast-People-Title")}>

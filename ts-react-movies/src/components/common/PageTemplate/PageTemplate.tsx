@@ -21,7 +21,6 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ Components }) => {
     PopularPage,
     VideosPage,
   } = Components;
-  console.log(Components);
   return (
     <div className={cx("PageTemplate")}>
       <div className={cx("PageTemplate-Navbar")}>{Navbar}</div>

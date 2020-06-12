@@ -106,13 +106,10 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             <em></em>
           </li>
         </ul>
-        <div className={cx("Detail-Wrap-Info-Bottom-Top-Genre")}>
+        <div className={cx("Detail-Wrap-Genre")}>
           <span style={{ marginRight: "10px" }}>장르</span>
           {genres.map((m, i) => (
-            <div
-              key={i}
-              className={cx("Detail-Wrap-Info-Bottom-Top-Genre-Div")}
-            >
+            <div key={i} className={cx("Detail-Wrap-Genre-Div")}>
               {" "}
               {m.name}{" "}
             </div>
@@ -145,7 +142,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
           <li>
             <em style={{ marginRight: "10px" }}>출연</em>{" "}
             {credits.cast.slice(0, 5).map((item, i) => (
-              <strong key={i}>
+              <strong key={i} style={{ marginRight: "1rem" }}>
                 <Link style={{ marginRight: "10x" }} to={`/people/${item.id}`}>
                   {item.name}
                 </Link>
@@ -155,10 +152,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
         </ul>
         <div>
           {production_companies.map((item, i) => (
-            <span
-              key={i}
-              className={cx("Detail-Wrap-Info-Bottom-Middle-Company-Wrap-Div")}
-            >
+            <span key={i} className={cx("Detail-Wrap-Company")}>
               {item.logo_path !== null ? (
                 // eslint-disable-next-line jsx-a11y/alt-text
                 <img
@@ -174,8 +168,12 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
         </div>
       </div>
       <div className={cx("Detail-Content")}>
-        <div className={cx("Detail-Content-Tag")}>{tagline}</div>
-        <div className={cx("Detail-Content-OverView")}>{overview}</div>
+        <div className={cx("Detail-Content-Tag")}>
+          {tagline.length > 0 ? tagline : "정보가 없습니다."}
+        </div>
+        <div className={cx("Detail-Content-OverView")}>
+          {overview.length > 0 ? overview : "줄거리에 대한 정보가 없습니다."}
+        </div>
       </div>
     </>
   );

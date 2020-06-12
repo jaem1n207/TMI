@@ -104,6 +104,36 @@
       }
     }
   }
+  &-Genre {
+    &-Div {
+      display: inline-block;
+      margin: 5px 0;
+      margin-right: 5px;
+      padding: 3px 7px;
+      background-color: $gray-4;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 5px;
+      @media (max-width: 600px) {
+        font-size: 0.8rem;
+      }
+      @media (max-width: 480px) {
+        font-size: 0.7rem;
+      }
+    }
+  }
+  &-Company {
+    display: inline-block;
+    margin: 5px 0;
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #bdbdbd;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+  }
 }
 
 .Detail-Content {
@@ -133,35 +163,4 @@ img {
 }
 a {
   color: $white-1;
-}
-
-.Detail-Wrap-Info-Bottom-Top-Genre-Div {
-  display: inline-block;
-  margin: 5px 0;
-  margin-right: 5px;
-  padding: 3px 7px;
-  background-color: $gray-4;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: bold;
-  border-radius: 5px;
-  @media (max-width: 600px) {
-    font-size: 0.8rem;
-  }
-  @media (max-width: 480px) {
-    font-size: 0.7rem;
-  }
-}
-.Detail-Wrap-Info-Bottom-Middle-Company-Wrap {
-  &-Div {
-    display: inline-block;
-    margin: 5px 0;
-    margin-right: 5px;
-    padding: 5px 10px;
-    background-color: #bdbdbd;
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 5px;
-  }
 }
