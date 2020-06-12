@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "./Trailer.scss";
 import ReactPlayer from "react-player";
@@ -41,12 +40,13 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
         <div>Trailer를 제공하지 않는 영화입니다.</div>
       ) : (
         <div className="Video-Wrap">
-          <Slider {...settings}>
+          <Slider {...settings} className="Video-Wrap-Slick">
             {videos?.map((k, i) => (
               <ReactPlayer
-                url={`https://www.youtube.com/embed/${k.key}`}
-                width="1264px"
-                height="517px"
+                key={k.key}
+                url={`https://www.youtube.com/embed/${k.key}?showinfo=0&enablejsapi=1&origin=http://localhost:9999`}
+                width="100%"
+                height="100%"
                 left="0px !important"
                 muted={true}
                 playing={i === 0 ? playing : false}

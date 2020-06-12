@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "./DetailTrailer.scss";
 import ReactPlayer from "react-player";
+import { width } from "@fortawesome/free-solid-svg-icons/faSearch";
 
 interface DetailTrailerProps {
   videos:
@@ -45,7 +46,8 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
           <Slider {...settings}>
             {videos?.map((k, i) => (
               <ReactPlayer
-                url={`https://www.youtube.com/embed/${k.key}`}
+                key={i}
+                url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999`}
                 width="1264px"
                 height="517px"
                 left="0px !important"

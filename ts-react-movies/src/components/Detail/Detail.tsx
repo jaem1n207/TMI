@@ -41,7 +41,6 @@ interface DetailProps {
 const Detail: React.SFC<DetailProps> = ({ detail }) => {
   const {
     poster_path,
-    original_title,
     title,
     release_date,
     overview,
@@ -49,7 +48,6 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
     adult,
     runtime,
     production_companies,
-    belongs_to_collection,
     genres,
     homepage,
     tagline, // "영화의 역사를 뒤바꿀 마블의 클라이맥스!"

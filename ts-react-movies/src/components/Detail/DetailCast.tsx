@@ -62,11 +62,13 @@ const CastCard: React.SFC<CastcardProps> = ({
       <Link to={`/people/${id}`}>
         <span className={cx("DetailCast-People-Box-Post")}>
           {profile_path !== null ? (
+            // eslint-disable-next-line jsx-a11y/alt-text
             <img
               style={{ width: "100%" }}
               src={`https://image.tmdb.org/t/p/w300${profile_path}`}
             />
           ) : (
+            // eslint-disable-next-line jsx-a11y/alt-text
             <img src={profile} />
           )}
         </span>
