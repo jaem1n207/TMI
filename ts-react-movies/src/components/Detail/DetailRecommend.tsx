@@ -45,7 +45,7 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
         Recommended Movie
       </h1>
       <div className="Popular-Wrap">
-        <div className="Popular-Wrap-Title">Popular</div>
+        <div className="Popular-Wrap-Title"></div>
         <Slider {...setting} className="Popular-Wrap-Slider">
           {recommend && recommend.length > 0 ? (
             recommend

@@ -1,5 +1,5 @@
 import * as React from "react";
-import App from "components/common/PageTemplate/PageTemplate";
+import PageTemplate from "components/common/PageTemplate/PageTemplate";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
 import NowPlayingPage from "pages/NowPlayingPage";
@@ -16,7 +16,7 @@ const HomePage: React.SFC<HomePageProps> = (props) => {
     VideosPage: <VideosPage />,
   };
 
-  return <App Components={Components}></App>;
+  return <PageTemplate Components={Components}></PageTemplate>;
 };
 
 export default HomePage;

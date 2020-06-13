@@ -25,7 +25,7 @@ const DetailPage: React.SFC<DetailPageProps> = (props) => {
         <div className={cx("PageTemplate-Wrap-header")}>
           <Header />
         </div>
-        <div className={cx("PageTemplate-Wrap-Content")}>
+        <div className={cx("PageTemplate-Wrap-Content1")}>
           <div className={cx("PageTemplate-Wrap-Content-Wrap")}>
             <DetailContainer movieId={movieId} />
           </div>
