@@ -44,9 +44,9 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
         Recommended Movie
       </h1>
-      <div className="Popular-Wrap">
-        <div className="Popular-Wrap-Title"></div>
-        <Slider {...setting} className="Popular-Wrap-Slider">
+      <div className="DetailRecommend-Wrap">
+        <div className="DetailRecommend-Wrap-Title"></div>
+        <Slider {...setting} className="DetailRecommend-Wrap-Slider">
           {recommend && recommend.length > 0 ? (
             recommend
               .slice(0, 18)
@@ -86,14 +86,15 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
   const year: string = release_date.split("-")[0];
   const month: string = release_date.split("-")[1];
   const backdrop = require("assets/backdrop.png");
+  const average: string = (vote_average / 2).toFixed(1);
 
   return (
-    <div className="Popular-Wrap-Content">
+    <div className="DetailRecommend-Wrap-Content">
       <Link to={`/detail/${id}`}>
         {backdrop_path !== null ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img
-            className="Popular-Wrap-Content-Img"
+            className="DetailRecommend-Wrap-Content-Img"
             style={{
               width: "300px",
               height: "180px",
@@ -106,7 +107,7 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
         ) : (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img
-            className="Popular-Wrap-Content-Img"
+            className="DetailRecommend-Wrap-Content-Img"
             style={{
               width: "300px",
               height: "180px",
@@ -118,16 +119,18 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
           />
         )}
       </Link>
-      <div className="Popular-Wrap-Content-Info">
-        <div className="Popular-Wrap-Content-Info-TDG">
-          <div className="Popular-Wrap-Content-Info-TDG-Title">{title}</div>
+      <div className="DetailRecommend-Wrap-Content-Info">
+        <div className="DetailRecommend-Wrap-Content-Info-TDG">
+          <div className="DetailRecommend-Wrap-Content-Info-TDG-Title">
+            {title}
+          </div>
         </div>
-        <div className="Popular-Wrap-Content-Info-TDG-Date">
+        <div className="DetailRecommend-Wrap-Content-Info-TDG-Date">
           {year}.{month}
         </div>
-        <div className="Popular-Wrap-Content-Info-Vote">
-          <span className="Popular-Wrap-Content-Info-Vote-Star">★</span>
-          {vote_average}{" "}
+        <div className="DetailRecommend-Wrap-Content-Info-Vote">
+          <span className="DetailRecommend-Wrap-Content-Info-Vote-Star">★</span>
+          {average}{" "}
         </div>
       </div>
     </div>

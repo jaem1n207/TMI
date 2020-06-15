@@ -49,15 +49,15 @@
       border: none;
       outline: none;
     }
-    & > slick-prev::before {
+    & > .slick-prev::before {
       content: "<";
-      color: white;
+      color: $yellow;
       font-size: 25px;
       cursor: pointer;
     }
     & > .slick-next::before {
       content: ">";
-      color: white;
+      color: $yellow;
       font-size: 25px;
       cursor: pointer;
     }

@@ -79,9 +79,11 @@ const CastCard: React.SFC<CastcardProps> = ({
       </Link>
       <div className={cx("DetailCast-People-Box-Div")}>
         <div className={cx("DetailCast-People-Box-Div-Inner")}>
-          <span className={cx("DetailCast-People-Box-Div-Inner-Name")}>
-            {name}
-          </span>
+          <Link to={`/people/${id}`}>
+            <span className={cx("DetailCast-People-Box-Div-Inner-Name")}>
+              {name}
+            </span>
+          </Link>
           <span className={cx("DetailCast-People-Box-Div-Inner-Ch")}>
             {character}
           </span>

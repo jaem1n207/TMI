@@ -21,6 +21,7 @@ interface DetailTrailerProps {
 
 const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
   const [playing, setPlaying] = useState(Boolean);
+  const backdrop = require("assets/backdrop.png");
 
   const settings = {
     dots: true,
@@ -40,8 +41,19 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Trailer</h1>
       {videos?.length === 0 ? (
-        <div className="DetailVideo-Wrap">
-          Trailer를 제공하지 않는 영화입니다.
+        <div className="DetailVideo-Wrap-Fail">
+          <p>Trailer를 제공하지 않는 영화입니다.</p>
+          <img
+            className="DetailRecommend-Wrap-Content-Img"
+            style={{
+              width: "300px",
+              height: "180px",
+              marginRight: "20px",
+              float: "left",
+              borderRadius: "5px",
+            }}
+            src={backdrop}
+          />
         </div>
       ) : (
         <div className="DetailVideo-Wrap">
@@ -49,7 +61,7 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
             {videos?.map((k, i) => (
               <ReactPlayer
                 key={i}
-                url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999`}
+                url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999/`}
                 width="100%"
                 height="480px"
                 left="0px !important"
@@ -58,6 +70,13 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
                 controls={true}
                 onReady={handleOnReady}
                 className="DetailVideo-Wrap-Player"
+                /*  config={{
+                  youtube: {
+                    embedOptions: {
+                      host: "https://www.youtube-nocookie.com",
+                    },
+                  },
+                }} */
               />
             ))}
           </Slider>

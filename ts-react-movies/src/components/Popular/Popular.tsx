@@ -85,6 +85,7 @@ const PopularCard: React.SFC<PopularCardProps> = ({
   const year: string = release_date.split("-")[0];
   const month: string = release_date.split("-")[1];
   const backdrop = require("assets/backdrop.png");
+  const average: string = (vote_average / 2).toFixed(1);
 
   return (
     <div className="Popular-Wrap-Content">
@@ -109,7 +110,7 @@ const PopularCard: React.SFC<PopularCardProps> = ({
         </div>
         <div className="Popular-Wrap-Content-Info-Vote">
           <span className="Popular-Wrap-Content-Info-Vote-Star">★</span>
-          {vote_average}{" "}
+          {average}{" "}
         </div>
       </div>
     </div>

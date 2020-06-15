@@ -56,6 +56,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
   } = detail;
   const poster = require("assets/poster.png");
   const logo = require("assets/poster.png");
+  const average: string = (vote_average / 2).toFixed(1);
 
   return (
     <>
@@ -95,7 +96,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
           </li>
           <li>
             <em>
-              관람객 평점 <span>★</span> {vote_average}
+              관람객 평점 <span>★</span> {average}
               <em style={{ marginLeft: "7px", fontSize: "14px" }}>
                 ({vote_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}명
                 투표)

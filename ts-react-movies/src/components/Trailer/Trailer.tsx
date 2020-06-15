@@ -44,7 +44,7 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
             {videos?.map((k, i) => (
               <ReactPlayer
                 key={k.key}
-                url={`https://www.youtube.com/embed/${k.key}?showinfo=0&enablejsapi=1&origin=http://localhost:9999`}
+                url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999/`}
                 width="100%"
                 height="100%"
                 left="0px !important"

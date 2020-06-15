@@ -2,7 +2,7 @@
 
 .DetailCast-People {
   position: relative;
-  margin-bottom: 5.8rem;
+  margin-bottom: 2.8rem;
   line-height: 1.1;
   height: 29%;
   letter-spacing: -0.03em;
@@ -90,6 +90,11 @@
           margin-bottom: 7px;
           font-size: 18px;
           color: $white-1;
+          transition-duration: 0.3s;
+        }
+        &-Name:hover {
+          transform: scale(1.02);
+          color: $yellow;
         }
         &-Ch {
           display: block;

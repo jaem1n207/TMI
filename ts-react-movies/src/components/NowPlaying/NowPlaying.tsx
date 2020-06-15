@@ -67,6 +67,7 @@ const NowCard: React.SFC<NowCardProps> = ({
 }) => {
   const date: string[] = release_date.split("-");
   const backdrop = require("assets/backdrop.png");
+  const average: string = (vote_average / 2).toFixed(1);
 
   return (
     <div className="NowPlaying-Wrap-Content">
@@ -86,7 +87,7 @@ const NowCard: React.SFC<NowCardProps> = ({
           <div className="NowPlaying-Wrap-Content-Info-Vote-Date">{`${date[0]}.${date[1]}.${date[1]}`}</div>
           <div>
             <span className="NowPlaying-Wrap-Content-Info-Vote-Star">★</span>
-            {vote_average}{" "}
+            {average}{" "}
           </div>
         </div>
       </div>
