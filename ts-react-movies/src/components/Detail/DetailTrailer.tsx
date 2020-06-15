@@ -40,21 +40,24 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Trailer</h1>
       {videos?.length === 0 ? (
-        <div className="Video-Wrap">Trailer를 제공하지 않는 영화입니다.</div>
+        <div className="DetailVideo-Wrap">
+          Trailer를 제공하지 않는 영화입니다.
+        </div>
       ) : (
-        <div className="Video-Wrap">
-          <Slider {...settings}>
+        <div className="DetailVideo-Wrap">
+          <Slider {...settings} className="DetailVideo-Wrap-VideoSlider">
             {videos?.map((k, i) => (
               <ReactPlayer
                 key={i}
                 url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999`}
-                width="1264px"
+                width="100%"
                 height="517px"
                 left="0px !important"
                 muted={true}
                 playing={i === 0 ? playing : false}
                 controls={true}
                 onReady={handleOnReady}
+                className="DetailVideo-Wrap-Player"
               />
             ))}
           </Slider>
