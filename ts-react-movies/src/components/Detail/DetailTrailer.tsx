@@ -51,7 +51,7 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
                 key={i}
                 url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999`}
                 width="100%"
-                height="517px"
+                height="480px"
                 left="0px !important"
                 muted={true}
                 playing={i === 0 ? playing : false}

@@ -10,11 +10,11 @@
 .Video-Wrap {
   overflow-x: scroll;
   overflow-y: scroll;
-  height: 87%;
+  height: 86%;
   width: 100%;
   &-Slick {
     width: 100%;
-    height: 100%;
+    height: 99%;
     & > .slick-list {
       & > .slick-track {
         & > .slick-slide,
@@ -87,8 +87,8 @@ iframe {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 64.5%;
-  left: 28%;
+  top: 66.5%;
+  left: 37%;
   & > li {
     width: 10px;
     height: 10px;

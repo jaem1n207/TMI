@@ -16,7 +16,8 @@ const Header: React.SFC<Props.HeaderProps> = ({
   onClick,
 }) => {
   const btnStyle = {
-    color: "black",
+    cursor: "pointer",
+    color: "#fff",
     height: "74%",
     backgroundColor: "#0f1016",
     border: "none",
@@ -51,19 +52,21 @@ const Header: React.SFC<Props.HeaderProps> = ({
           <label className={cx("Header-Wrap-Button")}>
             <Button
               style={btnStyle}
-              text="검색하러 같이 가시죠~"
+              text={
+                <FontAwesomeIcon
+                  className="fa-2x"
+                  color="#38393e"
+                  icon="search"
+                />
+              }
+              onClick={onClick}
+            ></Button>
+            <Button
+              style={btnStyle}
+              text="검색하러 가기!"
               onClick={onClick}
             ></Button>
           </label>
-
-          <Input
-            type="text"
-            onClick={onClick}
-            keyword={keyword}
-            setKeyword={setKeyword}
-            handleKeyPress={handleKeyPress}
-            style={inputStyle}
-          />
         </Link>
       </div>
     </div>
