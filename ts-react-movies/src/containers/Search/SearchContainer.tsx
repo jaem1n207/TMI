@@ -17,6 +17,15 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
   const [historySearch, setHistorySearch] = useState<string[]>([]);
   const [toggle, setToggle] = useState<boolean>(true);
   const [movies, setMovies] = useState<any[] | undefined>([]);
+  const [iconColor, setIconColor] = useState("rgba(255, 255, 255, 0.7)");
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    setIconColor("#424244");
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setIconColor("rgba(255, 255, 255, 0.7)");
+  };
 
   useEffect(() => {
     if (searchResult?.length !== 0) {
@@ -88,6 +97,9 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
         onChange={onChange}
         total_results={total_results}
         historySearch={historySearch}
+        handleFocus={handleFocus}
+        handleBlur={handleBlur}
+        iconColor={iconColor}
       />
 
       <div>

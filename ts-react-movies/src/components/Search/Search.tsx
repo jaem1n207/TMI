@@ -4,6 +4,8 @@ import style from "./Search.scss";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(style);
 
@@ -11,8 +13,11 @@ interface SearchProps {
   keyword: string;
   setKeyword: Function;
   onChange: (e: any) => void;
+  iconColor: string;
   historySearch: string[];
   total_results: any;
+  handleFocus: (e: any) => void;
+  handleBlur: (e: any) => void;
   searchResult:
     | Array<{
         popularity?: number; // 인기
@@ -39,6 +44,9 @@ const Search: React.SFC<SearchProps> = ({
   historySearch,
   total_results,
   setKeyword,
+  handleFocus,
+  handleBlur,
+  iconColor,
 }) => {
   return (
     <>
@@ -48,13 +56,28 @@ const Search: React.SFC<SearchProps> = ({
             e.preventDefault();
           }}
         >
-          <input
-            className={cx("Search-Wrap-Input")}
-            type="text"
-            value={keyword}
-            onChange={onChange}
-            placeholder="영화 제목을 입력해주세요..."
-          />
+          <div
+            className={cx("Search-Wrap-Div")}
+            style={{ width: "100%", position: "relative" }}
+          >
+            <span className={cx("Search-Wrap-Div-IconWrap")}>
+              <FontAwesomeIcon
+                className={cx("Search-Wrap-Div-IconWrap-Icon")}
+                icon={faSearch}
+                size="lg"
+                color={iconColor}
+              />
+            </span>
+            <input
+              onBlur={handleBlur}
+              onFocus={handleFocus}
+              className={cx("Search-Wrap-Div-Input")}
+              type="text"
+              value={keyword}
+              onChange={onChange}
+              placeholder="영화 제목을 입력해주세요..."
+            />
+          </div>
         </form>
         {total_results === 0 ? (
           ""
