@@ -19,7 +19,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
     cursor: "pointer",
     color: "#fff",
     height: "74%",
-    backgroundColor: "#0f1016",
+    backgroundColor: "transparent",
     border: "none",
     outline: "none",
   };
@@ -47,7 +47,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
           </li>
         </ul>
       </div>
-      <div className={cx("Header-Wrap-Input")}>
+      <span className={cx("Header-Wrap-Input")}>
         <Link to="/search">
           <label className={cx("Header-Wrap-Button")}>
             <Button
@@ -57,18 +57,14 @@ const Header: React.SFC<Props.HeaderProps> = ({
                   className="fa-2x"
                   color="#38393e"
                   icon="search"
+                  size={"1x"}
                 />
               }
               onClick={onClick}
             ></Button>
-            <Button
-              style={btnStyle}
-              text="검색하러 가기!"
-              onClick={onClick}
-            ></Button>
           </label>
         </Link>
-      </div>
+      </span>
     </div>
   );
 };

@@ -117,25 +117,13 @@ const SearchCard: React.SFC<SearchCardProps> = ({
   title,
   historySearch,
 }) => {
-  const HistoryWrap = styled.div`
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    filter: brightness(70%);
-    cursor: pointer;
-    &:hover {
-      filter: brightness(100%);
-    }
-  `;
-
   const poster = require("assets/poster.png");
 
   return (
     <div className={cx("SearchCard-Wrap")}>
       <Link to={`/detail/${id}`}>
         <div className={cx("SearchCard-Wrap-Box")}>
-          <HistoryWrap
+          <div
             onClick={() => {
               historySearch = historySearch.filter((item) => item !== title);
               localStorage.setItem(

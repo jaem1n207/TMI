@@ -11,7 +11,10 @@ export const movies = {
       `movie/popular?api_key=${MOVIE_API_KEY}&language=ko&region=KR`
     ),
   /* coming soon */
-  upcoming: () => defaultApi.get("movie/upcoming"),
+  upcoming: (page: number) =>
+    defaultApi.get(
+      `movie/upcoming?api_key=${MOVIE_API_KEY}&language=ko&page=1&region=KR`
+    ),
   /* show noyplaying movies */
   nowPlaying: (page: number) =>
     defaultApi.get(

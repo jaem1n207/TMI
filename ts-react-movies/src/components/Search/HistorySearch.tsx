@@ -3,18 +3,13 @@ import * as Props from "./Props";
 import "./HistorySearch.scss";
 import styled from "styled-components";
 
-const Wrap = styled.div<{ toggle: boolean }>`
-  display: ${(props) => (props.toggle ? "block" : "none")};
-`;
-
 const HistorySearch: React.FC<Props.HistorySearchProps> = ({
   historySearch,
-  toggle,
   onClick,
   onRemove,
 }) => {
   return (
-    <Wrap className="HistorySearch-Wrap" toggle={toggle}>
+    <div className="HistorySearch-Wrap">
       {historySearch.length !== 0 && <div>최근 검색</div>}
       {historySearch.map((item: string, i: number) => (
         <HistorySearchCard
@@ -24,7 +19,7 @@ const HistorySearch: React.FC<Props.HistorySearchProps> = ({
           onRemove={onRemove}
         />
       ))}
-    </Wrap>
+    </div>
   );
 };
 
