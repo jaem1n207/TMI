@@ -25,9 +25,12 @@ export const getSearch = (text: string) => {
       dispatch(getSearchRequest({ loading: true }));
 
       const result = await api.movies.search(text);
+      const total_results = result.data;
       const searchResult = result.data.results;
 
-      dispatch(getSearchSuccess({ loading: false, searchResult }));
+      dispatch(
+        getSearchSuccess({ loading: false, searchResult, total_results })
+      );
     } catch (e) {
       dispatch(getSearchFail({ loading: false }));
     }

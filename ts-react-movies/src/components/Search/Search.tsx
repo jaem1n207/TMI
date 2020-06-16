@@ -11,6 +11,7 @@ interface SearchProps {
   setKeyword: Function;
   onChange: (e: any) => void;
   historySearch: string[];
+  total_results: any;
   searchResult:
     | Array<{
         popularity?: number; // 인기
@@ -35,6 +36,8 @@ const Search: React.SFC<SearchProps> = ({
   searchResult,
   onChange,
   historySearch,
+  total_results,
+  setKeyword,
 }) => {
   return (
     <>
@@ -52,6 +55,15 @@ const Search: React.SFC<SearchProps> = ({
             placeholder="영화 제목을 입력해주세요..."
           />
         </form>
+        {total_results === 0 ? (
+          ""
+        ) : keyword === "" ? (
+          ""
+        ) : (
+          <div>
+            총 <span>{total_results.total_results}개</span>의 영화를 찾았습니다.
+          </div>
+        )}
         {searchResult?.map((item, i) => (
           <SearchCard
             key={i}

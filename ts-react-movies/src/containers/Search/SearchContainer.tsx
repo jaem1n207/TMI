@@ -5,10 +5,12 @@ import * as Props from "./Props";
 import { connect } from "react-redux";
 import { RootState } from "modules";
 import { getSearch } from "modules/Search";
+import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
   loading,
   searchResult,
+  total_results,
   getSearch,
 }) => {
   const [keyword, setKeyword] = useState<string>("");
@@ -84,6 +86,7 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
         setKeyword={setKeyword}
         searchResult={movies}
         onChange={onChange}
+        total_results={total_results}
         historySearch={historySearch}
       />
 
@@ -102,6 +105,7 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
 export default connect(
   (state: RootState, props) => ({
     loading: state.searchResult.loading,
+    total_results: state.searchResult.total_results,
     searchResult: state.searchResult.searchResult,
   }),
   { getSearch }

@@ -8,6 +8,7 @@ import produce from "immer";
 
 const initialState: SearchState = {
   loading: false,
+  total_results: 0,
   searchResult: [],
 };
 
@@ -20,6 +21,7 @@ const reducer = (state = initialState, action: Action): SearchState => {
     case GET_SEARCH_SUCCESS:
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
+        draft.total_results = action.payload.total_results;
         draft.searchResult = action.payload.searchResult;
       });
     case GET_SEARCH_FAIL:

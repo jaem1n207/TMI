@@ -1,5 +1,6 @@
 export interface SearchState {
   loading?: boolean;
+  total_results?: any;
   searchResult?: Array<Object>;
 }
 
@@ -24,6 +25,7 @@ export interface Action {
   type?: string;
   payload: {
     loading: boolean;
+    total_results: number;
     searchResult: Array<ObjectType>;
   };
 }
