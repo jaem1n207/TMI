@@ -3,11 +3,92 @@
 .SearchCard-Wrap {
   overflow: visible;
   height: 100%;
-  width: 20%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  line-height: 1.3;
   & > a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
+  }
+  &-Box {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    filter: brightness(70%);
+    cursor: pointer;
+    transition-duration: 0.1s;
+    &:hover {
+      filter: brightness(100%);
+      transform: scale(1.01);
+    }
+    & > span {
+      width: 100px;
+      @media (max-width: 600px) {
+        width: 80px;
+      }
+      @media (max-width: 480px) {
+        width: 65px;
+      }
+    }
+    &-Content {
+      display: flex;
+      flex-direction: column;
+      margin: 0 30px;
+      font-size: 1.2rem;
+      color: $white-1;
+      &-Date {
+        display: inline-block;
+        margin: 5px 0;
+        color: #9e9e9e;
+      }
+      &-Title {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.Search-Wrap {
+  width: 770px;
+  margin-top: 3.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  &-ResultCnt {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: $white-1;
+    & > span {
+      color: white;
+    }
+  }
+  &-Input {
+    display: flex;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 50%;
+    margin: 0px auto 0px auto;
+    background-color: transparent;
+    border: none;
+    border: 1px solid #9e9e9e;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $white;
+    padding-bottom: 15px;
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+      padding-bottom: 10px;
+    }
+    @media (max-width: 480px) {
+      font-size: 1rem;
+      padding-bottom: 5px;
+    }
   }
 }

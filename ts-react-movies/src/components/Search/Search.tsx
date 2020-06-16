@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import style from "./Search.scss";
 import classNames from "classnames/bind";
@@ -60,8 +61,8 @@ const Search: React.SFC<SearchProps> = ({
         ) : keyword === "" ? (
           ""
         ) : (
-          <div>
-            총 <span>{total_results.total_results}개</span>의 영화를 찾았습니다.
+          <div className={cx("Search-Wrap-ResultCnt")}>
+            총 <b>{total_results.total_results}개</b>의 영화를 찾았습니다.
           </div>
         )}
         {searchResult?.map((item, i) => (
@@ -110,33 +111,45 @@ const SearchCard: React.SFC<SearchCardProps> = ({
   return (
     <div className={cx("SearchCard-Wrap")}>
       <Link to={`/detail/${id}`}>
-        <HistoryWrap
-          onClick={() => {
-            historySearch = historySearch.filter((item) => item !== title);
-            localStorage.setItem(
-              "TMI",
-              JSON.stringify([...historySearch, title])
-            );
-          }}
-        />
-        {poster_path !== null ? (
-          <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
-        ) : (
-          <img src={poster} />
-        )}
-        <div className={cx("SearchCard-Wrap-Content")}>
-          {release_date !== undefined ? (
-            <div className={cx("SearchCard-Wrap-Content-Date")}>{`${
-              release_date.split("-")[0]
-            }.${release_date.split("-")[1]}.${
-              release_date.split("-")[2]
-            }`}</div>
+        <div className={cx("SearchCard-Wrap-Box")}>
+          <HistoryWrap
+            onClick={() => {
+              historySearch = historySearch.filter((item) => item !== title);
+              localStorage.setItem(
+                "TMI",
+                JSON.stringify([...historySearch, title])
+              );
+            }}
+          />
+
+          {poster_path !== null ? (
+            <span>
+              <img
+                style={{ width: "100%", height: "100%" }}
+                src={`https://image.tmdb.org/t/p/w300${poster_path}`}
+              />
+            </span>
           ) : (
-            <div className={cx("SearchCard-Wrap-Content-Date")}>
-              정보가 없습니다.
-            </div>
+            <span>
+              <img style={{ width: "100%", height: "100%" }} src={poster} />
+            </span>
           )}
-          <div className={cx("SearchCard-Wrap-Content-Title")}>{title}</div>
+          <div className={cx("SearchCard-Wrap-Box-Content")}>
+            {release_date !== undefined ? (
+              <div className={cx("SearchCard-Wrap-Content-Date")}>{`${
+                release_date.split("-")[0]
+              }.${release_date.split("-")[1]}.${
+                release_date.split("-")[2]
+              }`}</div>
+            ) : (
+              <div className={cx("SearchCard-Wrap-Box-Content-Date")}>
+                정보가 없습니다.
+              </div>
+            )}
+            <div className={cx("SearchCard-Wrap-Box-Content-Title")}>
+              {title}
+            </div>
+          </div>
         </div>
       </Link>
     </div>
