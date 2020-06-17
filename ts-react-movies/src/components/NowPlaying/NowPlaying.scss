@@ -25,6 +25,8 @@
       &-Title {
         color: $white-1;
         font-weight: 500;
+        padding-left: 4px;
+        border-left: 3px ridge $yellow;
       }
       &-Vote {
         display: flex;

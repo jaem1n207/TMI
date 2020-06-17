@@ -86,6 +86,8 @@
           color: $white-1;
           font-weight: 500;
           width: 92%;
+          padding-left: 4px;
+          border-left: 3px ridge $yellow;
         }
         &-Date {
           font-size: 14px;

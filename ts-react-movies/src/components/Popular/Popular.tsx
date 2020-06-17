@@ -103,7 +103,9 @@ const PopularCard: React.SFC<PopularCardProps> = ({
       </Link>
       <div className="Popular-Wrap-Content-Info">
         <div className="Popular-Wrap-Content-Info-TDG">
-          <div className="Popular-Wrap-Content-Info-TDG-Title">{title}</div>
+          <div className="Popular-Wrap-Content-Info-TDG-Title">
+            {title.length < 12 ? title : title.slice(0, 12).concat("...")}
+          </div>
         </div>
         <div className="Popular-Wrap-Content-Info-TDG-Date">
           {year}.{month}

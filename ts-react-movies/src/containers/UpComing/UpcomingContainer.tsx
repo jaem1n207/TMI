@@ -23,7 +23,7 @@ const UpcomingContainer: React.SFC<UpcomingContainerProps> = ({
     getUpcoming(page);
   }, [page]);
 
-  return <>{loading ? <LoadingPage /> : <Upcoming />}</>;
+  return <>{loading ? <LoadingPage /> : <Upcoming upcoming={upcoming} />}</>;
 };
 
 export default connect(
