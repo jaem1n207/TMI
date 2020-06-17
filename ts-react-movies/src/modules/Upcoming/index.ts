@@ -1,7 +1,6 @@
 import { Dispatch } from "redux";
 import * as api from "lib/api";
 import produce from "immer";
-import reducer from "modules/nowPlaying";
 
 /* Types */
 export interface UpcomingState {
@@ -9,16 +8,6 @@ export interface UpcomingState {
   page?: number;
   total_pages?: number;
   upcoming?: Array<Object>;
-}
-
-interface Action {
-  type?: string;
-  page?: number;
-  total_pages?: number;
-  payload: {
-    loading: boolean;
-    upcoming: Array<ObjectType>;
-  };
 }
 
 export interface ObjectType {
@@ -34,7 +23,7 @@ const GET_UPCOMING_REQUEST = "upcoming/GET_UPCOMING_REQUEST";
 const GET_UPCOMING_SUCCESS = "popular/GET_UPCOMING_SUCCESS";
 const GET_UPCOMING_FAIL = "popular/GET_UPCOMING_FAIL";
 
-/* Actions Creators */
+/* Action Creator */
 export const getUpcomingRequest = (payload: UpcomingState) => ({
   type: GET_UPCOMING_REQUEST,
   payload,
@@ -48,6 +37,7 @@ export const getUpcomingFail = (payload: UpcomingState) => ({
   payload,
 });
 
+/* Api actions */
 export const getUpcoming = (page: number = 1) => {
   return async (dispatch: Dispatch) => {
     try {
@@ -69,6 +59,16 @@ const initialState: UpcomingState = {
   page: 1,
   upcoming: [],
 };
+
+interface Action {
+  type?: string;
+  page?: number;
+  total_pages?: number;
+  payload: {
+    loading: boolean;
+    upcoming: Array<ObjectType>;
+  };
+}
 
 /* Reducer */
 const reducer = (state = initialState, action: Action): UpcomingState => {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import style from "./DetailCast.scss";
-import { CreditsType } from "modules/Detail/types";
+import { CreditsType } from "modules/Detail";
 import { Scrollbars } from "react-custom-scrollbars";
 
 const cx = classNames.bind(style);

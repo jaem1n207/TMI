@@ -7,7 +7,7 @@ import {
   ProductionCompanyType,
   GenresType,
   CreditsType,
-} from "modules/Detail/types";
+} from "modules/Detail";
 
 const cx = classNames.bind(style);
 
