@@ -36,7 +36,7 @@ const Popular: React.FC<PopularProps> = ({ popular }) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     autoplay: true,
-    autoplaySpeed: 4500,
+    autoplaySpeed: 3000,
   };
 
   return (

@@ -1,0 +1,48 @@
+@import "styles/Position.scss";
+@import "styles/ColorScheme.scss";
+
+.PageTemplate1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  &-Navbar {
+    user-select: none;
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+  }
+  &-Wrap {
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    &-header {
+      width: 100%;
+      height: 6%;
+      @include flex-position(center, center, column);
+      flex-direction: row;
+      box-shadow: 0px 1px 3px black;
+    }
+    &-Content {
+      width: 100%;
+      height: 94%;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      overflow-y: visible;
+      background-color: $dark-2;
+      // box-shadow: inset 1px 1px 0 2px rgba($color: #000000, $alpha: 0.5);
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &-Wrap {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

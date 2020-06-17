@@ -22,6 +22,7 @@
       width: 92%;
     }
     &-Info {
+      margin-top: 3px;
       &-Title {
         color: $white-1;
         font-weight: 500;
@@ -34,6 +35,8 @@
         justify-content: space-between;
         margin-right: 10%;
         color: #fff;
+        vertical-align: middle;
+        line-height: 1.1;
         &-Star {
           color: rgba(245, 197, 24, 0.95);
         }

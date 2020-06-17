@@ -5,7 +5,6 @@ import classNames from "classnames/bind";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
 import DetailContainer from "containers/Detail/DetailContainer";
-import Trailer from "containers/Trailer/TrailerContainer";
 
 const cx = classNames.bind(style);
 
