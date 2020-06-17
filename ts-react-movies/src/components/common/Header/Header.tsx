@@ -40,10 +40,10 @@ const Header: React.SFC<Props.HeaderProps> = ({
       <div className={cx("Header-Wrap-Nav")}>
         <ul className={cx("Header-Wrap-Nav-Ul")}>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <Link to="/all">All shows</Link>
+            <Link to="/tv">TV</Link>
           </li>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <Link to="/movies">Movies</Link>
+            <Link to="/">Movies</Link>
           </li>
         </ul>
       </div>

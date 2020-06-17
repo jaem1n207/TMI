@@ -11,6 +11,7 @@ import DetailPopularPage from "pages/DetailPopular";
 import SearchPage from "pages/SearchPage";
 import DetailPage from "pages/DetailPage";
 import UpcomingPage from "pages/UpcomingPage";
+import TopRatePage from "pages/TopRatePage";
 
 library.add(faSearch);
 
@@ -25,6 +26,7 @@ const Root: React.SFC<RootProps> = () => {
         <Route exact path="/search" component={SearchPage} />
         <Route exact path="/detail/:movieId" component={DetailPage} />
         <Route exact path="/upcoming" component={UpcomingPage} />
+        <Route exact path="/toprate" component={TopRatePage} />
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>
