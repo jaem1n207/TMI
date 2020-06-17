@@ -8,6 +8,7 @@ import {
   GenresType,
   CreditsType,
 } from "modules/Detail";
+import ReactHelmet from "components/common/Helmet/ReactHelmet";
 
 const cx = classNames.bind(style);
 
@@ -60,6 +61,10 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
 
   return (
     <>
+      <ReactHelmet title={`${title}`} description="상세정보">
+        <meta charSet="utf-8" />
+        <title>{`${title}`}</title>
+      </ReactHelmet>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Detail</h1>
       <div className={cx("Detail-Wrap")}>
         <div className={cx("Detail-Wrap-Post")}>

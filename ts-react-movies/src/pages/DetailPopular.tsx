@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
 import DetailPopularContainer from "containers/Popular/DetailPopularContainer";
+import ReactHelmet from "components/common/Helmet/ReactHelmet";
 
 const cx = classNames.bind(style);
 
@@ -11,6 +12,10 @@ interface UpcomingPageProps {}
 const UpcomingPage: React.SFC<UpcomingPageProps> = () => {
   return (
     <div className={cx("PageTemplate1")}>
+      <ReactHelmet title="Popular" description="인기">
+        <meta charSet="utf-8" />
+        <title>Popular Movies</title>
+      </ReactHelmet>
       <div className={cx("PageTemplate1-Navbar")}>
         <Navbar />
       </div>

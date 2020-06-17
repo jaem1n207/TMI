@@ -23,7 +23,7 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({ nowPlaying }) => {
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
-        nowPlaying Movies
+        NowPlaying Movies
       </h1>
       <div className={cx("UpcomingTemplate")}>
         <div className={cx("UpcomingTemplate-Wrap")}>

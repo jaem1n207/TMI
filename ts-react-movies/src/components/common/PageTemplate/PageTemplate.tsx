@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./PageTemplate.scss";
 import classNames from "classnames/bind";
+import ReactHelmet from "components/common/Helmet/ReactHelmet";
 
 const cx = classNames.bind(style);
 
@@ -23,6 +24,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ Components }) => {
   } = Components;
   return (
     <div className={cx("PageTemplate")}>
+      <ReactHelmet title="MovieHome" description="영화홈">
+        <meta charSet="utf-8" />
+        <title>MovieHome</title>
+      </ReactHelmet>
       <div className={cx("PageTemplate-Navbar")}>{Navbar}</div>
       <div className={cx("PageTemplate-Wrap")}>
         <div className={cx("PageTemplate-Wrap-header")}>{Header}</div>

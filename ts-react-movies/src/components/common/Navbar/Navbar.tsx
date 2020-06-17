@@ -73,11 +73,11 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 
           <br />
 
-          <li className={cx("NavItem-Ul-Title")}>MOVIE</li>
+          <li className={cx("NavItem-Ul-Title")}>TV</li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
               exact
-              to="/"
+              to="/tv"
               className={cx("NavItem-Ul-Li-Current")}
               activeClassName={cx("NavItem-Ul-Li-Current")}
             >
@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/topRate"
+              to="/tv/topRate"
               className={cx("NavItem-Ul-Li-Current")}
               activeClassName={cx("NavItem-Ul-Li-Current")}
             >
@@ -95,11 +95,20 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/nowPlaying"
+              to="/tv/today"
               className={cx("NavItem-Ul-Li-Current")}
               activeClassName={cx("NavItem-Ul-Li-Current")}
             >
-              Now Playing
+              Airing Today
+            </NavLink>
+          </li>
+          <li className={cx("NavItem-Ul-Li")}>
+            <NavLink
+              to="/tv/ontheair"
+              className={cx("NavItem-Ul-Li-Current")}
+              activeClassName={cx("NavItem-Ul-Li-Current")}
+            >
+              On The Air
             </NavLink>
           </li>
           <li className={cx("NavItem-Ul-Li")}>

@@ -15,6 +15,7 @@ export interface ObjectType {
   title: string;
   id: number;
   release_date: string;
+  vote_average: number;
 }
 
 /* Actions */

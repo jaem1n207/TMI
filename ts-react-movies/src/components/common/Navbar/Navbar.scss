@@ -28,8 +28,14 @@
     list-style: none;
     font-weight: 500;
     padding-left: 0;
-    &-Title {
+    @media (max-width: 600px) {
       font-size: 0.8rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+    &-Title {
+      font-size: 1.05rem;
       font-weight: 650;
       margin-bottom: 6%;
       color: $white;
