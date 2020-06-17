@@ -117,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/popular"
+              to="/tv/popular"
               className={cx("NavItem-Ul-Li-Current")}
               activeStyle={{ color: "#59babc" }}
             >
