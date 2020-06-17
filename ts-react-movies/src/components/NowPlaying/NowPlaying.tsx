@@ -87,7 +87,7 @@ const NowCard: React.SFC<NowCardProps> = ({
           {title.length < 18 ? title : title.slice(0, 18).concat("...")}
         </div>
         <div className="NowPlaying-Wrap-Content-Info-Vote">
-          <div className="NowPlaying-Wrap-Content-Info-Vote-Date">{`${date[0]}.${date[1]}.${date[1]}`}</div>
+          <div className="NowPlaying-Wrap-Content-Info-Vote-Date">{`${date[0]}.${date[1]}.${date[2]}`}</div>
           <div>
             <span className="NowPlaying-Wrap-Content-Info-Vote-Star">★</span>
             {average}{" "}

@@ -112,7 +112,7 @@ const PopularCard: React.SFC<PopularCardProps> = ({
         </div>
         <div className="Popular-Wrap-Content-Info-Vote">
           <span className="Popular-Wrap-Content-Info-Vote-Star">★</span>
-          {average}{" "}
+          {average !== "0.0" ? average : "-"}{" "}
         </div>
       </div>
     </div>
