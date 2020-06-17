@@ -6,7 +6,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 
 import NotFoundPage from "./pages/NotFoundPage";
 import HomePage from "pages/HomePage";
-import NowPlayingPage from "pages/NowPlayingPage";
+import NowPlayingPage from "pages/NowPlayingPPage";
 import PopularPage from "pages/PopularPage";
 import SearchPage from "pages/SearchPage";
 import DetailPage from "pages/DetailPage";

@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-
 import { RootState } from "modules";
-import NowPlayingList from "components/NowPlaying/NowPlaying";
 import { getNowPlaying, getMoreNowPlaying } from "modules/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
+import NowPlayingP from "components/NowPlaying/NowPlayingP";
 
-interface NowPlayingContainerProps {
+interface NowPlayingPContainrProps {
   loading: boolean | undefined;
   nowPlaying: Array<any> | undefined;
   page?: number;
@@ -14,13 +13,13 @@ interface NowPlayingContainerProps {
   getNowPlaying: Function;
   getMoreNowPlaying: Function;
 }
-const NowPlayingContainer: React.SFC<NowPlayingContainerProps> = ({
+const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
   loading,
   nowPlaying,
   page,
   total_pages,
-  getMoreNowPlaying,
   getNowPlaying,
+  getMoreNowPlaying,
 }) => {
   useEffect(() => {
     getNowPlaying(page);
@@ -31,14 +30,11 @@ const NowPlayingContainer: React.SFC<NowPlayingContainerProps> = ({
       {loading ? (
         <LoadingPage />
       ) : (
-        <NowPlayingList
-          nowPlaying={nowPlaying}
+        <NowPlayingP
           getMoreNowPlaying={getMoreNowPlaying}
+          nowPlaying={nowPlaying}
         />
       )}
-      {/* <div page={page} total_pages={total_pages}>
-        <button onClick={getMoreNowPlaying}>더보기</button>
-      </div> */}
     </>
   );
 };
@@ -51,4 +47,4 @@ export default connect(
     total_pages: state.nowPlaying.total_pages,
   }),
   { getNowPlaying, getMoreNowPlaying }
-)(NowPlayingContainer);
+)(NowPlayingPContainr);

@@ -1,0 +1,93 @@
+@import "styles/Position.scss";
+@import "styles/ColorScheme.scss";
+
+.UpcomingTemplate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  &-Wrap {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    &-MovieUl {
+      margin-bottom: 0;
+      & > li {
+        height: 310px;
+        margin-bottom: 42px;
+      }
+    }
+    &-Movie {
+      list-style: none;
+      padding: 0;
+      overflow: hidden;
+      &-List {
+        float: left;
+        position: relative;
+        width: 184px;
+        margin: 0 7.5px;
+        text-align: center;
+        &-Poster {
+          overflow: hidden;
+          position: relative;
+          height: 262px;
+          border-radius: 4px;
+          &-Info {
+            display: block;
+            height: 262px;
+            & > img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        &-Info {
+          display: block;
+          margin-top: 14px;
+          &-Title {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-bottom: 6px;
+            font-size: 16px;
+            font-weight: 700;
+          }
+
+          &-SubInfo {
+            & > span {
+              position: relative;
+              margin-left: 8px;
+            }
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            &-Date {
+              margin-left: 0;
+              font-weight: 600;
+            }
+            &-Vote {
+              padding-left: 8px;
+              &-S::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 4px;
+                left: 0;
+                width: 1px;
+                height: 12px;
+                background: #b2b2b2;
+              }
+              &-S {
+                color: $yellow;
+                padding-right: 1.5px;
+              }
+              &-V {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

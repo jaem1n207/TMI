@@ -3,12 +3,12 @@ import style from "./UpcomingPage.scss";
 import classNames from "classnames/bind";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
-import UpcomingContainer from "containers/UpComing/UpcomingContainer";
+import NowPlayingPContainer from "containers/NowPlayingPContainer";
 
 const cx = classNames.bind(style);
 
-interface UpcomingPageProps {}
-const UpcomingPage: React.SFC<UpcomingPageProps> = () => {
+interface NowPlayingPPageProps {}
+const NowPlayingPPage: React.SFC<NowPlayingPPageProps> = () => {
   return (
     <div className={cx("PageTemplate1")}>
       <div className={cx("PageTemplate1-Navbar")}>
@@ -20,7 +20,7 @@ const UpcomingPage: React.SFC<UpcomingPageProps> = () => {
         </div>
         <div className={cx("PageTemplate1-Wrap-Content")}>
           <div className={cx("PageTemplate1-Wrap-Content-Div")}>
-            <UpcomingContainer />
+            <NowPlayingPContainer />
           </div>
         </div>
       </div>
@@ -28,4 +28,4 @@ const UpcomingPage: React.SFC<UpcomingPageProps> = () => {
   );
 };
 
-export default UpcomingPage;
+export default NowPlayingPPage;

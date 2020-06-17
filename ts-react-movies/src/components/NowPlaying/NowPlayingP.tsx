@@ -1,26 +1,30 @@
 /* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
 import { Link } from "react-router-dom";
-import style from "./Upcoming.scss";
+import style from "./NowPlayingP.scss";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(style);
 
-interface UpcomingProps {
-  upcoming:
+interface NowPlayingPProps {
+  nowPlaying:
     | Array<{
-        poster_path: string;
-        id: number;
-        title: string;
-        vote_average: any;
-        release_date: string;
+        poster_path: string; // 영화 포스터 (세로 큼)
+        id: number; // 고유 id
+        title: string; // 제목
+        vote_average: number; // 평점 (10점 만점)
+        release_date: string; // 개봉일
       }>
     | undefined;
+
+  getMoreNowPlaying: Function;
 }
-const Upcoming: React.FC<UpcomingProps> = ({ upcoming }) => {
+const NowPlayingP: React.FC<NowPlayingPProps> = ({ nowPlaying }) => {
   return (
     <>
-      <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Upcoming Movies</h1>
+      <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
+        nowPlaying Movies
+      </h1>
       <div className={cx("UpcomingTemplate")}>
         <div className={cx("UpcomingTemplate-Wrap")}>
           <ul
@@ -28,8 +32,8 @@ const Upcoming: React.FC<UpcomingProps> = ({ upcoming }) => {
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {upcoming?.map((item, i) => (
-              <UpcomingCard
+            {nowPlaying?.map((item, i) => (
+              <NowPlayingPCard
                 key={i}
                 id={item.id}
                 poster_path={item.poster_path}
@@ -45,16 +49,16 @@ const Upcoming: React.FC<UpcomingProps> = ({ upcoming }) => {
   );
 };
 
-export default Upcoming;
+export default NowPlayingP;
 
-interface UpcomingCardProps {
+interface NowPlayingPCardProps {
   poster_path: string;
   id: number;
   title: string;
   vote_average: any;
   release_date: string;
 }
-const UpcomingCard: React.FC<UpcomingCardProps> = ({
+const NowPlayingPCard: React.FC<NowPlayingPCardProps> = ({
   id,
   poster_path,
   title,
