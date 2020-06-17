@@ -3,6 +3,7 @@ import style from "./UpcomingPage.scss";
 import classNames from "classnames/bind";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
+import TopRate from "containers/TopRate/TopRateContainer";
 
 const cx = classNames.bind(style);
 
@@ -18,7 +19,9 @@ const UpcomingPage: React.SFC<UpcomingPageProps> = () => {
           <Header />
         </div>
         <div className={cx("PageTemplate1-Wrap-Content")}>
-          <div className={cx("PageTemplate1-Wrap-Content-Div")}>h</div>
+          <div className={cx("PageTemplate1-Wrap-Content-Div")}>
+            <TopRate />
+          </div>
         </div>
       </div>
     </div>
