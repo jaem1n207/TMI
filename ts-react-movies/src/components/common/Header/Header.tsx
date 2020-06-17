@@ -3,7 +3,7 @@ import style from "./Header.scss";
 import classNames from "classnames/bind";
 import Input from "components/common/Input/Input";
 import Button from "components/common/Button/Button";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as Props from "./Props";
 
@@ -40,15 +40,19 @@ const Header: React.SFC<Props.HeaderProps> = ({
       <div className={cx("Header-Wrap-Nav")}>
         <ul className={cx("Header-Wrap-Nav-Ul")}>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <Link to="/tv">TV</Link>
+            <NavLink to="/tv" activeStyle={{ color: "#59babc" }}>
+              TV
+            </NavLink>
           </li>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <Link to="/">Movies</Link>
+            <NavLink to="/" activeStyle={{ color: "#59babc" }}>
+              Movies
+            </NavLink>
           </li>
         </ul>
       </div>
       <span className={cx("Header-Wrap-Input")}>
-        <Link to="/search">
+        <NavLink to="/search" activeStyle={{ color: "#59babc" }}>
           <label className={cx("Header-Wrap-Button")}>
             <Button
               style={btnStyle}
@@ -63,7 +67,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
               onClick={onClick}
             ></Button>
           </label>
-        </Link>
+        </NavLink>
       </span>
     </div>
   );
