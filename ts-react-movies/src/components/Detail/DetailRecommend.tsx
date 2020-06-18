@@ -40,13 +40,13 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
   };
 
   return (
-    <>
+    <div className="Recommend">
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
         Recommended Movie
       </h1>
-      <div className="DetailRecommend-Wrap">
-        <div className="DetailRecommend-Wrap-Title"></div>
-        <Slider {...setting} className="DetailRecommend-Wrap-Slider">
+      <div className="Recommend-DetailRecommend-Wrap">
+        <div className="Recommend-DetailRecommend-Wrap-Title"></div>
+        <Slider {...setting} className="Recommend-DetailRecommend-Wrap-Slider">
           {recommend && recommend.length > 0 ? (
             recommend
               .slice(0, 18)
@@ -65,7 +65,7 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
           )}
         </Slider>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -89,12 +89,12 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
   const average: string = (vote_average / 2).toFixed(1);
 
   return (
-    <div className="DetailRecommend-Wrap-Content">
+    <div className="Recommend-DetailRecommend-Wrap-Content">
       <Link to={`/detail/${id}`}>
         {backdrop_path !== null ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img
-            className="DetailRecommend-Wrap-Content-Img"
+            className="Recommend-DetailRecommend-Wrap-Content-Img"
             style={{
               width: "300px",
               height: "180px",
@@ -107,7 +107,7 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
         ) : (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img
-            className="DetailRecommend-Wrap-Content-Img"
+            className="Recommend-DetailRecommend-Wrap-Content-Img"
             style={{
               width: "300px",
               height: "180px",
@@ -119,17 +119,19 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
           />
         )}
       </Link>
-      <div className="DetailRecommend-Wrap-Content-Info">
-        <div className="DetailRecommend-Wrap-Content-Info-TDG">
-          <div className="DetailRecommend-Wrap-Content-Info-TDG-Title">
+      <div className="Recommend-DetailRecommend-Wrap-Content-Info">
+        <div className="Recommend-DetailRecommend-Wrap-Content-Info-TDG">
+          <div className="Recommend-DetailRecommend-Wrap-Content-Info-TDG-Title">
             {title}
           </div>
         </div>
-        <div className="DetailRecommend-Wrap-Content-Info-TDG-Date">
+        <div className="Recommend-DetailRecommend-Wrap-Content-Info-TDG-Date">
           {year}.{month}
         </div>
-        <div className="DetailRecommend-Wrap-Content-Info-Vote">
-          <span className="DetailRecommend-Wrap-Content-Info-Vote-Star">★</span>
+        <div className="Recommend-DetailRecommend-Wrap-Content-Info-Vote">
+          <span className="Recommend-DetailRecommend-Wrap-Content-Info-Vote-Star">
+            ★
+          </span>
           {average}{" "}
         </div>
       </div>

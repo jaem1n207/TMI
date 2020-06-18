@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -38,7 +39,7 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
   };
 
   return (
-    <>
+    <div>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Trailer</h1>
       {videos?.length === 0 ? (
         <div className="DetailVideo-Wrap-Fail">
@@ -82,7 +83,7 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
           </Slider>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

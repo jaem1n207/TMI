@@ -1,8 +1,8 @@
 @import "styles/ColorScheme.scss";
 
-.Recommend {
+.SimilarList {
   position: relative;
-  &-DetailRecommend-Wrap {
+  &-Wrap {
     overflow: hidden;
     height: 75%;
     width: 81%;
@@ -16,7 +16,7 @@
       border-width: thin;
       width: 96%;
     }
-    &-Slider {
+    &-Slider1 {
       width: 100%;
       height: 100%;
       & > .slick-slide {

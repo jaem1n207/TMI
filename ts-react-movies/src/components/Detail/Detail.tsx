@@ -61,7 +61,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
 
   return (
     <>
-      <ReactHelmet title={`${title}`} description="상세정보">
+      <ReactHelmet title={`${title} 상세보기`} description="상세정보">
         <meta charSet="utf-8" />
         <title>{`${title}`}</title>
       </ReactHelmet>
