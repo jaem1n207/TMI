@@ -38,4 +38,8 @@ export const movies = {
     defaultApi.get(
       `movie/top_rated?api_key=${MOVIE_API_KEY}&language=ko&page=1&region=KR`
     ),
+  similar: (id: string) =>
+    defaultApi.get(
+      `movie/${id}/similar?api_key=${MOVIE_API_KEY}&language=ko&page=1`
+    ),
 };

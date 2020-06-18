@@ -8,6 +8,7 @@ import detail, { DetailState } from "./Detail";
 import recommend, { RecommendState } from "./Recommend";
 import upcoming, { UpcomingState } from "./Upcoming";
 import topRate, { TopRateState } from "./TopRate";
+import similar, { SimilarState } from "./Similar";
 
 const reducers = combineReducers({
   nowPlaying,
@@ -18,6 +19,7 @@ const reducers = combineReducers({
   recommend,
   upcoming,
   topRate,
+  similar,
 });
 
 export default reducers;
@@ -31,4 +33,5 @@ export interface RootState {
   recommend: RecommendState;
   upcoming: UpcomingState;
   topRate: TopRateState;
+  similar: SimilarState;
 }
