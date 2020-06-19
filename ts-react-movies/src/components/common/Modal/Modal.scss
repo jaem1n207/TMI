@@ -1,0 +1,71 @@
+@import "styles/Position.scss";
+@import "styles/ColorScheme.scss";
+
+.Modal-Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: $white-1;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  width: 580px;
+  height: 620px;
+  padding: 30px 25px;
+  &-Scroll {
+    overflow-y: auto;
+    height: 100%;
+  }
+  /* 배우 정보 */
+  &-Infor {
+    margin-bottom: 30px;
+    text-align: center;
+    &-Thum {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 15px;
+      & > span {
+        & > img {
+          width: 100%;
+          border: none;
+          vertical-align: top;
+        }
+      }
+    }
+    &-Article {
+      &-Name {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 1.2rem;
+      }
+      &-Birth {
+        display: block;
+        color: #666;
+        font-size: 0.95rem;
+      }
+    }
+  }
+  /* 필모그래피 */
+  &-Filmography {
+    padding: 0 25px;
+    &-Title {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+    & > ul {
+      overflow: hidden;
+      margin: 0 -5px;
+      list-style: none;
+    }
+  }
+}
