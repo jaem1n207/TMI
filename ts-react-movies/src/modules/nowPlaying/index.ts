@@ -5,9 +5,10 @@ import produce from "immer";
 /* Types */
 export interface NowPlayingState {
   loading?: boolean;
-  page?: number;
+  pages?: number;
   total_pages?: number;
   nowPlaying?: Array<Object>;
+  morePlaying?: Array<object>;
 }
 
 export interface ObjectType {
@@ -44,15 +45,19 @@ export const getNowFail = (payload: NowPlayingState) => ({
 });
 
 /* Api actions */
-export const getNowPlaying = (page: number = 1) => {
+export const getNowPlaying = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(getNowRequest({ loading: true }));
 
       const result = await api.movies.nowPlaying(page);
       const nowPlaying = result.data.results;
+      const pages = result.data.page;
+      const total_pages = result.data.total_pages;
 
-      dispatch(getNowSuccess({ loading: false, nowPlaying }));
+      dispatch(
+        getNowSuccess({ loading: false, nowPlaying, pages, total_pages })
+      );
     } catch (e) {
       dispatch(getNowFail({ loading: false }));
     }
@@ -64,10 +69,14 @@ export const getMoreNowPlaying = (page: number) => {
     try {
       dispatch(getNowRequest({ loading: true }));
 
-      const result = await api.movies.nowPlaying(page + 1);
-      const nowPlaying = result.data.results;
+      const result = await api.movies.nowPlaying(page);
+      const morePlaying = result.data.results;
+      const pages = result.data.page;
+      const total_pages = result.data.total_pages;
 
-      dispatch(getNowSuccess({ loading: false, nowPlaying }));
+      dispatch(
+        getNowSuccess({ loading: false, morePlaying, pages, total_pages })
+      );
     } catch (e) {
       dispatch(getNowFail({ loading: false }));
     }
@@ -77,17 +86,20 @@ export const getMoreNowPlaying = (page: number) => {
 /* initialState */
 const initialState: NowPlayingState = {
   loading: false,
-  page: 1,
+  pages: 1,
+  total_pages: 5,
   nowPlaying: [],
+  morePlaying: [],
 };
 
 interface Action {
   type?: string;
-  page?: number;
-  total_pages?: number;
   payload: {
     loading: boolean;
     nowPlaying: Array<ObjectType>;
+    morePlaying: Array<ObjectType>;
+    pages?: number;
+    total_pages?: number;
   };
 }
 
@@ -102,6 +114,9 @@ const reducer = (state = initialState, action: Action): NowPlayingState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.nowPlaying = action.payload.nowPlaying;
+        draft.morePlaying = action.payload.morePlaying;
+        draft.pages = action.payload.pages;
+        draft.total_pages = action.payload.total_pages;
       });
     case GET_NOW_FAIL:
       return produce(state, (draft) => {

@@ -6,6 +6,7 @@ import produce from "immer";
 export interface VideosState {
   loading?: boolean;
   videos?: Array<Object>;
+  movieKeys?: string;
 }
 
 export interface ObjectType {
@@ -44,8 +45,9 @@ export const getVideos = (id: string) => {
 
       const result = await api.movies.videos(id);
       const videos = result.data.results;
+      const movieKeys = videos[0].key;
 
-      dispatch(getVideosSuccess({ loading: false, videos }));
+      dispatch(getVideosSuccess({ loading: false, videos, movieKeys }));
     } catch (e) {
       dispatch(getVideosFail({ loading: false }));
     }
@@ -56,12 +58,14 @@ export const getVideos = (id: string) => {
 const initialState: VideosState = {
   loading: false,
   videos: [],
+  movieKeys: "",
 };
 
 interface Action {
   type?: string;
   payload: {
     loading: boolean;
+    movieKeys: string;
     videos: Array<ObjectType>;
   };
 }
@@ -77,6 +81,7 @@ const reducer = (state = initialState, action: Action): VideosState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.videos = action.payload.videos;
+        draft.movieKeys = action.payload.movieKeys;
       });
     case GET_VIDEOS_FAIL:
       return produce(state, (draft) => {

@@ -1,11 +1,11 @@
 import React from "react";
-import TrailerContainer from "containers/Trailer/TrailerContainer";
+import HomeTrailerContainer from "containers/Trailer/HomeTraillerContainer";
 
 interface VideosPageProps {}
 const VideosPage: React.SFC<VideosPageProps> = () => {
   return (
     <>
-      <TrailerContainer />
+      <HomeTrailerContainer />
     </>
   );
 };

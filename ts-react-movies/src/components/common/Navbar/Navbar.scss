@@ -13,6 +13,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     color: $white-1;
+    text-decoration: none;
     margin-right: 25%;
     height: 6%;
     &-Title {
@@ -28,6 +29,7 @@
     list-style: none;
     font-weight: 500;
     padding-left: 0;
+    text-decoration: none;
     @media (max-width: 600px) {
       font-size: 0.8rem;
     }

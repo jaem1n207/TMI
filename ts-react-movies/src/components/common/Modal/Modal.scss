@@ -66,6 +66,8 @@
       overflow: hidden;
       margin: 0 -5px;
       list-style: none;
+      & > li {
+      }
     }
   }
 }

@@ -91,7 +91,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
                 </a>
               </div>
             ) : (
-              <span>공식사이트가 없어요</span>
+              <span>가 없어요</span>
             )}
           </div>
         </div>

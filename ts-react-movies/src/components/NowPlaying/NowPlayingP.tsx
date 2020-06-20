@@ -7,6 +7,11 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
 interface NowPlayingPProps {
+  pages: number | undefined;
+  total_pages: number | undefined;
+  getMoreMovie:
+    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
+    | undefined;
   nowPlaying:
     | Array<{
         poster_path: string; // 영화 포스터 (세로 큼)
@@ -16,10 +21,15 @@ interface NowPlayingPProps {
         release_date: string; // 개봉일
       }>
     | undefined;
-
-  getMoreNowPlaying: Function;
+  moreMovies: Array<any>;
 }
-const NowPlayingP: React.FC<NowPlayingPProps> = ({ nowPlaying }) => {
+const NowPlayingP: React.FC<NowPlayingPProps> = ({
+  nowPlaying,
+  pages,
+  total_pages,
+  getMoreMovie,
+  moreMovies,
+}) => {
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
@@ -42,7 +52,20 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({ nowPlaying }) => {
                 vote_average={item.vote_average}
               />
             ))}
+            {moreMovies?.map((item, i) => (
+              <NowPlayingPCard
+                key={i}
+                id={item.id}
+                poster_path={item.poster_path}
+                title={item.title}
+                release_date={item.release_date}
+                vote_average={item.vote_average}
+              />
+            ))}
           </ul>
+          <div className={cx("buttonBox", pages, total_pages)}>
+            <button onClick={getMoreMovie}>더 보기</button>
+          </div>
         </div>
       </div>
     </>

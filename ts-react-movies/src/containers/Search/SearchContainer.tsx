@@ -34,11 +34,12 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
   }, [searchResult]);
   /* input 값이 바뀔 때마다 apiCall() 호출 */
   useEffect(() => {
+    console.log(toggle);
     apiCall();
   }, [keyword]);
 
   const onChange = (e: React.FormEvent<HTMLInputElement>): void => {
-    apiClear();
+    // apiClear();
     setKeyword(e.currentTarget.value);
   };
 
@@ -48,15 +49,18 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
     apiCallTime = setTimeout(() => {
       getSearch(keyword);
       if (keyword === "") {
+        setToggle(true);
         setMovies([]);
       } else {
+        getSearch(keyword);
+        setToggle(false);
       }
-    }, 200);
+    }, 500);
   };
 
-  const apiClear = () => {
-    clearTimeout(apiCallTime);
-  };
+  // const apiClear = () => {
+  //   clearTimeout(apiCallTime);
+  // };
 
   /* 최근 검색 결과 클릭 */
   const onClick = (text: string): void => {

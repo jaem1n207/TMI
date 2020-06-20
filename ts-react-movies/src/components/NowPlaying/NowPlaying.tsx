@@ -1,9 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
 import { Link } from "react-router-dom";
+import classnames from "classnames/bind";
+import style from "./NowPlaying.scss";
 import "./NowPlaying.scss";
 
+const cx = classnames.bind(style);
+
 interface NowPlayingProps {
+  pages: number | undefined;
+  total_pages: number | undefined;
   nowPlaying:
     | Array<{
         poster_path: string; // 영화 포스터 (세로 큼)
@@ -19,8 +25,6 @@ interface NowPlayingProps {
         release_date: string; // 개봉일
       }>
     | undefined;
-
-  getMoreNowPlaying: Function;
 }
 const NowPlaying: React.FC<NowPlayingProps> = ({ nowPlaying }) => {
   return (

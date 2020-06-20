@@ -1,30 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import { RootState } from "modules";
 import NowPlayingList from "components/NowPlaying/NowPlaying";
-import { getNowPlaying, getMoreNowPlaying } from "modules/nowPlaying";
+import { getNowPlaying } from "modules/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 interface NowPlayingContainerProps {
   loading: boolean | undefined;
   nowPlaying: Array<any> | undefined;
-  page?: number;
+  pages?: number;
   total_pages?: number;
   getNowPlaying: Function;
-  getMoreNowPlaying: Function;
 }
 const NowPlayingContainer: React.SFC<NowPlayingContainerProps> = ({
   loading,
   nowPlaying,
-  page,
+  pages,
   total_pages,
-  getMoreNowPlaying,
   getNowPlaying,
 }) => {
+  console.log(pages, total_pages);
+
   useEffect(() => {
-    getNowPlaying(page);
-  }, [page]);
+    getNowPlaying(pages);
+  }, [pages]);
 
   return (
     <>
@@ -32,8 +32,9 @@ const NowPlayingContainer: React.SFC<NowPlayingContainerProps> = ({
         <LoadingPage />
       ) : (
         <NowPlayingList
+          pages={pages}
+          total_pages={total_pages}
           nowPlaying={nowPlaying}
-          getMoreNowPlaying={getMoreNowPlaying}
         />
       )}
       {/* <div page={page} total_pages={total_pages}>
@@ -47,8 +48,8 @@ export default connect(
   (state: RootState, props) => ({
     loading: state.nowPlaying.loading,
     nowPlaying: state.nowPlaying.nowPlaying,
-    page: state.nowPlaying.page,
+    pages: state.nowPlaying.pages,
     total_pages: state.nowPlaying.total_pages,
   }),
-  { getNowPlaying, getMoreNowPlaying }
+  { getNowPlaying }
 )(NowPlayingContainer);

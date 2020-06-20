@@ -1,29 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { RootState } from "modules";
-import { getNowPlaying, getMoreNowPlaying } from "modules/nowPlaying";
+import { getMoreNowPlaying, getNowPlaying } from "modules/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import NowPlayingP from "components/NowPlaying/NowPlayingP";
 
 interface NowPlayingPContainrProps {
   loading: boolean | undefined;
-  nowPlaying: Array<any> | undefined;
-  page?: number;
-  total_pages?: number;
-  getNowPlaying: Function;
+  nowPlaying: any;
+  morePlaying: any;
+  pages?: number;
+  total_pages: any;
   getMoreNowPlaying: Function;
+  getNowPlaying: Function;
 }
 const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
   loading,
   nowPlaying,
-  page,
+  pages,
   total_pages,
-  getNowPlaying,
   getMoreNowPlaying,
+  getNowPlaying,
 }) => {
+  const [page, setPage] = useState(1);
+  const [playingMovies, setPlayingMovies] = useState<any[]>([]);
+  const [moreMovies, setMoreMovies] = useState<any[]>([]);
+
+  console.log("pages: ", pages, "page: ", page);
+
   useEffect(() => {
     getNowPlaying(page);
-  }, [page]);
+    setPlayingMovies(nowPlaying);
+  }, []);
+
+  /* 더보기 */
+  const getMoreMovie = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    setPage(page + 1);
+    if (total_pages > page) {
+      getNowPlaying(page);
+      getMoreNowPlaying(page);
+    }
+  };
 
   return (
     <>
@@ -31,8 +50,11 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
         <LoadingPage />
       ) : (
         <NowPlayingP
-          getMoreNowPlaying={getMoreNowPlaying}
+          getMoreMovie={getMoreMovie}
+          pages={pages}
+          total_pages={total_pages}
           nowPlaying={nowPlaying}
+          moreMovies={moreMovies}
         />
       )}
     </>
@@ -43,8 +65,9 @@ export default connect(
   (state: RootState, props) => ({
     loading: state.nowPlaying.loading,
     nowPlaying: state.nowPlaying.nowPlaying,
-    page: state.nowPlaying.page,
+    morePlaying: state.nowPlaying.morePlaying,
+    pages: state.nowPlaying.pages,
     total_pages: state.nowPlaying.total_pages,
   }),
-  { getNowPlaying, getMoreNowPlaying }
+  { getMoreNowPlaying, getNowPlaying }
 )(NowPlayingPContainr);
