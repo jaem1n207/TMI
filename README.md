@@ -34,8 +34,8 @@
 * Redux Thunk
 * DUCKS Pattern
 * Redux-logger
-* Higher-Order-Components
-* Sass
+* Container Presenter Pattern
+* Scss
 * Immer
 
 ### Screenshots
