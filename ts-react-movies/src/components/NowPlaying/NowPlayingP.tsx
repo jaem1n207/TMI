@@ -7,8 +7,8 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
 interface NowPlayingPProps {
-  pages: number | undefined;
-  total_pages: number | undefined;
+  pages: number;
+  total_pages: number;
   getMoreMovie:
     | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
     | undefined;
@@ -30,6 +30,7 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
   getMoreMovie,
   moreMovies,
 }) => {
+  console.log("pages: ", pages, "total: ", total_pages);
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
@@ -63,7 +64,10 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
               />
             ))}
           </ul>
-          <div className={cx("buttonBox", pages, total_pages)}>
+
+          <div
+            className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
+          >
             <button onClick={getMoreMovie}>더 보기</button>
           </div>
         </div>

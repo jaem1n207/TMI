@@ -18,6 +18,8 @@ interface HomeTrailerContainerProps {
 }
 
 function getRandomId(popular: any[] | undefined) {
+  console.log("getRandomId");
+
   const movieIds: any[] | undefined = popular?.map(
     (item: any, i: number) => item.id
   );

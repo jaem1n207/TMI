@@ -9,7 +9,7 @@ interface NowPlayingPContainrProps {
   loading: boolean | undefined;
   nowPlaying: any;
   morePlaying: any;
-  pages?: number;
+  pages: any;
   total_pages: any;
   getMoreNowPlaying: Function;
   getNowPlaying: Function;
@@ -38,8 +38,7 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     setPage(page + 1);
-    if (total_pages > page) {
-      getNowPlaying(page);
+    if (total_pages >= page) {
       getMoreNowPlaying(page);
     }
   };
