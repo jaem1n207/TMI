@@ -47,6 +47,12 @@
         margin-bottom: 4px;
         font-size: 1.2rem;
       }
+      &-Place {
+        display: block;
+        margin-bottom: 8px;
+        font-family: roboto;
+        font-size: 13px;
+      }
       &-Birth {
         display: block;
         color: #666;
@@ -67,6 +73,28 @@
       margin: 0 -5px;
       list-style: none;
       & > li {
+        float: left;
+        width: 107px;
+        margin: 0 5px 25px 5px;
+        &-Poster {
+          display: block;
+          width: 107px;
+          height: 147px;
+          margin-bottom: 10px;
+          border-radius: 4px;
+          & > img {
+            width: 100%;
+            border: none;
+            vertical-align: top;
+          }
+        }
+        &-Title {
+          font-size: 13px;
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
     }
   }

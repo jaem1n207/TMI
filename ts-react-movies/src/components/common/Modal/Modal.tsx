@@ -6,6 +6,8 @@ const cx = classNames.bind(style);
 
 interface ModalProps {}
 const Modal: React.FC<ModalProps> = () => {
+  const poster = require("assets/poster.png");
+
   return (
     <>
       <div className={cx("Modal-Overlay")} />
@@ -19,6 +21,7 @@ const Modal: React.FC<ModalProps> = () => {
             </div>
             <div className={cx("Modal-Infor-Article")}>
               <span className={cx("Modal-Infor-Article-Name")}>송강호</span>
+              <span className={cx("Modal-Infor-Article-Place")}>대한민국</span>
               <span className={cx("Modal-Infor-Article-Birth")}>
                 1996년 06월 01일 : 2020년 03월 01일
               </span>
@@ -29,7 +32,12 @@ const Modal: React.FC<ModalProps> = () => {
               필모그래피
             </strong>
             <ul>
-              <li></li>
+              <li>
+                <span className={cx("Modal-Infor-Filmography-Poster")}>
+                  <img src={poster}></img>
+                </span>
+                <span className={cx("Modal-Infor-Filmography-Title")}></span>
+              </li>
             </ul>
           </div>
         </div>
