@@ -3,7 +3,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.9rem;
+  width: 31%;
+  font-size: 1.4rem;
+  align-items: center;
+  margin: auto;
   &.none {
     display: none;
   }
@@ -11,9 +14,14 @@
     display: block;
   }
   &-Title {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
     opacity: 0.7;
+    transition-duration: 0.35s;
     cursor: pointer;
     &:hover {
+      transform: scale(1.03);
       opacity: 1;
     }
   }
@@ -23,5 +31,25 @@
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+.HistorySearch-Form {
+  height: 600px;
+  &.none {
+    display: none;
+  }
+  &.block {
+    display: block;
+  }
+  &-Title {
+    display: inline-block;
+    font-weight: bold;
+    display: flex;
+    margin-left: auto;
+    width: 31%;
+    margin-right: auto;
+    margin-top: 40px;
+    font-size: 1.2rem;
   }
 }

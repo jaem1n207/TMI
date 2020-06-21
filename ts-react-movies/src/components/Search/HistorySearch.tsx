@@ -1,7 +1,7 @@
 import React from "react";
 import * as Props from "./Props";
 import "./HistorySearch.scss";
-import styled from "styled-components";
+import { FaTimesCircle } from "react-icons/fa";
 
 const HistorySearch: React.FC<Props.HistorySearchProps> = ({
   historySearch,
@@ -9,9 +9,12 @@ const HistorySearch: React.FC<Props.HistorySearchProps> = ({
   onRemove,
   toggle,
 }) => {
+  console.log("historySearch: ", historySearch);
   return (
-    <div className={`HistorySearch-Wrap ${toggle ? "block" : "none"}`}>
-      {historySearch.length !== 0 && <div>최근 검색</div>}
+    <div className={`HistorySearch-Form ${toggle ? "block" : "none"}`}>
+      {historySearch.length !== 0 && (
+        <div className="HistorySearch-Form-Title">최근 검색</div>
+      )}
       {historySearch.map((item: string, i: number) => (
         <HistorySearchCard
           key={i}
@@ -34,7 +37,10 @@ const HistorySearchCard: React.FC<Props.HistorySearchCardProps> = ({
       <div className="HistorySearch-Wrap-Title" onClick={() => onClick(item)}>
         {item}
       </div>
-      <div className="HistorySearch-Wrap-Icon" onClick={() => onRemove(item)} />
+      <FaTimesCircle
+        className="HistorySearch-Wrap-Icon"
+        onClick={() => onRemove(item)}
+      />
     </div>
   );
 };

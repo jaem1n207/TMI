@@ -32,11 +32,6 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
       setMovies(searchResult);
     }
   }, [searchResult]);
-  /* input 값이 바뀔 때마다 apiCall() 호출 */
-  useEffect(() => {
-    console.log(toggle);
-    apiCall();
-  }, [keyword]);
 
   const onChange = (e: React.FormEvent<HTMLInputElement>): void => {
     // apiClear();
@@ -44,6 +39,10 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
   };
 
   let apiCallTime: any;
+  /* input 값이 바뀔 때마다 apiCall() 호출 */
+  useEffect(() => {
+    apiCall();
+  }, [keyword]);
 
   const apiCall = () => {
     apiCallTime = setTimeout(() => {
@@ -113,14 +112,12 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
         onCancel={onCancel}
       />
 
-      <div>
-        <HistorySearchList
-          toggle={toggle}
-          historySearch={historySearch}
-          onClick={onClick}
-          onRemove={onRemove}
-        />
-      </div>
+      <HistorySearchList
+        toggle={toggle}
+        historySearch={historySearch}
+        onClick={onClick}
+        onRemove={onRemove}
+      />
     </>
   );
 };

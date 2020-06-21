@@ -3,7 +3,6 @@ import React from "react";
 import style from "./Search.scss";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FaTimesCircle } from "react-icons/fa";
@@ -131,17 +130,22 @@ const SearchCard: React.SFC<SearchCardProps> = ({
   return (
     <div className={cx("SearchCard-Wrap")}>
       <Link to={`/detail/${id}`}>
-        <div className={cx("SearchCard-Wrap-Box")}>
-          <div
-            onClick={() => {
-              historySearch = historySearch.filter((item) => item !== title);
-              localStorage.setItem(
-                "TMI",
-                JSON.stringify([...historySearch, title])
-              );
-            }}
-          />
+        <div
+          className={cx("SearchCard-Wrap-Box")}
+          onClick={() => {
+            console.log("검색 기록: ", ...historySearch);
 
+            historySearch = historySearch.filter((item) => item !== title);
+            localStorage.setItem(
+              "TMI",
+              JSON.stringify([...historySearch, title])
+            );
+            console.log(
+              "저장됐나 혹쉬~~?: ",
+              JSON.stringify([...historySearch, title])
+            );
+          }}
+        >
           {poster_path !== null ? (
             <span>
               <img
