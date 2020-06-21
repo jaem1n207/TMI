@@ -23,7 +23,15 @@ const DetailCastContainer: React.SFC<DetailCastContainerProps> = ({
     getCastDetail(castId);
   }, []);
 
-  return <>{loading ? <LoadingPage /> : <DetailCastList />}</>;
+  return (
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <DetailCastList castInfo={castInfo} castCredits={castCredits} />
+      )}
+    </>
+  );
 };
 
 export default connect(

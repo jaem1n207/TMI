@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./Modal.scss";
 import classNames from "classnames/bind";
+import { CastDetailState, ObjectType } from "modules/Detail/detailCast";
+import { Scrollbars } from "react-custom-scrollbars";
 
 const cx = classNames.bind(style);
 
-interface ModalProps {}
+interface ModalProps {
+  castInfo: any /* gender(1: 여자), birthday, name, deathday, place_of_birth, profile_path,  */;
+  castCredits: Array<ObjectType> | undefined;
+}
 const Modal: React.FC<ModalProps> = () => {
   const poster = require("assets/poster.png");
   const profile = require("assets/profile.png");
