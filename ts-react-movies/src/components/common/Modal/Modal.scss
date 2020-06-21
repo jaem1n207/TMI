@@ -11,6 +11,7 @@
 }
 
 .Modal {
+  color: black;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -24,76 +25,97 @@
   &-Scroll {
     overflow-y: auto;
     height: 100%;
-  }
-  /* 배우 정보 */
-  &-Infor {
-    margin-bottom: 30px;
-    text-align: center;
-    &-Thum {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 15px;
-      & > span {
-        & > img {
-          width: 100%;
-          border: none;
-          vertical-align: top;
-        }
-      }
-    }
-    &-Article {
-      &-Name {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 1.2rem;
-      }
-      &-Place {
-        display: block;
-        margin-bottom: 8px;
-        font-family: roboto;
-        font-size: 13px;
-      }
-      &-Birth {
-        display: block;
-        color: #666;
-        font-size: 0.95rem;
-      }
-    }
-  }
-  /* 필모그래피 */
-  &-Filmography {
-    padding: 0 25px;
-    &-Title {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
-    & > ul {
-      overflow: hidden;
-      margin: 0 -5px;
-      list-style: none;
-      & > li {
-        float: left;
-        width: 107px;
-        margin: 0 5px 25px 5px;
-        &-Poster {
-          display: block;
-          width: 107px;
-          height: 147px;
-          margin-bottom: 10px;
-          border-radius: 4px;
+    /* 배우 정보 */
+    &-Infor {
+      margin-bottom: 30px;
+      text-align: center;
+      &-Thum {
+        width: 88px;
+        height: 88px;
+        margin: 0 auto 15px;
+        & > span {
           & > img {
             width: 100%;
             border: none;
             vertical-align: top;
           }
         }
-        &-Title {
-          font-size: 13px;
+      }
+      &-Article {
+        &-Name {
           display: block;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
+          margin-bottom: 4px;
+          font-size: 1.2rem;
+        }
+        &-Place {
+          display: block;
+          margin-bottom: 8px;
+          font-family: roboto;
+          font-size: 13px;
+        }
+        &-Birth {
+          display: block;
+          color: #666;
+          font-size: 0.95rem;
+        }
+      }
+    }
+    /* 필모그래피 */
+    &-Filmography {
+      padding: 0 25px;
+      &-Title {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+      &-Ul {
+        overflow: hidden;
+        margin: 0 -5px;
+        list-style: none;
+        &-Li {
+          float: left;
+          width: 107px;
+          margin: 0 5px 25px 5px;
+          &-Poster {
+            display: block;
+            width: 107px;
+            height: 147px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            & > img {
+              width: 100%;
+              border: none;
+              vertical-align: top;
+            }
+          }
+          &-Title {
+            font-size: 13px;
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      &-Btn {
+        display: flex;
+        flex-direction: column;
+        width: 14%;
+        margin: auto;
+        margin-top: 8px !important;
+        & > button {
+          cursor: pointer;
+          border: 0;
+          padding: 12px 0;
+          border-radius: 0 0 10px 10px;
+          font-size: 1rem;
+          color: $white-1;
+          &:hover {
+            background-color: $yellow;
+          }
+          &:active {
+            background-color: $mint;
+          }
         }
       }
     }
