@@ -18,7 +18,7 @@ export interface ObjectType {
   backdrop_path: string; // 영화 배경이미지 (가로 큼)
   original_language?: string; // 언어
   original_title: string; // 영어제목
-  genre_ids: number[]; // 장르
+  genre_ids?: number[]; // 장르
   title: string; // 제목
   vote_average: number; // 평점 (10점 만점)
   overview?: string; // 줄거리

@@ -4,6 +4,7 @@ import { RootState } from "modules";
 import { getMoreNowPlaying, getNowPlaying } from "modules/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import NowPlayingP from "components/NowPlaying/NowPlayingP";
+import { settings } from "cluster";
 
 interface NowPlayingPContainrProps {
   loading: boolean | undefined;
@@ -17,29 +18,61 @@ interface NowPlayingPContainrProps {
 const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
   loading,
   nowPlaying,
+  morePlaying,
   pages,
   total_pages,
   getMoreNowPlaying,
   getNowPlaying,
 }) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
   const [playingMovies, setPlayingMovies] = useState<any[]>([]);
   const [moreMovies, setMoreMovies] = useState<any[]>([]);
 
-  console.log("pages: ", pages, "page: ", page);
+  useEffect(() => {
+    settings();
+  }, []);
+  function settings() {
+    setTotalPages(total_pages);
+    console.log("totalPages: ", totalPages);
+    console.log("page: ", page);
+    /* setPlayingMovies([nowPlaying]); */
+    console.log("playingMovies: gpg", playingMovies);
+    getNowPlaying(page);
+  }
 
   useEffect(() => {
-    getNowPlaying(page);
+    setMoreMovies(morePlaying);
+    setPlayingMovies([nowPlaying, moreMovies]);
+  }, [nowPlaying]);
+  useEffect(() => {
     setPlayingMovies(nowPlaying);
-  }, []);
+    setPlayingMovies([...playingMovies, moreMovies]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    nowPlaying = [...playingMovies, morePlaying];
+    console.log("nowPlayingCont: ", nowPlaying);
+    console.log("morePlayingCont: ", morePlaying);
+  }, [morePlaying]);
 
   /* 더보기 */
   const getMoreMovie = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     setPage(page + 1);
-    if (total_pages >= page) {
-      getMoreNowPlaying(page);
+    if (totalPages >= page) {
+      console.log("page: ", page);
+      console.log("totalpages: ", totalPages);
+
+      getMoreNowPlaying(page + 1);
+    }
+  };
+
+  const getLowMovie = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    setPage(page - 1);
+    if (page !== 1) {
+      getMoreNowPlaying(page - 1);
     }
   };
 
@@ -49,11 +82,12 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
         <LoadingPage />
       ) : (
         <NowPlayingP
+          getLowMovie={getLowMovie}
           getMoreMovie={getMoreMovie}
-          pages={pages}
-          total_pages={total_pages}
+          pages={page}
+          total_pages={totalPages}
           nowPlaying={nowPlaying}
-          moreMovies={moreMovies}
+          morePlaying={morePlaying}
         />
       )}
     </>

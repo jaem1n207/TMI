@@ -92,10 +92,18 @@
   }
 }
 
+.ButtonWrap {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
 .ButtonBox {
   text-align: center;
   margin-top: 50px;
   & > button {
+    margin-right: 4px;
     border: none;
     padding: 5px 20px;
     border-radius: 20px;

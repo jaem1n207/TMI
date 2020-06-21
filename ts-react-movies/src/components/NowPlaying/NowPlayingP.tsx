@@ -9,9 +9,10 @@ const cx = classNames.bind(style);
 interface NowPlayingPProps {
   pages: number;
   total_pages: number;
-  getMoreMovie:
-    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
-    | undefined;
+  getMoreMovie: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  getLowMovie: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   nowPlaying:
     | Array<{
         poster_path: string; // 영화 포스터 (세로 큼)
@@ -21,16 +22,27 @@ interface NowPlayingPProps {
         release_date: string; // 개봉일
       }>
     | undefined;
-  moreMovies: Array<any>;
+  morePlaying?:
+    | Array<{
+        poster_path: string; // 영화 포스터 (세로 큼)
+        id: number; // 고유 id
+        title: string; // 제목
+        vote_average: number; // 평점 (10점 만점)
+        release_date: string; // 개봉일
+      }>
+    | undefined;
 }
 const NowPlayingP: React.FC<NowPlayingPProps> = ({
   nowPlaying,
   pages,
   total_pages,
   getMoreMovie,
-  moreMovies,
+  morePlaying,
+  getLowMovie,
 }) => {
-  console.log("pages: ", pages, "total: ", total_pages);
+  console.log("nowPlayingCom: ", nowPlaying, "morePlayingCom: ", morePlaying);
+
+  // console.log("pages: ", pages, "total: ", total_pages);
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
@@ -53,7 +65,7 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
                 vote_average={item.vote_average}
               />
             ))}
-            {moreMovies?.map((item, i) => (
+            {morePlaying?.map((item, i) => (
               <NowPlayingPCard
                 key={i}
                 id={item.id}
@@ -64,11 +76,15 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
               />
             ))}
           </ul>
-
-          <div
-            className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
-          >
-            <button onClick={getMoreMovie}>더 보기</button>
+          <div className={"ButtonWrap"}>
+            <div className={`ButtonBox ${pages <= 1 ? "none" : "block"}`}>
+              <button onClick={getLowMovie}>이전</button>
+            </div>
+            <div
+              className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
+            >
+              <button onClick={getMoreMovie}>다음</button>
+            </div>
           </div>
         </div>
       </div>
