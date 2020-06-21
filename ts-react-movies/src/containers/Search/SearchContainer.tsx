@@ -55,12 +55,18 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
         getSearch(keyword);
         setToggle(false);
       }
-    }, 500);
+    }, 200);
   };
 
-  // const apiClear = () => {
-  //   clearTimeout(apiCallTime);
-  // };
+  /* const apiClear = () => {
+    clearTimeout(apiCallTime);
+  };
+ */
+
+  //검색창 입력 지우기
+  const onCancel = (): void => {
+    setKeyword("");
+  };
 
   /* 최근 검색 결과 클릭 */
   const onClick = (text: string): void => {
@@ -104,6 +110,7 @@ const SearchContainer: React.SFC<Props.SearchContainerProps> = ({
         handleFocus={handleFocus}
         handleBlur={handleBlur}
         iconColor={iconColor}
+        onCancel={onCancel}
       />
 
       <div>

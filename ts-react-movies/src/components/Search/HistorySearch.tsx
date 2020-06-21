@@ -7,9 +7,10 @@ const HistorySearch: React.FC<Props.HistorySearchProps> = ({
   historySearch,
   onClick,
   onRemove,
+  toggle,
 }) => {
   return (
-    <div className="HistorySearch-Wrap">
+    <div className={`HistorySearch-Wrap ${toggle ? "block" : "none"}`}>
       {historySearch.length !== 0 && <div>최근 검색</div>}
       {historySearch.map((item: string, i: number) => (
         <HistorySearchCard

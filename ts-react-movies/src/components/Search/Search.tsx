@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FaTimesCircle } from "react-icons/fa";
 
 const cx = classNames.bind(style);
 
@@ -18,6 +19,7 @@ interface SearchProps {
   total_results: any;
   handleFocus: (e: any) => void;
   handleBlur: (e: any) => void;
+  onCancel(): void;
   searchResult:
     | Array<{
         popularity?: number; // 인기
@@ -41,6 +43,7 @@ const Search: React.SFC<SearchProps> = ({
   keyword,
   searchResult,
   onChange,
+  onCancel,
   historySearch,
   total_results,
   setKeyword,
@@ -76,6 +79,12 @@ const Search: React.SFC<SearchProps> = ({
               value={keyword}
               onChange={onChange}
               placeholder="영화 제목을 입력해주세요..."
+            />
+            <FaTimesCircle
+              className={`Search-Wrap-Div-Cancel ${
+                keyword !== "" ? "block" : "none"
+              }`}
+              onClick={onCancel}
             />
           </div>
         </form>

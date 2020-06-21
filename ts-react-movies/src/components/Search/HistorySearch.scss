@@ -4,6 +4,12 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.9rem;
+  &.none {
+    display: none;
+  }
+  &.block {
+    display: block;
+  }
   &-Title {
     opacity: 0.7;
     cursor: pointer;
