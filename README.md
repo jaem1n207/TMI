@@ -50,7 +50,7 @@
 </div>
 * Search Page
 <div>
-  <img src="https://user-images.githubusercontent.com/50766847/84932857-e30b0f00-b10f-11ea-82b4-2a095b61a46a.gif" width="auto" height="auto" />
+  <img src="https://user-images.githubusercontent.com/50766847/85218069-ab32ee80-b3d1-11ea-8919-da73943570ca.gif" width="auto" height="auto" />
 </div>
 * NowPlaying page
 <div>
