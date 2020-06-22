@@ -12,8 +12,8 @@
 * NowPlaying Movie
 * Recommendation Movie
 * Cast Info
-* Similar Movie (To Be Added)
-* Detail Cast (To Be Added)
+* Similar Movie
+* Detail Cast
 
 ### TV (To Be Added)
 * Top Rated
@@ -27,16 +27,16 @@
 ### Project Stack
 * React
 * React Router
-* React Helmet
-* Axios
 * TypeScript
 * Redux
 * Redux Thunk
 * DUCKS Pattern
-* Redux-logger
 * Container Presenter Pattern
 * Scss
+* React Helmet
+* Axios
 * Immer
+* Redux-logger
 
 ### Screenshots
 ---------------
