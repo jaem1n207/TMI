@@ -21,7 +21,7 @@ const DetailCastContainer: React.SFC<DetailCastContainerProps> = ({
 }) => {
   useEffect(() => {
     getCastDetail(castId);
-  }, []);
+  }, [castId]);
 
   return (
     <>

@@ -41,7 +41,7 @@ export const getCastDetail = (id: string) => {
 
       const result = await api.movies.detailCast(id);
       const castInfo = result.data;
-      const castCredits = result.data.credits;
+      const castCredits = result.data.credits.cast;
 
       dispatch(getCastDetailSuccess({ loading: false, castInfo, castCredits }));
     } catch (e) {
