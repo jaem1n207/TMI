@@ -30,7 +30,6 @@
 * TypeScript
 * Redux
 * Redux Thunk
-* DUCKS Pattern
 * Container Presenter Pattern
 * Scss
 * React Helmet
