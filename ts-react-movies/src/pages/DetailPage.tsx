@@ -5,6 +5,7 @@ import classNames from "classnames/bind";
 import Navbar from "components/common/Navbar/Navbar";
 import Header from "containers/Header/HeaderContainer";
 import DetailContainer from "containers/Detail/DetailContainer";
+import qs from "qs";
 
 const cx = classNames.bind(style);
 
@@ -14,6 +15,7 @@ export interface MatchParams {
 interface DetailPageProps extends RouteComponentProps<MatchParams> {}
 const DetailPage: React.SFC<DetailPageProps> = (props) => {
   const { movieId } = props.match.params;
+  console.log("movieId: ", movieId);
 
   return (
     <div className={cx("PageTemplate")}>

@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
-import DetailCastList from "components/common/Modal/Modal";
-import LoadingPage from "components/common/LoadingPage/LoadingPage";
+import React, { useEffect, useState } from "react";
+import DetailCastListModal from "components/common/Modal/Modal";
 import { connect } from "react-redux";
 import { RootState } from "modules";
 import { getCastDetail } from "modules/Detail/detailCast";
 
 interface DetailCastContainerProps {
-  loading: boolean | undefined;
   castInfo: any;
   castCredits: any;
   getCastDetail: Function;
-  castId: string;
+  castId: number;
 }
 const DetailCastContainer: React.SFC<DetailCastContainerProps> = ({
-  loading,
   castInfo,
   castCredits,
   getCastDetail,
@@ -22,14 +19,23 @@ const DetailCastContainer: React.SFC<DetailCastContainerProps> = ({
   useEffect(() => {
     getCastDetail(castId);
   }, [castId]);
+  const [modalStatus, setModalStatus] = useState(false);
+
+  const openModal = () => {
+    setModalStatus(true);
+  };
+  const closeModal = () => {
+    setModalStatus(false);
+  };
 
   return (
     <>
-      {loading ? (
-        <LoadingPage />
-      ) : (
-        <DetailCastList castInfo={castInfo} castCredits={castCredits} />
-      )}
+      <DetailCastListModal
+        modalStatus={modalStatus}
+        close={closeModal}
+        castInfo={castInfo}
+        castCredits={castCredits}
+      />
     </>
   );
 };

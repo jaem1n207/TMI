@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DetailList from "components/Detail/Detail";
 import DetailTrailerList from "components/Detail/DetailTrailer";
 import DetailCastList from "components/Detail/DetailCast";
 import DetailRecommendList from "components/Detail/DetailRecommend";
 import SimilarList from "components/Similar/SimilarList";
+
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import { connect } from "react-redux";
 import { RootState } from "modules";
@@ -13,17 +14,23 @@ import { getRecommend } from "modules/Recommend";
 import { getSimilar } from "modules/Similar";
 
 interface DetailContainerProps {
+  /* Movie */
   movieId: string;
   loading: boolean | undefined;
+  /* Cast */
   detail: any;
   detailCast: any;
   getDetail: Function;
+  /* Trailler */
   videos: Array<any> | undefined;
   getVideos: Function;
+  /* Recommend */
   recommend: Array<any> | undefined;
   getRecommend: Function;
+  /* Similar */
   similar: Array<any> | undefined;
   getSimilar: Function;
+  /* PeopleModal */
 }
 const DetailContainer: React.SFC<DetailContainerProps> = ({
   movieId,
@@ -45,6 +52,8 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
     getSimilar(movieId);
   }, [movieId]);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       {loading ? (
@@ -54,7 +63,11 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
       )}
       {loading ? <LoadingPage /> : <DetailTrailerList videos={videos} />}
 
-      {loading ? <LoadingPage /> : <DetailCastList detailCast={detailCast} />}
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <DetailCastList detailCast={detailCast} modalStaus={isModalOpen} />
+      )}
       {loading ? (
         <LoadingPage />
       ) : (

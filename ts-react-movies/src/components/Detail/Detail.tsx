@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
@@ -137,7 +138,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
               <strong key={i}>
                 {item.job === "Director" ? (
                   <span>
-                    <Link to={`/people/${item.id}`}>{item.name}</Link>
+                    <a>{item.name}</a>
                   </span>
                 ) : (
                   ""
@@ -149,9 +150,7 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
             <em style={{ marginRight: "10px" }}>출연</em>{" "}
             {credits.cast.slice(0, 5).map((item, i) => (
               <strong key={i} style={{ marginRight: "1rem" }}>
-                <Link style={{ marginRight: "10x" }} to={`/people/${item.id}`}>
-                  {item.name}
-                </Link>
+                <a style={{ marginRight: "10x" }}>{item.name}</a>
               </strong>
             ))}
           </li>

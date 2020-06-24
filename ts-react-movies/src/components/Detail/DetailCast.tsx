@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Modal from "containers/Detail/DetailCastContainer";
 import classNames from "classnames/bind";
 import style from "./DetailCast.scss";
 import { CreditsType } from "modules/Detail";
@@ -9,9 +9,10 @@ const cx = classNames.bind(style);
 
 interface DetailCastProps {
   detailCast: CreditsType;
+  modalStaus: boolean;
 }
 
-const DetailCast: React.SFC<DetailCastProps> = ({ detailCast }) => {
+const DetailCast: React.SFC<DetailCastProps> = ({ detailCast, modalStaus }) => {
   return (
     <div className={cx("DetailCast-People")}>
       <div className={cx("DetailCast-People-Title")}>
@@ -33,6 +34,7 @@ const DetailCast: React.SFC<DetailCastProps> = ({ detailCast }) => {
                     profile_path={item.profile_path}
                     name={item.name}
                     character={item.character}
+                    modalStatus={modalStaus}
                   />
                 ))
             ) : (
@@ -52,6 +54,7 @@ interface CastcardProps {
   profile_path: string | null;
   name: string;
   character: string;
+  modalStatus: boolean;
 }
 const CastCard: React.SFC<CastcardProps> = ({
   id,
@@ -63,7 +66,9 @@ const CastCard: React.SFC<CastcardProps> = ({
 
   return (
     <li>
-      <Link to={`/people/${id}`}>
+      {/* Modal Start */}
+      <div className={cx("DetailCast-People-Box-Modal")}>
+        <Modal castId={id} />
         <span className={cx("DetailCast-People-Box-Post")}>
           {profile_path !== null ? (
             // eslint-disable-next-line jsx-a11y/alt-text
@@ -76,14 +81,14 @@ const CastCard: React.SFC<CastcardProps> = ({
             <img src={profile} />
           )}
         </span>
-      </Link>
+      </div>
       <div className={cx("DetailCast-People-Box-Div")}>
         <div className={cx("DetailCast-People-Box-Div-Inner")}>
-          <Link to={`/people/${id}`}>
+          <div>
             <span className={cx("DetailCast-People-Box-Div-Inner-Name")}>
               {name}
             </span>
-          </Link>
+          </div>
           <span className={cx("DetailCast-People-Box-Div-Inner-Ch")}>
             {character}
           </span>

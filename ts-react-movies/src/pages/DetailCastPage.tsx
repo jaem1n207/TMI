@@ -3,7 +3,7 @@ import DetailCast from "containers/Detail/DetailCastContainer";
 import { RouteComponentProps } from "react-router-dom";
 
 interface MatchParams {
-  castId: string;
+  castId: any;
 }
 interface DetailCastPageProps extends RouteComponentProps<MatchParams> {}
 const DetailCastPage: React.SFC<DetailCastPageProps> = (props) => {

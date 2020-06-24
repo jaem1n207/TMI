@@ -26,7 +26,7 @@ const Root: React.SFC<RootProps> = () => {
         <Route exact path="/popular" component={DetailPopularPage} />
         <Route exact path="/search" component={SearchPage} />
         <Route exact path="/detail/:movieId" component={DetailPage} />
-        <Route exact path="/people/:castId" component={DetailCastPage} />
+        {/* <Route exact path="/people/:castId" component={DetailCastPage} /> */}
         <Route exact path="/upcoming" component={UpcomingPage} />
         <Route exact path="/toprate" component={TopRatePage} />
         <Route component={NotFoundPage} />
