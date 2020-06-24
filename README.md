@@ -41,7 +41,7 @@
 ---------------
 * Main Page
 <div>
-  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85485094-0bf53d80-b603-11ea-924c-02b59f19bf02.PNG">
+  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85485340-7d34f080-b603-11ea-998d-1897ade41a12.PNG">
 </div>
 * Movie Detail Page
 <div>
