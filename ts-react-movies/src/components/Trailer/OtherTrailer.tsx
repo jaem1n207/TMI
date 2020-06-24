@@ -17,6 +17,7 @@ const OtherTrailer: React.FC<TrailerProps> = ({ movieKeys }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    /* settings with modules */
     dotsClass: "Trailer-Dots",
   };
 

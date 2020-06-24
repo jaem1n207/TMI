@@ -90,6 +90,7 @@ iframe {
   top: 66.5%;
   left: 37%;
   & > li {
+    list-style: none;
     width: 10px;
     height: 10px;
     color: transparent;
@@ -102,6 +103,14 @@ iframe {
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
     color: transparent;
+    &.slick-active {
+      background-color: $yellow;
+    }
+    &:hover,
+    &:focus {
+      background: white;
+      outline: 0;
+    }
     & > button {
       border: none;
       outline: none;

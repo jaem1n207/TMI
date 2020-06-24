@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import Slider from "react-slick";
 import "./Trailer.scss";
+import styles from "./slick.module.scss";
 import ReactPlayer from "react-player";
 
 interface TrailerProps {
@@ -26,6 +27,7 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    /* settings with modules */
     dotsClass: "Trailer-Dots",
   };
 
