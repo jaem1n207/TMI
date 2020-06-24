@@ -45,7 +45,7 @@
 </div>
 * Movie Detail Page
 <div>
-  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/84971001-be865580-b156-11ea-9b45-5ece11e9122d.png">
+  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85485463-c127f580-b603-11ea-9ee4-6af1a7817851.png">
 </div>
 * Search Page
 <div>
