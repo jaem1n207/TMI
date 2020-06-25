@@ -12,7 +12,7 @@ interface ModalProps {
   castInfo: any /* gender(1: 여자), birthday, name, deathday, place_of_birth, profile_path,  */;
   castCredits: any;
   modalStatus: boolean;
-  close: Function;
+  close: (e: any) => void;
 }
 const Modal: React.FC<ModalProps> = ({
   castInfo,
@@ -26,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({
     <>
       {modalStatus ? (
         <>
-          <div className={cx("Modal-Overlay")} onClick={() => close} />
+          <div className={cx("Modal-Overlay")} onClick={close} />
           <div className={cx("Modal")}>
             <Scrollbars
               className="ScollbarsColor"
@@ -88,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({
                     )}
                   </ul>
                   <div className={cx("Modal-Scroll-Filmography-Btn")}>
-                    <button onClick={() => close}>닫기</button>
+                    <button onClick={close}>닫기</button>
                   </div>
                 </div>
               </div>

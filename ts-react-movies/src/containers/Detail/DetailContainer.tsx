@@ -4,14 +4,15 @@ import DetailTrailerList from "components/Detail/DetailTrailer";
 import DetailCastList from "components/Detail/DetailCast";
 import DetailRecommendList from "components/Detail/DetailRecommend";
 import SimilarList from "components/Similar/SimilarList";
-
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
+import ModalContainer from "containers/Detail/DetailCastContainer";
 import { connect } from "react-redux";
 import { RootState } from "modules";
 import { getDetail } from "modules/Detail";
 import { getVideos } from "modules/videos";
 import { getRecommend } from "modules/Recommend";
 import { getSimilar } from "modules/Similar";
+import { getCastDetail } from "modules/Detail/detailCast";
 
 interface DetailContainerProps {
   /* Movie */
@@ -31,6 +32,9 @@ interface DetailContainerProps {
   similar: Array<any> | undefined;
   getSimilar: Function;
   /* PeopleModal */
+  castInfo: any;
+  castCredits: any;
+  getCastDetail: Function;
 }
 const DetailContainer: React.SFC<DetailContainerProps> = ({
   movieId,
@@ -44,8 +48,12 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
   getRecommend,
   similar,
   getSimilar,
+  castInfo,
+  castCredits,
+  getCastDetail,
 }) => {
   useEffect(() => {
+    setIsModalOpen(false);
     getDetail(movieId);
     getVideos(movieId);
     getRecommend(movieId);
@@ -53,6 +61,37 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
   }, [movieId]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [castInfoList, setCastInfoList] = useState<Object>({});
+  const [castCreditsList, setCastCreditsList] = useState<any[]>([]);
+  const [castIdx, setCastIdx] = useState<number>(1245);
+
+  /* 클릭한 배우 정보 얻어오기 */
+  const onGetCast = (id: number) => {
+    setCastIdx(id);
+    console.log("castIdx: ", castIdx);
+
+    getCastDetail(id);
+
+    setTimeout(() => {
+      setIsModalOpen(true);
+    }, 0);
+  };
+  useEffect(() => {
+    // setIsModalOpen(true);
+    setCastInfoList(castInfo);
+    setCastCreditsList(castCredits);
+    console.log(
+      "castInfoList: ",
+      castInfoList,
+      "castCredits: ",
+      castCreditsList
+    );
+  }, [castInfo]);
+
+  /* 모달 닫기 */
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
@@ -66,7 +105,11 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
       {loading ? (
         <LoadingPage />
       ) : (
-        <DetailCastList detailCast={detailCast} modalStaus={isModalOpen} />
+        <DetailCastList
+          detailCast={detailCast}
+          onClickCast={onGetCast}
+          modalStaus={isModalOpen}
+        />
       )}
       {loading ? (
         <LoadingPage />
@@ -74,6 +117,12 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
         <DetailRecommendList recommend={recommend} />
       )}
       {loading ? <LoadingPage /> : <SimilarList similar={similar} />}
+      <ModalContainer
+        castInfo={castInfo}
+        castCredits={castCredits}
+        isModal={isModalOpen}
+        close={closeModal}
+      />
     </>
   );
 };
@@ -86,6 +135,8 @@ export default connect(
     detailCast: state.detail.detailCast,
     recommend: state.recommend.recommend,
     similar: state.similar.similar,
+    castInfo: state.castInfo.castInfo,
+    castCredits: state.castInfo.castCredits,
   }),
-  { getDetail, getVideos, getRecommend, getSimilar }
+  { getDetail, getVideos, getRecommend, getSimilar, getCastDetail }
 )(DetailContainer);

@@ -1,5 +1,4 @@
 import React from "react";
-import Modal from "containers/Detail/DetailCastContainer";
 import classNames from "classnames/bind";
 import style from "./DetailCast.scss";
 import { CreditsType } from "modules/Detail";
@@ -10,9 +9,14 @@ const cx = classNames.bind(style);
 interface DetailCastProps {
   detailCast: CreditsType;
   modalStaus: boolean;
+  onClickCast: (e: any) => void;
 }
 
-const DetailCast: React.SFC<DetailCastProps> = ({ detailCast, modalStaus }) => {
+const DetailCast: React.SFC<DetailCastProps> = ({
+  detailCast,
+  modalStaus,
+  onClickCast,
+}) => {
   return (
     <div className={cx("DetailCast-People")}>
       <div className={cx("DetailCast-People-Title")}>
@@ -35,6 +39,7 @@ const DetailCast: React.SFC<DetailCastProps> = ({ detailCast, modalStaus }) => {
                     name={item.name}
                     character={item.character}
                     modalStatus={modalStaus}
+                    onClickCast={onClickCast}
                   />
                 ))
             ) : (
@@ -55,20 +60,26 @@ interface CastcardProps {
   name: string;
   character: string;
   modalStatus: boolean;
+  onClickCast: (e: any) => void;
 }
 const CastCard: React.SFC<CastcardProps> = ({
   id,
   profile_path,
   name,
   character,
+  modalStatus,
+  onClickCast,
 }) => {
   const profile = require("assets/profile.png");
 
   return (
-    <li>
+    <li
+      onClick={() => {
+        onClickCast(id);
+      }}
+    >
       {/* Modal Start */}
       <div className={cx("DetailCast-People-Box-Modal")}>
-        <Modal castId={id} />
         <span className={cx("DetailCast-People-Box-Post")}>
           {profile_path !== null ? (
             // eslint-disable-next-line jsx-a11y/alt-text

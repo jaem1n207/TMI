@@ -34,10 +34,6 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
   }, []);
   function settings() {
     setTotalPages(total_pages);
-    console.log("totalPages: ", totalPages);
-    console.log("page: ", page);
-    /* setPlayingMovies([nowPlaying]); */
-    console.log("playingMovies: gpg", playingMovies);
     getNowPlaying(page);
   }
 
