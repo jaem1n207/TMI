@@ -53,7 +53,7 @@
 </div>
 * Detail Cast Modal
 <div>
-  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85751975-f9375180-b745-11ea-8843-d9ba550f0987.PNG" >
+  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85805743-1f7de100-b788-11ea-94ae-0f6959ed430c.PNG" >
 </div>
 * NowPlaying page
 <div>
