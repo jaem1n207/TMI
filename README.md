@@ -51,6 +51,10 @@
 <div>
   <img src="https://user-images.githubusercontent.com/50766847/85218069-ab32ee80-b3d1-11ea-8919-da73943570ca.gif" width="auto" height="auto" />
 </div>
+* Detail Cast Modal
+<div>
+  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85751975-f9375180-b745-11ea-8843-d9ba550f0987.PNG" >
+</div>
 * NowPlaying page
 <div>
   <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/84928015-aab40280-b108-11ea-8466-51f59c2af445.PNG">
