@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import style from "./Modal.scss";
 import classNames from "classnames/bind";
 import { Scrollbars } from "react-custom-scrollbars";
+import ReactTransitionGroup from "react-addons-css-transition-group";
 
 const cx = classNames.bind(style);
 
@@ -24,7 +25,11 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       {modalStatus ? (
-        <>
+        <ReactTransitionGroup
+          transitionName={"Modal-anim"}
+          transitionEnterTimeout={400}
+          transitionLeaveTimeout={400}
+        >
           <div className={cx("Modal-Overlay")} onClick={close} />
           <div className={cx("Modal")}>
             <Scrollbars
@@ -83,7 +88,11 @@ const Modal: React.FC<ModalProps> = ({
                         />
                       ))
                     ) : (
-                      <div>정보없음</div>
+                      <ReactTransitionGroup
+                        transitionName={"Modal-anim"}
+                        transitionEnterTimeout={400}
+                        transitionLeaveTimeout={400}
+                      />
                     )}
                   </ul>
                 </div>
@@ -93,7 +102,7 @@ const Modal: React.FC<ModalProps> = ({
               <button onClick={close}>닫기</button>
             </div>
           </div>
-        </>
+        </ReactTransitionGroup>
       ) : null}
     </>
   );

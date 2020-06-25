@@ -7,7 +7,24 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(35, 21, 44, 0.8);
+  background-color: rgba(13, 21, 23, 0.8);
+
+  &.Modal-anim-enter {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    transform: scale(0.7);
+  }
+  &.Modal-anim-enter.Modal-anim-enter-active {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  &.Modal-anim-leave {
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+  }
+  &.Modal-anim-leave.Modal-anim-leave-active {
+    opacity: 0;
+  }
 }
 
 .Modal {
@@ -22,6 +39,24 @@
   width: 580px;
   height: 620px;
   padding: 30px 25px;
+  &.Modal-anim-enter {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+    transition: all 0.4s;
+  }
+  &.Modal-anim-enter.Modal-anim-enter-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  &.Modal-anim-leave {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.4s;
+  }
+  &.Modal-anim-leave.Modal-anim-leave-active {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
   &-Scroll {
     overflow-y: visible;
     height: 100%;
