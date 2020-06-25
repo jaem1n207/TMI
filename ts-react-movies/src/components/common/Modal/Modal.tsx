@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Modal.scss";
 import classNames from "classnames/bind";
-import { ObjectType } from "modules/Detail/detailCast";
 import { Scrollbars } from "react-custom-scrollbars";
 
 const cx = classNames.bind(style);
@@ -87,12 +86,12 @@ const Modal: React.FC<ModalProps> = ({
                       <div>정보없음</div>
                     )}
                   </ul>
-                  <div className={cx("Modal-Scroll-Filmography-Btn")}>
-                    <button onClick={close}>닫기</button>
-                  </div>
                 </div>
               </div>
             </Scrollbars>
+            <div className={cx("Modal-Scroll-Filmography-Btn")}>
+              <button onClick={close}>닫기</button>
+            </div>
           </div>
         </>
       ) : null}

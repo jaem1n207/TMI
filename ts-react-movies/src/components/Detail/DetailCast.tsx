@@ -67,7 +67,6 @@ const CastCard: React.SFC<CastcardProps> = ({
   profile_path,
   name,
   character,
-  modalStatus,
   onClickCast,
 }) => {
   const profile = require("assets/profile.png");

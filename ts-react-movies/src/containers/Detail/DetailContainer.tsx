@@ -61,8 +61,6 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
   }, [movieId]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [castInfoList, setCastInfoList] = useState<Object>({});
-  const [castCreditsList, setCastCreditsList] = useState<any[]>([]);
   const [castIdx, setCastIdx] = useState<number>(1245);
 
   /* 클릭한 배우 정보 얻어오기 */
@@ -76,17 +74,6 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
       setIsModalOpen(true);
     }, 0);
   };
-  useEffect(() => {
-    // setIsModalOpen(true);
-    setCastInfoList(castInfo);
-    setCastCreditsList(castCredits);
-    console.log(
-      "castInfoList: ",
-      castInfoList,
-      "castCredits: ",
-      castCreditsList
-    );
-  }, [castInfo]);
 
   /* 모달 닫기 */
   const closeModal = () => {
