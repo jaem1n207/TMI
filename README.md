@@ -1,5 +1,7 @@
 # ts-movies
 
+> 사용해보기 [TMI](https://jaem1n207.github.io/TMI/)
+
 > API used in project: [The Movie Database API](https://www.themoviedb.org/ "Go TMDB")
 
 ## Introduce
