@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "./DetailTrailer.scss";
 import ReactPlayer from "react-player";
@@ -39,7 +39,7 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
   return (
     <div>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Movie Trailer</h1>
-      {videos?.length === 0 ? (
+      {videos === undefined ? (
         <div className="DetailVideo-Wrap-Fail">
           <p>Trailer를 제공하지 않는 영화입니다.</p>
           <img

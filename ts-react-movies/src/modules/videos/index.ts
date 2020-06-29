@@ -76,6 +76,7 @@ const reducer = (state = initialState, action: Action): VideosState => {
     case GET_VIDEOS_REQUEST:
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
+        draft.videos = action.payload.videos;
       });
     case GET_VIDEOS_SUCCESS:
       return produce(state, (draft) => {

@@ -148,11 +148,13 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
           </li>
           <li>
             <em style={{ marginRight: "10px" }}>출연</em>{" "}
-            {credits.cast.slice(0, 5).map((item, i) => (
-              <strong key={i} style={{ marginRight: "1rem" }}>
-                <a style={{ marginRight: "10x" }}>{item.name}</a>
-              </strong>
-            ))}
+            {credits.cast.length !== 0
+              ? credits.cast.slice(0, 5).map((item, i) => (
+                  <strong key={i} style={{ marginRight: "1rem" }}>
+                    <a style={{ marginRight: "10x" }}>{item.name}</a>
+                  </strong>
+                ))
+              : "정보가 없습니다."}
           </li>
         </ul>
         <div>
