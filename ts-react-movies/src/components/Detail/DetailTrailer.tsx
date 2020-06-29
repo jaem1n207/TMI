@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import * as React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "./DetailTrailer.scss";
 import ReactPlayer from "react-player";
-import { width } from "@fortawesome/free-solid-svg-icons/faSearch";
 
 interface DetailTrailerProps {
   videos:

@@ -41,9 +41,7 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
 
   return (
     <div className="Recommend">
-      <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>
-        Recommended Movie
-      </h1>
+      <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Recommend Movie</h1>
       <div className="Recommend-DetailRecommend-Wrap">
         <div className="Recommend-DetailRecommend-Wrap-Title"></div>
         <Slider {...setting} className="Recommend-DetailRecommend-Wrap-Slider">
@@ -61,7 +59,7 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
                 />
               ))
           ) : (
-            <div>정보를 얻지 못했습니다 ㅠㅠ</div>
+            <div>정보를 얻지 못했습니다 </div>
           )}
         </Slider>
       </div>
@@ -90,7 +88,7 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
 
   return (
     <div className="Recommend-DetailRecommend-Wrap-Content">
-      <Link to={`/detail/${id}`}>
+      <Link to={`/TMI/detail/${id}`}>
         {backdrop_path !== null ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img

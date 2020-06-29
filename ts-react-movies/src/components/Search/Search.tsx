@@ -129,7 +129,7 @@ const SearchCard: React.SFC<SearchCardProps> = ({
 
   return (
     <div className={cx("SearchCard-Wrap")}>
-      <Link to={`/detail/${id}`}>
+      <Link to={`/TMI/detail/${id}`}>
         <div
           className={cx("SearchCard-Wrap-Box")}
           onClick={() => {

@@ -6,7 +6,7 @@ import "./LoadingPage.scss";
 const LoadingPage: React.FC<Props.LoadingProps> = (props) => {
   return (
     <div className="Loading">
-      <RingLoader loading={true} size={100} color={"#3700B3"} />
+      <RingLoader loading={true} size={100} color={"#f5c518"} />
     </div>
   );
 };

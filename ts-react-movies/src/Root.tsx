@@ -20,13 +20,13 @@ const Root: React.SFC<RootProps> = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/nowPlaying" component={DetailNowPlayingPage} />
-        <Route exact path="/popular" component={DetailPopularPage} />
-        <Route exact path="/search" component={SearchPage} />
-        <Route exact path="/detail/:movieId" component={DetailPage} />
-        <Route exact path="/upcoming" component={UpcomingPage} />
-        <Route exact path="/toprate" component={TopRatePage} />
+        <Route exact path="/TMI" component={HomePage} />
+        <Route exact path="/TMI/nowPlaying" component={DetailNowPlayingPage} />
+        <Route exact path="/TMI/popular" component={DetailPopularPage} />
+        <Route exact path="/TMI/search" component={SearchPage} />
+        <Route exact path="/TMI/detail/:movieId" component={DetailPage} />
+        <Route exact path="/TMI/upcoming" component={UpcomingPage} />
+        <Route exact path="/TMI/toprate" component={TopRatePage} />
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

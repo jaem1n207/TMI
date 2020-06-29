@@ -62,13 +62,14 @@ const UpcomingCard: React.FC<UpcomingCardProps> = ({
   vote_average,
 }) => {
   const poster = require("assets/poster.png");
+
   const date: string[] = release_date.split("-");
   const average: string = (vote_average / 2).toFixed(1);
 
   return (
     <li className={cx("UpcomingTemplate-Wrap-Movie-List")}>
       <div className={cx("UpcomingTemplate-Wrap-Movie-List-Poster")}>
-        <Link to={`/detail/${id}`}>
+        <Link to={`/TMI/detail/${id}`}>
           <span className={cx("UpcomingTemplate-Wrap-Movie-List-Poster-Info")}>
             {poster_path !== null ? (
               <img
