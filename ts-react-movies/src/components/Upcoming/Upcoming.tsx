@@ -61,9 +61,13 @@ const UpcomingCard: React.FC<UpcomingCardProps> = ({
   release_date,
   vote_average,
 }) => {
+  const date: string[] = release_date.split("-");
+  let currentDate = new Date();
+  let openDate = new Date(`${date[0]}, ${date[1]}, ${date[2]}`);
+  let gap = currentDate.getTime() - openDate.getTime(); // 현재 날짜와 영화 개봉일의 차이를 밀리세컨드 단위로 변환하여 구함.
+  let result = Math.floor(gap / (1000 * 60 * 60 * 24)) * -1; // (밀리초 * 초 * 분 * 시간)으로 나눔. 이 때, -1을 곱해야 날짜차이가 맞게 나온다.
   const poster = require("assets/poster.png");
 
-  const date: string[] = release_date.split("-");
   const average: string = (vote_average / 2).toFixed(1);
 
   return (
@@ -96,7 +100,9 @@ const UpcomingCard: React.FC<UpcomingCardProps> = ({
         <span className={cx("UpcomingTemplate-Wrap-Movie-List-Info-SubInfo")}>
           <span
             className={cx("UpcomingTemplate-Wrap-Movie-List-Info-SubInfo-Date")}
-          >{`${date[0]}.${date[1]}.${date[2]}`}</span>
+          >
+            D-{result}
+          </span>
           <span
             className={cx("UpcomingTemplate-Wrap-Movie-List-Info-SubInfo-Vote")}
           >
