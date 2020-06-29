@@ -57,6 +57,10 @@
 <div>
   <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85805743-1f7de100-b788-11ea-94ae-0f6959ed430c.PNG" >
 </div>
+* Upcoming Page
+<div>
+  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/85966574-282a1d80-b9fb-11ea-86a8-a5c66dd72a3c.PNG">
+</div>
 * NowPlaying page
 <div>
   <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/84928015-aab40280-b108-11ea-8466-51f59c2af445.PNG">
@@ -68,8 +72,4 @@
 * Popular Page
 <div>
   <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/84928018-abe52f80-b108-11ea-923e-5fb010b68316.PNG">
-</div>
-* Upcoming Page
-<div>
-  <img width="auto" height="auto" src="https://user-images.githubusercontent.com/50766847/84928027-ae478980-b108-11ea-88a1-6e8b992bdd9e.PNG">
 </div>
