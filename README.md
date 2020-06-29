@@ -1,6 +1,6 @@
 # ts-movies
 
-> 사용해보기 [TMI](https://jaem1n207.github.io/TMI/)
+> 해당 링크를 통하여 이용해 보실 수 있습니다. [TMI](https://jaem1n207.github.io/TMI/ "Go TMI")
 
 > API used in project: [The Movie Database API](https://www.themoviedb.org/ "Go TMDB")
 
