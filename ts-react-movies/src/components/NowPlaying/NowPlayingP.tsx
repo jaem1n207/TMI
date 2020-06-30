@@ -80,6 +80,9 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
             <div className={`ButtonBox ${pages <= 1 ? "none" : "block"}`}>
               <button onClick={getLowMovie}>이전</button>
             </div>
+            <span
+              className={"ButtonWrap-PageNumber"}
+            >{`${pages}/${total_pages}`}</span>
             <div
               className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
             >
