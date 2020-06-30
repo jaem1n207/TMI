@@ -5,9 +5,10 @@ import produce from "immer";
 /* Types */
 export interface TopRateState {
   loading?: boolean;
-  page?: number;
+  pages?: number;
   total_pages?: number;
   topRate?: Array<Object>;
+  moreTopRate?: Array<Object>;
 }
 
 export interface ObjectType {
@@ -38,15 +39,19 @@ export const getTopRateFail = (payload: TopRateState) => ({
 });
 
 /* Api actions */
-export const getTopRate = (page: number = 1) => {
+export const getTopRate = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(getTopRateRequest({ loading: true }));
 
       const result = await api.movies.toprate(page);
       const topRate = result.data.results;
+      const pages = result.data.page;
+      const total_pages = result.data.total_pages;
 
-      dispatch(getTopRateSuccess({ loading: false, topRate }));
+      dispatch(
+        getTopRateSuccess({ loading: false, topRate, pages, total_pages })
+      );
     } catch (e) {
       dispatch(getTopRateFail({ loading: false }));
     }
@@ -58,10 +63,14 @@ export const getMoreTopRate = (page: number) => {
     try {
       dispatch(getTopRateSuccess({ loading: true }));
 
-      const result = await api.movies.toprate(page + 1);
-      const topRate = result.data.results;
+      const result = await api.movies.toprate(page);
+      const moreTopRate = result.data.results;
+      const pages = result.data.page;
+      const total_pages = result.data.total_pages;
 
-      dispatch(getTopRateSuccess({ loading: false, topRate }));
+      dispatch(
+        getTopRateSuccess({ loading: false, moreTopRate, pages, total_pages })
+      );
     } catch (e) {
       dispatch(getTopRateFail({ loading: false }));
     }
@@ -71,17 +80,20 @@ export const getMoreTopRate = (page: number) => {
 /* initialState */
 const initialState: TopRateState = {
   loading: false,
-  page: 1,
+  pages: 1,
+  total_pages: 5,
   topRate: [],
+  moreTopRate: [],
 };
 
 interface Action {
   type?: string;
-  page?: number;
-  total_pages?: number;
   payload: {
     loading: boolean;
     topRate: Array<ObjectType>;
+    moreTopRate: Array<ObjectType>;
+    pages?: number;
+    total_pages?: number;
   };
 }
 

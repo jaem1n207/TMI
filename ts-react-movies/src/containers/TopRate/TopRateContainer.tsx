@@ -40,7 +40,7 @@ export default connect(
   (state: RootState, props) => ({
     loading: state.topRate.loading,
     topRate: state.topRate.topRate,
-    page: state.topRate.page,
+    page: state.topRate.pages,
     total_pages: state.topRate.total_pages,
   }),
   { getTopRate, getMoreTopRate }
