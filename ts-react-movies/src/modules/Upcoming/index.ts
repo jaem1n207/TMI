@@ -5,9 +5,10 @@ import produce from "immer";
 /* Types */
 export interface UpcomingState {
   loading?: boolean;
-  page?: number;
+  pages?: number;
   total_pages?: number;
   upcoming?: Array<Object>;
+  moreUpcoming?: Array<Object>;
 }
 
 export interface ObjectType {
@@ -38,15 +39,38 @@ export const getUpcomingFail = (payload: UpcomingState) => ({
 });
 
 /* Api actions */
-export const getUpcoming = (page: number = 1) => {
+export const getUpcoming = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(getUpcomingRequest({ loading: true }));
 
       const result = await api.movies.upcoming(page);
       const upcoming = result.data.results;
+      const pages = result.data.page;
+      const total_pages = result.data.total_pages;
 
-      dispatch(getUpcomingSuccess({ loading: false, upcoming }));
+      dispatch(
+        getUpcomingSuccess({ loading: false, upcoming, total_pages, pages })
+      );
+    } catch (e) {
+      dispatch(getUpcomingFail({ loading: false }));
+    }
+  };
+};
+
+export const getMoreNowPlaying = (page: number) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch(getUpcomingRequest({ loading: true }));
+
+      const result = await api.movies.nowPlaying(page);
+      const moreUpcoming = result.data.results;
+      const pages = result.data.page;
+      const total_pages = result.data.total_pages;
+
+      dispatch(
+        getUpcomingSuccess({ loading: false, moreUpcoming, pages, total_pages })
+      );
     } catch (e) {
       dispatch(getUpcomingFail({ loading: false }));
     }
@@ -56,17 +80,21 @@ export const getUpcoming = (page: number = 1) => {
 /* initialState */
 const initialState: UpcomingState = {
   loading: false,
-  page: 1,
+  pages: 1,
+  total_pages: 5,
   upcoming: [],
+  moreUpcoming: [],
 };
 
 interface Action {
   type?: string;
-  page?: number;
-  total_pages?: number;
+
   payload: {
     loading: boolean;
     upcoming: Array<ObjectType>;
+    moreUpcoming: Array<ObjectType>;
+    pages?: number;
+    total_pages?: number;
   };
 }
 
@@ -81,6 +109,9 @@ const reducer = (state = initialState, action: Action): UpcomingState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.upcoming = action.payload.upcoming;
+        draft.moreUpcoming = action.payload.moreUpcoming;
+        draft.pages = action.payload.pages;
+        draft.total_pages = action.payload.total_pages;
       });
     case GET_UPCOMING_FAIL:
       return produce(state, (draft) => {

@@ -7,6 +7,12 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(style);
 
 interface TopRateProps {
+  pages: number;
+  total_pages: number;
+  getMoreMovie: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  getLowMovie: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   topRate:
     | Array<{
         poster_path: string;
@@ -16,9 +22,26 @@ interface TopRateProps {
         vote_average: number;
       }>
     | undefined;
-  getMoreTopRate: Function;
+  moreTopRate:
+    | Array<{
+        poster_path: string;
+        title: string;
+        id: number;
+        release_date: string;
+        vote_average: number;
+      }>
+    | undefined;
 }
-const TopRate: React.FC<TopRateProps> = ({ topRate, getMoreTopRate }) => {
+const TopRate: React.FC<TopRateProps> = ({
+  topRate,
+  getLowMovie,
+  getMoreMovie,
+  moreTopRate,
+  pages,
+  total_pages,
+}) => {
+  console.log("topRateCom: ", topRate, "moreTopRate: ", moreTopRate);
+
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>TopRate Movies</h1>
@@ -29,9 +52,9 @@ const TopRate: React.FC<TopRateProps> = ({ topRate, getMoreTopRate }) => {
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {topRate?.map((item, i) => (
+            {topRate?.map((item) => (
               <TopRateCard
-                key={i}
+                key={item.id}
                 id={item.id}
                 poster_path={item.poster_path}
                 title={item.title}
@@ -39,7 +62,30 @@ const TopRate: React.FC<TopRateProps> = ({ topRate, getMoreTopRate }) => {
                 vote_average={item.vote_average}
               />
             ))}
+            {moreTopRate?.map((item) => (
+              <TopRateCard
+                key={item.id}
+                id={item.id}
+                poster_path={item.poster_path}
+                release_date={item.release_date}
+                title={item.title}
+                vote_average={item.vote_average}
+              />
+            ))}
           </ul>
+          <div className={"ButtonWrap"}>
+            <div className={`ButtonBox ${pages <= 1 ? "none" : "block"}`}>
+              <button onClick={getLowMovie}>이전</button>
+            </div>
+            <span
+              className={"ButtonWrap-PageNumber"}
+            >{`${pages}/${total_pages}`}</span>
+            <div
+              className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
+            >
+              <button onClick={getMoreMovie}>다음</button>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -61,7 +61,7 @@ export const getTopRate = (page: number) => {
 export const getMoreTopRate = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
-      dispatch(getTopRateSuccess({ loading: true }));
+      dispatch(getTopRateRequest({ loading: true }));
 
       const result = await api.movies.toprate(page);
       const moreTopRate = result.data.results;
@@ -81,7 +81,7 @@ export const getMoreTopRate = (page: number) => {
 const initialState: TopRateState = {
   loading: false,
   pages: 1,
-  total_pages: 5,
+  total_pages: 100,
   topRate: [],
   moreTopRate: [],
 };
@@ -108,6 +108,9 @@ const reducer = (state = initialState, action: Action): TopRateState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.topRate = action.payload.topRate;
+        draft.moreTopRate = action.payload.moreTopRate;
+        draft.pages = action.payload.pages;
+        draft.total_pages = action.payload.total_pages;
       });
     case GET_TOPRATE_FAIL:
       return produce(state, (draft) => {

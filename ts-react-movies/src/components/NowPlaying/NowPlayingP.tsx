@@ -55,9 +55,9 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {nowPlaying?.map((item, i) => (
+            {nowPlaying?.map((item) => (
               <NowPlayingPCard
-                key={i}
+                key={item.id}
                 id={item.id}
                 poster_path={item.poster_path}
                 title={item.title}
@@ -65,9 +65,9 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
                 vote_average={item.vote_average}
               />
             ))}
-            {morePlaying?.map((item, i) => (
+            {morePlaying?.map((item) => (
               <NowPlayingPCard
-                key={i}
+                key={item.id}
                 id={item.id}
                 poster_path={item.poster_path}
                 title={item.title}

@@ -4,7 +4,6 @@ import { RootState } from "modules";
 import { getMoreNowPlaying, getNowPlaying } from "modules/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import NowPlayingP from "components/NowPlaying/NowPlayingP";
-import { settings } from "cluster";
 
 interface NowPlayingPContainrProps {
   loading: boolean | undefined;
