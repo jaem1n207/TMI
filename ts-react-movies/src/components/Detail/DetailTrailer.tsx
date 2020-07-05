@@ -59,7 +59,7 @@ const DetailTrailer: React.FC<DetailTrailerProps> = ({ videos }) => {
           <Slider {...settings} className="DetailVideo-Wrap-VideoSlider">
             {videos?.map((k, i) => (
               <ReactPlayer
-                key={i}
+                key={k.key}
                 url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999/`}
                 width="100%"
                 height="480px"

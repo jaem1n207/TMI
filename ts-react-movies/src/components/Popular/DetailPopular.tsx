@@ -50,24 +50,24 @@ const DetailPopular: React.FC<DetailPopularProps> = ({
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {popular?.map((item) => (
+            {popular?.map((popularM) => (
               <DetailPopularCard
-                key={item.id}
-                id={item.id}
-                poster_path={item.poster_path}
-                title={item.title}
-                release_date={item.release_date}
-                vote_average={item.vote_average}
+                key={popularM.id}
+                id={popularM.id}
+                poster_path={popularM.poster_path}
+                title={popularM.title}
+                release_date={popularM.release_date}
+                vote_average={popularM.vote_average}
               />
             ))}
-            {morePopular?.map((item) => (
+            {morePopular?.map((morePopularM) => (
               <DetailPopularCard
-                key={item.id}
-                id={item.id}
-                poster_path={item.poster_path}
-                title={item.title}
-                release_date={item.release_date}
-                vote_average={item.vote_average}
+                key={morePopularM.id}
+                id={morePopularM.id}
+                poster_path={morePopularM.poster_path}
+                title={morePopularM.title}
+                release_date={morePopularM.release_date}
+                vote_average={morePopularM.vote_average}
               />
             ))}
           </ul>

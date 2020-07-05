@@ -33,9 +33,9 @@ const NowPlaying: React.FC<NowPlayingProps> = ({ nowPlaying }) => {
       {nowPlaying && nowPlaying.length > 0 ? (
         nowPlaying
           .slice(0, 20)
-          .map((n, i) => (
+          .map((n) => (
             <NowCard
-              key={i}
+              key={n.id}
               id={n.id}
               backdrop_path={n.backdrop_path}
               title={n.title}

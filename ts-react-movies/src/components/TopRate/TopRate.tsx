@@ -53,24 +53,24 @@ const TopRate: React.FC<TopRateProps> = ({
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {topRate?.map((item) => (
+            {topRate?.map((topRateM) => (
               <TopRateCard
-                key={item.id}
-                id={item.id}
-                poster_path={item.poster_path}
-                title={item.title}
-                release_date={item.release_date}
-                vote_average={item.vote_average}
+                key={topRateM.id}
+                id={topRateM.id}
+                poster_path={topRateM.poster_path}
+                title={topRateM.title}
+                release_date={topRateM.release_date}
+                vote_average={topRateM.vote_average}
               />
             ))}
-            {moreTopRate?.map((item) => (
+            {moreTopRate?.map((moreTopRateM) => (
               <TopRateCard
-                key={item.id}
-                id={item.id}
-                poster_path={item.poster_path}
-                release_date={item.release_date}
-                title={item.title}
-                vote_average={item.vote_average}
+                key={moreTopRateM.id}
+                id={moreTopRateM.id}
+                poster_path={moreTopRateM.poster_path}
+                release_date={moreTopRateM.release_date}
+                title={moreTopRateM.title}
+                vote_average={moreTopRateM.vote_average}
               />
             ))}
           </ul>

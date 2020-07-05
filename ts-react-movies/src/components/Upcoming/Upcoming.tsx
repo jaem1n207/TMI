@@ -28,14 +28,14 @@ const Upcoming: React.FC<UpcomingProps> = ({ upcoming }) => {
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {upcoming?.map((item, i) => (
+            {upcoming?.map((upcoming) => (
               <UpcomingCard
-                key={i}
-                id={item.id}
-                poster_path={item.poster_path}
-                title={item.title}
-                release_date={item.release_date}
-                vote_average={item.vote_average}
+                key={upcoming.id}
+                id={upcoming.id}
+                poster_path={upcoming.poster_path}
+                title={upcoming.title}
+                release_date={upcoming.release_date}
+                vote_average={upcoming.vote_average}
               />
             ))}
           </ul>

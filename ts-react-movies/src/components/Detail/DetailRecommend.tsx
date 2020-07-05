@@ -48,14 +48,14 @@ const DetailRecommend: React.FC<DetailRecommendProps> = ({ recommend }) => {
           {recommend && recommend.length > 0 ? (
             recommend
               .slice(0, 18)
-              .map((item, i) => (
+              .map((recommends) => (
                 <RecommendCard
-                  key={i}
-                  id={item.id}
-                  title={item.title}
-                  release_date={item.release_date}
-                  vote_average={item.vote_average}
-                  backdrop_path={item.backdrop_path}
+                  key={recommends.id}
+                  id={recommends.id}
+                  title={recommends.title}
+                  release_date={recommends.release_date}
+                  vote_average={recommends.vote_average}
+                  backdrop_path={recommends.backdrop_path}
                 />
               ))
           ) : (

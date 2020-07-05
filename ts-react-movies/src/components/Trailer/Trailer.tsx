@@ -43,10 +43,10 @@ const Trailer: React.FC<TrailerProps> = ({ videos }) => {
       ) : (
         <div className="Video-Wrap">
           <Slider {...settings} className="Video-Wrap-Slick">
-            {videos?.map((k, i) => (
+            {videos?.map((video, i) => (
               <ReactPlayer
-                key={k.key}
-                url={`https://www.youtube.com/embed/${k.key}?enablejsapi=1&origin=http://localhost:9999/`}
+                key={video.key}
+                url={`https://www.youtube.com/embed/${video.key}?enablejsapi=1&origin=http://localhost:9999/`}
                 width="100%"
                 height="100%"
                 left="0px !important"

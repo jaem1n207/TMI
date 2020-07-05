@@ -31,13 +31,13 @@ const DetailCast: React.SFC<DetailCastProps> = ({
             {detailCast.cast && detailCast.cast.length > 0 ? (
               detailCast.cast
                 .slice(0, 36)
-                .map((item, i) => (
+                .map((detail) => (
                   <CastCard
-                    key={i}
-                    id={item.id}
-                    profile_path={item.profile_path}
-                    name={item.name}
-                    character={item.character}
+                    key={detail.id}
+                    id={detail.id}
+                    profile_path={detail.profile_path}
+                    name={detail.name}
+                    character={detail.character}
                     modalStatus={modalStaus}
                     onClickCast={onClickCast}
                   />

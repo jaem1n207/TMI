@@ -30,7 +30,7 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
 
   useEffect(() => {
     settings();
-  }, []);
+  }, [total_pages]);
   function settings() {
     setTotalPages(total_pages);
     getNowPlaying(page);

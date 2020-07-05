@@ -79,12 +79,12 @@ const Modal: React.FC<ModalProps> = ({
                   </strong>
                   <ul className={cx("Modal-Scroll-Filmography-Ul")}>
                     {castCredits.length ? (
-                      castCredits?.map((item: any, i: number) => (
+                      castCredits?.map((castCredits: any) => (
                         <DetailCastCard
-                          key={i}
-                          id={item.id}
-                          poster_path={item.poster_path}
-                          title={item.title}
+                          key={castCredits.id}
+                          id={castCredits.id}
+                          poster_path={castCredits.poster_path}
+                          title={castCredits.title}
                         />
                       ))
                     ) : (

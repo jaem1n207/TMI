@@ -46,15 +46,15 @@ const Popular: React.FC<PopularProps> = ({ popular }) => {
         {popular && popular.length > 0 ? (
           popular
             .slice(0, 18)
-            .map((p, i) => (
+            .map((popular) => (
               <PopularCard
-                key={i}
-                id={p.id}
-                backdrop_path={p.backdrop_path}
-                title={p.title}
-                release_date={p.release_date}
-                vote_average={p.vote_average}
-                genre_ids={p.genre_ids}
+                key={popular.id}
+                id={popular.id}
+                backdrop_path={popular.backdrop_path}
+                title={popular.title}
+                release_date={popular.release_date}
+                vote_average={popular.vote_average}
+                genre_ids={popular.genre_ids}
               />
             ))
         ) : (

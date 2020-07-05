@@ -45,14 +45,14 @@ const SimilarList: React.FC<SimilarListProps> = ({ similar }) => {
           {similar && similar.length > 0 ? (
             similar
               .slice(0, 18)
-              .map((item, i) => (
+              .map((similar) => (
                 <SimilarCard
-                  key={i}
-                  id={item.id}
-                  title={item.title}
-                  release_date={item.release_date}
-                  vote_average={item.vote_average}
-                  backdrop_path={item.backdrop_path}
+                  key={similar.id}
+                  id={similar.id}
+                  title={similar.title}
+                  release_date={similar.release_date}
+                  vote_average={similar.vote_average}
+                  backdrop_path={similar.backdrop_path}
                 />
               ))
           ) : (

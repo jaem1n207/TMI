@@ -96,13 +96,13 @@ const Search: React.SFC<SearchProps> = ({
             총 <b>{total_results.total_results}개</b>의 영화를 찾았습니다.
           </div>
         )}
-        {searchResult?.map((item, i) => (
+        {searchResult?.map((search) => (
           <SearchCard
-            key={i}
-            poster_path={item.poster_path}
-            id={item.id}
-            title={item.title}
-            release_date={item.release_date}
+            key={search.id}
+            poster_path={search.poster_path}
+            id={search.id}
+            title={search.title}
+            release_date={search.release_date}
             historySearch={historySearch}
           />
         ))}

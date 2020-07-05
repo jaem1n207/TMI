@@ -115,10 +115,10 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
         </ul>
         <div className={cx("Detail-Wrap-Genre")}>
           <span style={{ marginRight: "10px" }}>장르</span>
-          {genres.map((m, i) => (
-            <div key={i} className={cx("Detail-Wrap-Genre-Div")}>
+          {genres.map((genre) => (
+            <div key={genre.id} className={cx("Detail-Wrap-Genre-Div")}>
               {" "}
-              {m.name}{" "}
+              {genre.name}{" "}
             </div>
           ))}
         </div>
@@ -134,11 +134,11 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
           </li>
           <li>
             <em style={{ marginRight: "10px" }}>감독</em>{" "}
-            {credits.crew.map((item, i) => (
-              <strong key={i}>
-                {item.job === "Director" ? (
+            {credits.crew.map((crew) => (
+              <strong key={crew.id}>
+                {crew.job === "Director" ? (
                   <span>
-                    <a>{item.name}</a>
+                    <a>{crew.name}</a>
                   </span>
                 ) : (
                   ""
@@ -149,17 +149,17 @@ const Detail: React.SFC<DetailProps> = ({ detail }) => {
           <li>
             <em style={{ marginRight: "10px" }}>출연</em>{" "}
             {credits.cast.length !== 0
-              ? credits.cast.slice(0, 5).map((item, i) => (
-                  <strong key={i} style={{ marginRight: "1rem" }}>
-                    <a style={{ marginRight: "10x" }}>{item.name}</a>
+              ? credits.cast.slice(0, 5).map((cast) => (
+                  <strong key={cast.id} style={{ marginRight: "1rem" }}>
+                    <a style={{ marginRight: "10x" }}>{cast.name}</a>
                   </strong>
                 ))
               : "정보가 없습니다."}
           </li>
         </ul>
         <div>
-          {production_companies.map((item, i) => (
-            <span key={i} className={cx("Detail-Wrap-Company")}>
+          {production_companies.map((item) => (
+            <span key={item.id} className={cx("Detail-Wrap-Company")}>
               {item.logo_path !== null ? (
                 // eslint-disable-next-line jsx-a11y/alt-text
                 <img
