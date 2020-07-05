@@ -13,7 +13,7 @@ export const movies = {
   /* coming soon */
   upcoming: (page: number) =>
     defaultApi.get(
-      `movie/upcoming?api_key=${MOVIE_API_KEY}&language=ko&page=1&region=KR`
+      `movie/upcoming?api_key=${MOVIE_API_KEY}&language=ko&page=${page}&region=KR`
     ),
   /* show noyplaying movies */
   nowPlaying: (page: number) =>
@@ -36,7 +36,7 @@ export const movies = {
     ),
   toprate: (page: number) =>
     defaultApi.get(
-      `movie/top_rated?api_key=${MOVIE_API_KEY}&language=ko&page=1&region=KR`
+      `movie/top_rated?api_key=${MOVIE_API_KEY}&language=ko&page=${page}&region=KR`
     ),
   similar: (id: string) =>
     defaultApi.get(

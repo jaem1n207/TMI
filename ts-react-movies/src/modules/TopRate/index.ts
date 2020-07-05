@@ -81,7 +81,7 @@ export const getMoreTopRate = (page: number) => {
 const initialState: TopRateState = {
   loading: false,
   pages: 1,
-  total_pages: 100,
+  total_pages: 99,
   topRate: [],
   moreTopRate: [],
 };

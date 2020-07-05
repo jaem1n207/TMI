@@ -53,6 +53,8 @@ const TopRateContainer: React.SFC<TopRateContainerProps> = ({
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     setPage(page + 1);
+    console.log("페이지: ", page);
+
     if (totalPages >= page) {
       getMoreTopRate(page + 1);
       console.log("page: ", page);
