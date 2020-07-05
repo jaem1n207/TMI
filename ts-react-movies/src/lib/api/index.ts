@@ -6,9 +6,9 @@ export const movies = {
   videos: (id: string) =>
     defaultApi.get(`movie/${id}/videos?api_key=${MOVIE_API_KEY}&language=ko`),
   /* pupular movies */
-  popular: () =>
+  popular: (page: number) =>
     defaultApi.get(
-      `movie/popular?api_key=${MOVIE_API_KEY}&language=ko&region=KR`
+      `movie/popular?api_key=${MOVIE_API_KEY}&language=ko&page=${page}&region=KR`
     ),
   /* coming soon */
   upcoming: (page: number) =>

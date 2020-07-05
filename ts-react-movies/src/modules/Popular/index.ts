@@ -60,12 +60,12 @@ export const getMorePopularFail = (payload: PopularState) => ({
 });
 
 /* Api actions */
-export const getPopular = (page: number = 1) => {
+export const getPopular = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(getPopularRequest({ loading: true }));
 
-      const result = await api.movies.popular();
+      const result = await api.movies.popular(page);
       const popular = result.data.results;
       const pages = result.data.page;
       const total_pages = result.data.total_pages;
@@ -80,12 +80,12 @@ export const getPopular = (page: number = 1) => {
 };
 
 /* 더보기 */
-export const getMorePopular = (page: number = 2) => {
+export const getMorePopular = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(getMorePopularRequest({ loading: true }));
 
-      const result = await api.movies.popular();
+      const result = await api.movies.popular(page);
       const morePopular = result.data.results;
 
       dispatch(getMorePopularSuccess({ loading: false, morePopular }));
