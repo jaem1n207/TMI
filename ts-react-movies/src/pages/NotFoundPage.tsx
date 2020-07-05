@@ -19,6 +19,7 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ history, location }) => {
     fontSize: "1.2rem",
     fontWeight: "bold",
     backgroundColor: "#fff",
+    cursor: "pointer",
   } as React.CSSProperties;
 
   return (

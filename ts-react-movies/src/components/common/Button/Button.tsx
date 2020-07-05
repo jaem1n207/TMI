@@ -3,7 +3,7 @@ import { CSSProperties } from "styled-components";
 
 interface ButtonProps {
   text: string | JSX.Element;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   type?: "button" | "submit" | "reset" | undefined;
   style?: CSSProperties | undefined;
 }

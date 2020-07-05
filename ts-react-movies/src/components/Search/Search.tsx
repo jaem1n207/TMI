@@ -6,8 +6,19 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FaTimesCircle } from "react-icons/fa";
+import Button from "components/common/Button/Button";
 
 const cx = classNames.bind(style);
+
+const NBtnStyle = {
+  borderRadius: "10px",
+  padding: "10px 20px",
+  fontSize: "1.2rem",
+  fontWeight: "bold",
+  backgroundColor: "#fff",
+  color: "black",
+  cursor: "pointer",
+} as React.CSSProperties;
 
 interface SearchProps {
   keyword: string;
@@ -53,6 +64,10 @@ const Search: React.SFC<SearchProps> = ({
   return (
     <>
       <div className={cx("Search-Wrap")}>
+        <Link to="/TMI" style={NBtnStyle}>
+          메인으로
+        </Link>
+
         <form
           onSubmit={(e: React.FormEvent<HTMLElement>) => {
             e.preventDefault();
