@@ -27,9 +27,6 @@ export interface ObjectType {
 const GET_POPULAR_REQUEST = "popular/GET_POPULAR_REQUEST";
 const GET_POPULAR_SUCCESS = "popular/GET_POPULAR_SUCCESS";
 const GET_POPULAR_FAIL = "popular/GET_POPULAR_FAIL";
-const GET_MORE_POPULAR_REQUEST = "popular/GET_MORE_POPULAR_REQUEST";
-const GET_MORE_POPULAR_SUCCESS = "popular/GET_MORE_POPULAR_SUCCESS";
-const GET_MORE_POPULAR_FAIL = "popular/GET_MORE_POPULAR_FAIL";
 
 /* Action Creator */
 export const getPopularRequest = (payload: PopularState) => ({
@@ -42,20 +39,6 @@ export const getPopularSuccess = (payload: PopularState) => ({
 });
 export const getPopularFail = (payload: PopularState) => ({
   type: GET_POPULAR_FAIL,
-  payload,
-});
-
-/* 더보기 */
-export const getMorePopularRequest = (payload: PopularState) => ({
-  type: GET_MORE_POPULAR_REQUEST,
-  payload,
-});
-export const getMorePopularSuccess = (payload: PopularState) => ({
-  type: GET_MORE_POPULAR_SUCCESS,
-  payload,
-});
-export const getMorePopularFail = (payload: PopularState) => ({
-  type: GET_MORE_POPULAR_FAIL,
   payload,
 });
 
@@ -83,14 +66,18 @@ export const getPopular = (page: number) => {
 export const getMorePopular = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
-      dispatch(getMorePopularRequest({ loading: true }));
+      dispatch(getPopularRequest({ loading: true }));
 
       const result = await api.movies.popular(page);
       const morePopular = result.data.results;
+      const pages = result.data.pages;
+      const total_pages = result.data.total_pages;
 
-      dispatch(getMorePopularSuccess({ loading: false, morePopular }));
+      dispatch(
+        getPopularSuccess({ loading: false, morePopular, pages, total_pages })
+      );
     } catch (e) {
-      dispatch(getMorePopularFail({ loading: false }));
+      dispatch(getPopularFail({ loading: false }));
     }
   };
 };
@@ -99,6 +86,9 @@ export const getMorePopular = (page: number) => {
 const initialState: PopularState = {
   loading: false,
   popular: [],
+  pages: 1,
+  total_pages: 99,
+  morePopular: [],
 };
 
 interface Action {
@@ -107,6 +97,8 @@ interface Action {
     loading: boolean;
     popular: Array<ObjectType>;
     morePopular: Array<ObjectType>;
+    pages?: number;
+    total_pages?: number;
   };
 }
 
@@ -121,24 +113,15 @@ const reducer = (state = initialState, action: Action): PopularState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.popular = action.payload.popular;
+        draft.morePopular = action.payload.morePopular;
+        draft.pages = action.payload.pages;
+        draft.total_pages = action.payload.total_pages;
       });
     case GET_POPULAR_FAIL:
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
       });
-    case GET_MORE_POPULAR_REQUEST:
-      return produce(state, (draft) => {
-        draft.loading = action.payload.loading;
-      });
-    case GET_MORE_POPULAR_SUCCESS:
-      return produce(state, (draft) => {
-        draft.loading = action.payload.loading;
-        draft.morePopular = action.payload.morePopular;
-      });
-    case GET_MORE_POPULAR_FAIL:
-      return produce(state, (draft) => {
-        draft.loading = action.payload.loading;
-      });
+
     default:
       return state;
   }

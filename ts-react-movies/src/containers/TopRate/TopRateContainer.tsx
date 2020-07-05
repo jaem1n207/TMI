@@ -30,7 +30,7 @@ const TopRateContainer: React.SFC<TopRateContainerProps> = ({
 
   useEffect(() => {
     settings();
-  }, []);
+  }, [total_pages]);
   function settings() {
     setTotalPages(total_pages);
     getTopRate(page);

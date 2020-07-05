@@ -16,8 +16,30 @@ interface DetailPopularProps {
         release_date: string; // 개봉일
       }>
     | undefined;
+  morePopular:
+    | Array<{
+        poster_path: string; // 영화 포스터 (세로 큼)
+        id: number; // 고유 id
+        title: string; // 제목
+        vote_average: number; // 평점 (10점 만점)
+        release_date: string; // 개봉일
+      }>
+    | undefined;
+  pages: number;
+  total_pages: number;
+  getMoreMovie: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  getLowMovie: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-const DetailPopular: React.FC<DetailPopularProps> = ({ popular }) => {
+const DetailPopular: React.FC<DetailPopularProps> = ({
+  popular,
+  getLowMovie,
+  getMoreMovie,
+  morePopular,
+  pages,
+  total_pages,
+}) => {
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>Popular Movies</h1>
@@ -28,9 +50,19 @@ const DetailPopular: React.FC<DetailPopularProps> = ({ popular }) => {
               "UpcomingTemplate-Wrap-Movie UpcomingTemplate-Wrap-MovieUl"
             )}
           >
-            {popular?.map((item, i) => (
+            {popular?.map((item) => (
               <DetailPopularCard
-                key={i}
+                key={item.id}
+                id={item.id}
+                poster_path={item.poster_path}
+                title={item.title}
+                release_date={item.release_date}
+                vote_average={item.vote_average}
+              />
+            ))}
+            {morePopular?.map((item) => (
+              <DetailPopularCard
+                key={item.id}
                 id={item.id}
                 poster_path={item.poster_path}
                 title={item.title}
@@ -39,6 +71,19 @@ const DetailPopular: React.FC<DetailPopularProps> = ({ popular }) => {
               />
             ))}
           </ul>
+          <div className={"ButtonWrap"}>
+            <div className={`ButtonBox ${pages <= 1 ? "none" : "block"}`}>
+              <button onClick={getLowMovie}>이전</button>
+            </div>
+            <span
+              className={"ButtonWrap-PageNumber"}
+            >{`${pages}/${total_pages}`}</span>
+            <div
+              className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
+            >
+              <button onClick={getMoreMovie}>다음</button>
+            </div>
+          </div>
         </div>
       </div>
     </>
