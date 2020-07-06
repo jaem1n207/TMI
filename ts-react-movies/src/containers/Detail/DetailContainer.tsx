@@ -7,12 +7,12 @@ import SimilarList from "components/Similar/SimilarList";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import ModalContainer from "containers/Detail/DetailCastContainer";
 import { connect } from "react-redux";
-import { RootState } from "modules";
-import { getDetail } from "modules/Detail";
-import { getVideos } from "modules/videos";
-import { getRecommend } from "modules/Recommend";
-import { getSimilar } from "modules/Similar";
-import { getCastDetail } from "modules/Detail/detailCast";
+import { RootState } from "modules/movie";
+import { getDetail } from "modules/movie/Detail";
+import { getVideos } from "modules/movie/videos";
+import { getRecommend } from "modules/movie/Recommend";
+import { getSimilar } from "modules/movie/Similar";
+import { getCastDetail } from "modules/movie/Detail/detailCast";
 
 interface DetailContainerProps {
   /* Movie */

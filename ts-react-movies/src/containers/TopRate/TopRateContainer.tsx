@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { RootState } from "modules";
+import { RootState } from "modules/movie";
 import TopRate from "components/TopRate/TopRate";
-import { getTopRate, getMoreTopRate } from "modules/TopRate";
+import { getTopRate, getMoreTopRate } from "modules/movie/TopRate";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 interface TopRateContainerProps {

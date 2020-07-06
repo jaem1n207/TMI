@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-import { RootState } from "modules";
+import { RootState } from "modules/movie";
 import NowPlayingList from "components/NowPlaying/NowPlaying";
-import { getNowPlaying } from "modules/nowPlaying";
+import { getNowPlaying } from "modules/movie/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 interface NowPlayingContainerProps {

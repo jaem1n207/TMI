@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { RootState } from "modules";
-import { getMoreNowPlaying, getNowPlaying } from "modules/nowPlaying";
+import { RootState } from "modules/movie";
+import { getMoreNowPlaying, getNowPlaying } from "modules/movie/nowPlaying";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import NowPlayingP from "components/NowPlaying/NowPlayingP";
 

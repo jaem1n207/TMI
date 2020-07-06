@@ -9,7 +9,7 @@ import Thunk from "redux-thunk";
 import { logger } from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createStore, applyMiddleware } from "redux";
-import reducers from "modules";
+import reducers from "modules/movie";
 import { ToastProvider } from "react-toast-notifications";
 
 const middlewares = [Thunk, logger];

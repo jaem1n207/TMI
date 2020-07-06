@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { RootState } from "modules";
+import { RootState } from "modules/movie";
 import Upcoming from "components/Upcoming/Upcoming";
-import { getUpcoming } from "modules/Upcoming";
+import { getUpcoming } from "modules/movie/Upcoming";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 interface UpcomingContainerProps {

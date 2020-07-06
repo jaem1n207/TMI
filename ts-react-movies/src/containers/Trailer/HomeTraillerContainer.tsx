@@ -1,11 +1,11 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-import { RootState } from "modules";
+import { RootState } from "modules/movie";
 import TrailerList from "components/Trailer/Trailer";
 import OtherTrailer from "components/Trailer/OtherTrailer";
-import { getVideos } from "modules/videos";
-import { getPopular } from "modules/Popular";
+import { getVideos } from "modules/movie/videos";
+import { getPopular } from "modules/movie/Popular";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 interface HomeTrailerContainerProps {

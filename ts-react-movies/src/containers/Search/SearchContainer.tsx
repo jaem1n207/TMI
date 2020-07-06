@@ -3,8 +3,8 @@ import SearchList from "components/Search/Search";
 import HistorySearchList from "components/Search/HistorySearch";
 import * as Props from "./Props";
 import { connect } from "react-redux";
-import { RootState } from "modules";
-import { getSearch } from "modules/Search";
+import { RootState } from "modules/movie";
+import { getSearch } from "modules/movie/Search";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 
 const SearchContainer: React.SFC<Props.SearchContainerProps> = ({

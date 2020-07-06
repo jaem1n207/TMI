@@ -3,8 +3,8 @@ import PopularList from "components/Popular/Popular";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import { connect } from "react-redux";
 import * as Props from "./Props";
-import { RootState } from "modules";
-import { getPopular } from "modules/Popular";
+import { RootState } from "modules/movie";
+import { getPopular } from "modules/movie/Popular";
 
 const PopularContainer: React.SFC<Props.PopularContainerProps> = ({
   loading,

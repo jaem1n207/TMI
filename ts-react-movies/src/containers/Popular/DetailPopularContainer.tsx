@@ -3,8 +3,8 @@ import DetailPopular from "components/Popular/DetailPopular";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import { connect } from "react-redux";
 import * as Props from "./Props";
-import { RootState } from "modules";
-import { getPopular, getMorePopular } from "modules/Popular";
+import { RootState } from "modules/movie";
+import { getPopular, getMorePopular } from "modules/movie/Popular";
 
 interface PopularContainerProps {
   loading: boolean | undefined;

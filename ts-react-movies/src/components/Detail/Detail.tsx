@@ -8,7 +8,7 @@ import {
   ProductionCompanyType,
   GenresType,
   CreditsType,
-} from "modules/Detail";
+} from "modules/movie/Detail";
 import ReactHelmet from "components/common/Helmet/ReactHelmet";
 
 const cx = classNames.bind(style);
