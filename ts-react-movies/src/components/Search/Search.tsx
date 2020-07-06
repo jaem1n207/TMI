@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FaTimesCircle } from "react-icons/fa";
-import Button from "components/common/Button/Button";
+import { RiMovieLine } from "react-icons/all";
 
 const cx = classNames.bind(style);
 
@@ -63,11 +63,17 @@ const Search: React.SFC<SearchProps> = ({
 }) => {
   return (
     <>
-      <div className={cx("Search-Wrap")}>
-        <Link to="/TMI" style={NBtnStyle}>
-          메인으로
+      <div className={cx("Logo")}>
+        <RiMovieLine
+          className={cx("Logo-icon")}
+          viewBox="0 0 34 34"
+          color="#f5c518"
+        />
+        <Link to="/TMI" className={cx("Logo-Link")}>
+          <div className={cx("Logo-Title")}>TMI</div>
         </Link>
-
+      </div>
+      <div className={cx("Search-Wrap")}>
         <form
           onSubmit={(e: React.FormEvent<HTMLElement>) => {
             e.preventDefault();
