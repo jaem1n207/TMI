@@ -31,7 +31,7 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ history, location }) => {
       <Button
         style={NBtnStyle}
         onClick={() => {
-          history.push("/TMI");
+          history.push("/");
         }}
         text="Go Home"
         type="button"

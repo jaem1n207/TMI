@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
+import { basename } from "config/config.json";
 import NotFoundPage from "./pages/NotFoundPage";
 import HomePage from "pages/HomePage";
 import DetailNowPlayingPage from "pages/NowPlayingPPage";
@@ -18,16 +19,15 @@ library.add(faSearch);
 interface RootProps {}
 const Root: React.SFC<RootProps> = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Switch>
-        <Route exact path="/TMI" component={HomePage} />
-        <Route exact path="/TMI/nowPlaying" component={DetailNowPlayingPage} />
-        <Route exact path="/TMI/popular" component={DetailPopularPage} />
-        <Route exact path="/TMI/search" component={SearchPage} />
-        <Route exact path="/TMI/detail/:movieId" component={DetailPage} />
-        <Route exact path="/TMI/upcoming" component={UpcomingPage} />
-        <Route exact path="/TMI/toprate" component={TopRatePage} />
-        <Route component={NotFoundPage} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/nowPlaying" component={DetailNowPlayingPage} />
+        <Route exact path="/popular" component={DetailPopularPage} />
+        <Route exact path="/search" component={SearchPage} />
+        <Route exact path="/detail/:movieId" component={DetailPage} />
+        <Route exact path="/upcoming" component={UpcomingPage} />
+        <Route exact path="/toprate" component={TopRatePage} />
       </Switch>
     </BrowserRouter>
   );

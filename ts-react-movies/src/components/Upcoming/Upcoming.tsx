@@ -72,7 +72,7 @@ const UpcomingCard: React.FC<UpcomingCardProps> = ({
   return (
     <li className={cx("UpcomingTemplate-Wrap-Movie-List")}>
       <div className={cx("UpcomingTemplate-Wrap-Movie-List-Poster")}>
-        <Link to={`/TMI/detail/${id}`}>
+        <Link to={`/detail/${id}`}>
           <span className={cx("UpcomingTemplate-Wrap-Movie-List-Poster-Info")}>
             {poster_path !== null ? (
               <img

@@ -88,7 +88,7 @@ const RecommendCard: React.SFC<RecommendCardProps> = ({
 
   return (
     <div className="Recommend-DetailRecommend-Wrap-Content">
-      <Link to={`/TMI/detail/${id}`}>
+      <Link to={`/detail/${id}`}>
         {backdrop_path !== null ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img
