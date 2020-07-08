@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Switch, Route } from "react-router";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect } from "react-router-dom";
 import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -29,8 +29,8 @@ const Root: React.SFC<RootProps> = () => {
         <Route exact path="/detail/:movieId" component={DetailPage} />
         <Route exact path="/upcoming" component={UpcomingPage} />
         <Route exact path="/toprate" component={TopRatePage} />
-        <Route exact path="/tv/toprate" component={TvTopRatePage} />
-        <Route component={NotFoundPage} />
+        <Route exact path="/tv/topRate" component={TvTopRatePage} />
+        <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
   );

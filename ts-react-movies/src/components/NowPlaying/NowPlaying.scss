@@ -30,6 +30,11 @@
   &-Content {
     width: 92%;
     margin-bottom: 6%;
+    transition-duration: 0.35s;
+    padding-left: 2%;
+    &:hover {
+      transform: scale(1.05);
+    }
     &-Img {
       width: 92%;
     }

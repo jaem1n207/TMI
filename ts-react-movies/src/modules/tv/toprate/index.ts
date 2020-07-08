@@ -75,8 +75,8 @@ interface Action {
     loading: boolean;
     tvTopRate: Array<ObjectType>;
     moreTvTopRate: Array<ObjectType>;
-    pages?: number;
-    total_pages?: number;
+    pages: number;
+    total_pages: number;
   };
 }
 
