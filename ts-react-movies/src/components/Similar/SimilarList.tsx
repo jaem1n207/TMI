@@ -87,7 +87,7 @@ const SimilarCard: React.SFC<SimilarCardProps> = ({
 
   return (
     <div className="SimilarList-Wrap-Content">
-      <Link to={`/detail/${id}`}>
+      <Link to={`/movie/detail/${id}`}>
         {backdrop_path !== null ? (
           // eslint-disable-next-line jsx-a11y/alt-text
           <img

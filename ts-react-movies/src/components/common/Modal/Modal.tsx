@@ -123,7 +123,7 @@ const DetailCastCard: React.SFC<DetailCastCardProps> = ({
   const poster = require("assets/poster.png");
   return (
     <li className={cx("Modal-Scroll-Filmography-Ul-Li")}>
-      <Link to={`/detail/${id}`}>
+      <Link to={`/movie/detail/${id}`}>
         <span className={cx("Modal-Scroll-Filmography-Ul-Li-Poster")}>
           {poster_path !== null ? (
             <img

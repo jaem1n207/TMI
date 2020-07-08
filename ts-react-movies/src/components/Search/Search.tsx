@@ -69,7 +69,7 @@ const Search: React.SFC<SearchProps> = ({
           viewBox="0 0 34 34"
           color="#f5c518"
         />
-        <Link to="/" className={cx("Logo-Link")}>
+        <Link to="/movie" className={cx("Logo-Link")}>
           <div className={cx("Logo-Title")}>TMI</div>
         </Link>
       </div>
@@ -150,7 +150,7 @@ const SearchCard: React.SFC<SearchCardProps> = ({
 
   return (
     <div className={cx("SearchCard-Wrap")}>
-      <Link to={`/detail/${id}`}>
+      <Link to={`/movie/detail/${id}`}>
         <div
           className={cx("SearchCard-Wrap-Box")}
           onClick={() => {

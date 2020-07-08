@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
         />
         <NavLink
           exact
-          to="/"
+          to="/movie"
           className={cx("NavItem-Ul-Li-Current")}
           activeClassName={cx("NavItem-Ul-Li-Current")}
         >
@@ -31,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
               exact
-              to="/"
+              to="/movie"
               className={cx("NavItem-Ul-Li-Current")}
               activeStyle={{ color: "#59babc" }}
             >
@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/topRate"
+              to="/movie/topRate"
               className={cx("NavItem-Ul-Li-Current")}
               activeStyle={{ color: "#59babc" }}
             >
@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/nowPlaying"
+              to="/movie/nowPlaying"
               className={cx("NavItem-Ul-Li-Current")}
               activeStyle={{ color: "#59babc" }}
             >
@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/upcoming"
+              to="/movie/upcoming"
               className={cx("NavItem-Ul-Li-Current")}
               activeStyle={{ color: "#59babc" }}
             >
@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           </li>
           <li className={cx("NavItem-Ul-Li")}>
             <NavLink
-              to="/popular"
+              to="/movie/popular"
               className={cx("NavItem-Ul-Li-Current")}
               activeStyle={{ color: "#59babc" }}
             >
