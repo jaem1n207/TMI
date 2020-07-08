@@ -29,7 +29,11 @@ const Root: React.SFC<RootProps> = () => {
         <Route exact path="/detail/:movieId" component={DetailPage} />
         <Route exact path="/upcoming" component={UpcomingPage} />
         <Route exact path="/toprate" component={TopRatePage} />
-        <Route exact path="/tv/topRate" component={TvTopRatePage} />
+        <Route exact path="/tv" component={HomePage} />
+        <Route exact path="/tv/top-rate" component={TvTopRatePage} />
+        <Route exact path="/tv/airing-today" component={TvTopRatePage} />
+        <Route exact path="/tv/on-the-air" component={TvTopRatePage} />
+        <Route exact path="/tv/popular" component={TvTopRatePage} />
         <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>

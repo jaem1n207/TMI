@@ -23,7 +23,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
     border: "none",
     outline: "none",
   };
-  const inputStyle = {
+  /*   const inputStyle = {
     color: "rgba(255, 255, 255, 0.7)",
     backgroundColor: "#0f1016",
     border: "none",
@@ -33,19 +33,19 @@ const Header: React.SFC<Props.HeaderProps> = ({
     width: "36%",
     fontSize: "1.2rem",
     marginLeft: "1%",
-  };
+  }; */
 
   return (
     <div className={cx("Header-Wrap")}>
       <div className={cx("Header-Wrap-Nav")}>
         <ul className={cx("Header-Wrap-Nav-Ul")}>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <NavLink to="/tv" activeStyle={{ color: "#59babc" }}>
+            <NavLink exact to="/tv" activeStyle={{ color: "#59babc" }}>
               TV
             </NavLink>
           </li>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <NavLink to="/" activeStyle={{ color: "#59babc" }}>
+            <NavLink exact to="/" activeStyle={{ color: "#59babc" }}>
               Movies
             </NavLink>
           </li>
