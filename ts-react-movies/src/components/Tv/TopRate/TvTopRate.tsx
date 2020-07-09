@@ -90,7 +90,7 @@ const TvTopRateCard: React.FC<TvTopRateCardProps> = ({
   return (
     <li className={cx("UpcomingTemplate-Wrap-Movie-List")}>
       <div className={cx("UpcomingTemplate-Wrap-Movie-List-Poster")}>
-        <Link to={`/movie/detail/${id}`}>
+        <Link to={`/detail/${id}`}>
           <span className={cx("UpcomingTemplate-Wrap-Movie-List-Poster-Info")}>
             {poster_path !== null ? (
               <img

@@ -22,23 +22,19 @@ const Root: React.SFC<RootProps> = () => {
   return (
     <BrowserRouter basename={basename}>
       <Switch>
-        <Route exact path="/movie" component={HomePage} />
-        <Route
-          exact
-          path="/movie/nowPlaying"
-          component={DetailNowPlayingPage}
-        />
-        <Route exact path="/movie/popular" component={DetailPopularPage} />
-        <Route exact path="/movie/search" component={SearchPage} />
-        <Route exact path="/movie/detail/:movieId" component={DetailPage} />
-        <Route exact path="/movie/upcoming" component={UpcomingPage} />
-        <Route exact path="/movie/toprate" component={TopRatePage} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/nowPlaying" component={DetailNowPlayingPage} />
+        <Route exact path="/popular" component={DetailPopularPage} />
+        <Route exact path="/search" component={SearchPage} />
+        <Route exact path="/detail/:movieId" component={DetailPage} />
+        <Route exact path="/upcoming" component={UpcomingPage} />
+        <Route exact path="/toprate" component={TopRatePage} />
         {/*<Route exact path="/tv" component={HomePage} />
         <Route exact path="/tv/top-rate" component={TvTopRatePage} />
         <Route exact path="/tv/airing-today" component={TvTopRatePage} />
         <Route exact path="/tv/on-the-air" component={TvTopRatePage} />
         <Route exact path="/tv/popular" component={TvTopRatePage} /> */}
-        <Redirect from="*" to="/movie" />
+        <Redirect from="*" to="/" />
       </Switch>
     </BrowserRouter>
   );

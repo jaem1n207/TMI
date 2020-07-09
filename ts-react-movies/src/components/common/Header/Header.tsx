@@ -54,14 +54,14 @@ const Header: React.SFC<Props.HeaderProps> = ({
             </NavLink>
           </li>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <NavLink to="/movie" activeStyle={{ color: "#59babc" }}>
+            <NavLink to="" activeStyle={{ color: "#59babc" }}>
               Movies
             </NavLink>
           </li>
         </ul>
       </div>
       <span className={cx("Header-Wrap-Input")}>
-        <NavLink to="/movie/search" activeStyle={{ color: "#59babc" }}>
+        <NavLink to="/search" activeStyle={{ color: "#59babc" }}>
           <label className={cx("Header-Wrap-Button")}>
             <Button
               style={btnStyle}
