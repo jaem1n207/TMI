@@ -78,47 +78,47 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           <br />
 
           <li className={cx("NavItem-Ul-Title")}>TV</li>
-          <li className={cx("NavItem-Ul-Li")}>
+          <li className={cx("NavItem-Ul-None NavItem-Ul-Li")}>
             <NavLink
               exact
               to="/tv"
-              className={cx("NavItem-Ul-Li-Current")}
+              className={cx("NavItem-Ul-Li-CurrentTv ")}
               activeStyle={{ color: "#59babc" }}
             >
               Home
             </NavLink>
           </li>
-          <li className={cx("NavItem-Ul-Li")}>
+          <li className={cx("NavItem-Ul-None NavItem-Ul-Li")}>
             <NavLink
               to="/tv/top-rate"
-              className={cx("NavItem-Ul-Li-Current")}
+              className={cx("NavItem-Ul-Li-CurrentTv ")}
               activeStyle={{ color: "#59babc" }}
             >
               Top Rated
             </NavLink>
           </li>
-          <li className={cx("NavItem-Ul-Li")}>
+          <li className={cx("NavItem-Ul-None NavItem-Ul-Li")}>
             <NavLink
               to="/tv/airing-today"
-              className={cx("NavItem-Ul-Li-Current")}
+              className={cx("NavItem-Ul-Li-CurrentTv ")}
               activeStyle={{ color: "#59babc" }}
             >
               Airing Today
             </NavLink>
           </li>
-          <li className={cx("NavItem-Ul-Li")}>
+          <li className={cx("NavItem-Ul-None NavItem-Ul-Li")}>
             <NavLink
               to="/tv/on-the-air"
-              className={cx("NavItem-Ul-Li-Current")}
+              className={cx("NavItem-Ul-Li-CurrentTv ")}
               activeStyle={{ color: "#59babc" }}
             >
               On The Air
             </NavLink>
           </li>
-          <li className={cx("NavItem-Ul-Li")}>
+          <li className={cx("NavItem-Ul-None NavItem-Ul-Li ")}>
             <NavLink
               to="/tv/popular"
-              className={cx("NavItem-Ul-Li-Current")}
+              className={cx("NavItem-Ul-Li-CurrentTv")}
               activeStyle={{ color: "#59babc" }}
             >
               Popular

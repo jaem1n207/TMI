@@ -44,6 +44,14 @@
       margin-bottom: 6%;
       color: $white;
     }
+    &-None {
+      text-decoration: line-through !important;
+      cursor: default !important;
+      & > a {
+        color: $gray-5 !important;
+        cursor: default;
+      }
+    }
     &-Li {
       margin-bottom: 4%;
       cursor: pointer;
@@ -58,6 +66,11 @@
           color: $mint;
         }
       }
+      /* &-CurrentTv {
+        text-decoration: line-through !important;
+        color: $gray-5 !important;
+        cursor: default;
+      } */
     }
   }
 }

@@ -40,7 +40,16 @@ const Header: React.SFC<Props.HeaderProps> = ({
       <div className={cx("Header-Wrap-Nav")}>
         <ul className={cx("Header-Wrap-Nav-Ul")}>
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
-            <NavLink exact to="/tv" activeStyle={{ color: "#59babc" }}>
+            <NavLink
+              exact
+              to="/tv"
+              style={{
+                color: "rgba(70, 74, 84, 1)",
+                textDecoration: "line-through",
+                cursor: "default",
+              }}
+              activeStyle={{ color: "rgba(70, 74, 84, 1)" }}
+            >
               TV
             </NavLink>
           </li>
