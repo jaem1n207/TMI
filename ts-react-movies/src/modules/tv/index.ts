@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import tvTopRate, { TvTopRateState } from "./toprate";
+import tvTopRate, { TvTopRateState } from "./tvTopRate";
 
 const reducers = combineReducers({
   tvTopRate,

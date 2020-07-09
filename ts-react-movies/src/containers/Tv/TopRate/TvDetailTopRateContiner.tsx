@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { RootState } from "modules/tv";
-import { getTvTopRate } from "modules/tv/toprate";
+import { getTvTopRate } from "modules/tv/tvTopRate";
 import LoadingPage from "components/common/LoadingPage/LoadingPage";
 import TvTopRate from "components/Tv/TopRate/TvTopRate";
 
@@ -23,16 +23,34 @@ const TvDetailTopRateContiner: React.SFC<TvTopRateContainerProps> = ({
   const [totalPages, setTotalPages] = useState<number>(1);
   const [tvTopRateMovie, setTvTopRateMovie] = useState<any[]>([]);
 
+  /* 더보기 */
   const getMoreMovies = () => {
     setPage(page + 1);
+    console.log("page: ", page);
     getTvTopRate(page);
   };
 
   useEffect(() => {
-    getTvTopRate(page);
+    const movies = getTvTopRate(page);
+    setTvTopRateMovie([movies]);
+
+    console.log("tvTopRateMovie: ", tvTopRateMovie);
   }, []);
 
-  return <>{loading ? <LoadingPage /> : <TvTopRate />}</>;
+  return (
+    <>
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <TvTopRate
+          getMoreMovies={getMoreMovies}
+          pages={page}
+          total_pages={totalPages}
+          tvTopRate={tvTopRateMovie}
+        />
+      )}
+    </>
+  );
 };
 
 export default connect(
@@ -42,7 +60,5 @@ export default connect(
     pages: state.tvTopRate.pages,
     total_pages: state.tvTopRate.total_pages,
   }),
-  {
-    getTvTopRate,
-  }
+  { getTvTopRate }
 )(TvDetailTopRateContiner);

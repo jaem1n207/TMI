@@ -8,7 +8,6 @@ export interface TvTopRateState {
   pages?: number;
   total_pages?: number;
   tvTopRate?: Array<Object>;
-  moreTvTopRate?: Array<Object>;
 }
 
 export interface ObjectType {
@@ -20,21 +19,19 @@ export interface ObjectType {
 }
 
 /* Actions */
-const GET_TV_TOPRATE_REQUEST = "tv/toprate/GET_TV_TOPRATE_REQUEST";
-const GET_TV_TOPRATE_SUCCESS = "tv/toprate/GET_TV_TOPRATE_SUCCESS";
-const GET_TV_TOPRATE_FAIL = "tv/toprate/GET_TV_TOPRATE_FAIL";
+const GET_TV_TOPRATE_REQUEST = "top/GET_TV_TOPRATE_REQUEST";
+const GET_TV_TOPRATE_SUCCESS = "top/GET_TV_TOPRATE_SUCCESS";
+const GET_TV_TOPRATE_FAIL = "top/GET_TV_TOPRATE_FAIL";
 
 /* Action Creator */
 export const getTvTopRateRequest = (payload: TvTopRateState) => ({
   type: GET_TV_TOPRATE_REQUEST,
   payload,
 });
-
 export const getTvTopRateSuccess = (payload: TvTopRateState) => ({
   type: GET_TV_TOPRATE_SUCCESS,
   payload,
 });
-
 export const getTvTopRateFail = (payload: TvTopRateState) => ({
   type: GET_TV_TOPRATE_FAIL,
   payload,
@@ -46,7 +43,7 @@ export const getTvTopRate = (page: number) => {
     try {
       dispatch(getTvTopRateRequest({ loading: true }));
 
-      const result = await api.tvAPI.toprate(page);
+      const result = await api.movies.toprate(page);
       const tvTopRate = result.data.results;
       const pages = result.data.page;
       const total_pages = result.data.total_pages;
@@ -64,9 +61,8 @@ export const getTvTopRate = (page: number) => {
 const initialState: TvTopRateState = {
   loading: false,
   pages: 1,
-  total_pages: 1,
+  total_pages: 99,
   tvTopRate: [],
-  moreTvTopRate: [],
 };
 
 interface Action {
@@ -74,9 +70,8 @@ interface Action {
   payload: {
     loading: boolean;
     tvTopRate: Array<ObjectType>;
-    moreTvTopRate: Array<ObjectType>;
-    pages: number;
-    total_pages: number;
+    pages?: number;
+    total_pages?: number;
   };
 }
 
@@ -91,7 +86,6 @@ const reducer = (state = initialState, action: Action): TvTopRateState => {
       return produce(state, (draft) => {
         draft.loading = action.payload.loading;
         draft.tvTopRate = action.payload.tvTopRate;
-        draft.moreTvTopRate = action.payload.moreTvTopRate;
         draft.pages = action.payload.pages;
         draft.total_pages = action.payload.total_pages;
       });

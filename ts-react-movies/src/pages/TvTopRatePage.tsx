@@ -12,9 +12,9 @@ interface TvTopRatePageProps {}
 const TvTopRatePage: React.SFC<TvTopRatePageProps> = () => {
   return (
     <div className={cx("PageTemplate1")}>
-      <ReactHelmet title="TopRate" description="순위">
+      <ReactHelmet title="Tv TopRate" description="순위">
         <meta charSet="utf-8" />
-        <title>TopRate Movies</title>
+        <title>Tv TopRate Movies</title>
       </ReactHelmet>
       <div className={cx("PageTemplate1-Navbar")}>
         <Navbar />
