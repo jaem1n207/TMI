@@ -10,6 +10,7 @@ import upcoming, { UpcomingState } from "./Upcoming";
 import topRate, { TopRateState } from "./TopRate";
 import similar, { SimilarState } from "./Similar";
 import castInfo, { CastDetailState } from "./Detail/detailCast";
+import tvTopRate, { TvTopRateState } from "../tv/tvTopRate";
 
 const reducers = combineReducers({
   nowPlaying,
@@ -22,6 +23,7 @@ const reducers = combineReducers({
   topRate,
   similar,
   castInfo,
+  tvTopRate,
 });
 
 export default reducers;
@@ -37,4 +39,5 @@ export interface RootState {
   topRate: TopRateState;
   similar: SimilarState;
   castInfo: CastDetailState;
+  tvTopRate: TvTopRateState;
 }

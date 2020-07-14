@@ -9,15 +9,25 @@ const cx = classNames.bind(style);
 interface TvTopRateProps {
   pages: number;
   total_pages: number;
-  getMoreMovies: (
+  getMoreMovie: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void;
+  getLowMovie: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   tvTopRate:
     | Array<{
         poster_path: string;
-        title: string;
+        name: string;
         id: number;
-        release_date: string;
+        first_air_date: string;
+        vote_average: number;
+      }>
+    | undefined;
+  moreTvTopRate:
+    | Array<{
+        poster_path: string;
+        name: string;
+        id: number;
+        first_air_date: string;
         vote_average: number;
       }>
     | undefined;
@@ -27,7 +37,9 @@ const TvTopRate: React.FC<TvTopRateProps> = ({
   pages,
   total_pages,
   tvTopRate,
-  getMoreMovies,
+  getLowMovie,
+  getMoreMovie,
+  moreTvTopRate,
 }) => {
   console.log("TvTopRateCompo: ", tvTopRate);
   console.log("pagesCompo: ", pages, "total_pagesCompo: ", total_pages);
@@ -47,17 +59,23 @@ const TvTopRate: React.FC<TvTopRateProps> = ({
                 key={tvTopRateItem.id}
                 id={tvTopRateItem.id}
                 poster_path={tvTopRateItem.poster_path}
-                title={tvTopRateItem.title}
-                release_date={tvTopRateItem.release_date}
+                name={tvTopRateItem.name}
+                first_air_date={tvTopRateItem.first_air_date}
                 vote_average={tvTopRateItem.vote_average}
               />
             ))}
           </ul>
           <div className={"ButtonWrap"}>
+            <div className={`ButtonBox ${pages <= 1 ? "none" : "block"}`}>
+              <button onClick={getLowMovie}>이전</button>
+            </div>
+            <span
+              className={"ButtonWrap-PageNumber"}
+            >{`${pages}/${total_pages}`}</span>
             <div
               className={`ButtonBox ${pages >= total_pages ? "none" : "block"}`}
             >
-              <button onClick={getMoreMovies}>더보기</button>
+              <button onClick={getMoreMovie}>다음</button>
             </div>
           </div>
         </div>
@@ -71,20 +89,20 @@ export default TvTopRate;
 interface TvTopRateCardProps {
   poster_path: string;
   id: number;
-  title: string;
+  name: string;
   vote_average: any;
-  release_date: string;
+  first_air_date: string;
 }
 
 const TvTopRateCard: React.FC<TvTopRateCardProps> = ({
   id,
   poster_path,
-  release_date,
-  title,
+  first_air_date,
+  name,
   vote_average,
 }) => {
   const poster = require("assets/poster.png");
-  const date: string[] = release_date.split("-");
+  const date: string[] = first_air_date.split("-");
   const average: string = (vote_average / 2).toFixed(1);
 
   return (
@@ -112,7 +130,7 @@ const TvTopRateCard: React.FC<TvTopRateCardProps> = ({
       </div>
       <div className={cx("UpcomingTemplate-Wrap-Movie-List-Info")}>
         <strong className={cx("UpcomingTemplate-Wrap-Movie-List-Info-Title")}>
-          {title}
+          {name}
         </strong>
         <span className={cx("UpcomingTemplate-Wrap-Movie-List-Info-SubInfo")}>
           <span

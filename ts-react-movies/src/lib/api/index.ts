@@ -56,6 +56,11 @@ export const tvAPI = {
     defaultApi.get(
       `tv/top_rated?api_key=${MOVIE_API_KEY}&language=ko&page=${page}`
     ),
+  /* show detail movie */
+  detail: (id: string) =>
+    defaultApi.get(
+      `tv/${id}?api_key=${MOVIE_API_KEY}&language=ko&append_to_response=credits`
+    ),
   /* 
     현재 방송중인 쇼 목록을 가져옵니다. 
     이 쿼리는 다음 7 일 동안 방송 된 에피소드가있는 TV 프로그램을 찾습니다. 
