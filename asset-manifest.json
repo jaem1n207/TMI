@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/TMI/static/css/main.786995d6.chunk.css",
-    "main.js": "/TMI/static/js/main.26b9e44b.chunk.js",
-    "main.js.map": "/TMI/static/js/main.26b9e44b.chunk.js.map",
+    "main.css": "/TMI/static/css/main.6756f124.chunk.css",
+    "main.js": "/TMI/static/js/main.b066ce3a.chunk.js",
+    "main.js.map": "/TMI/static/js/main.b066ce3a.chunk.js.map",
     "reactPlayerDailyMotion.js": "/TMI/static/js/reactPlayerDailyMotion.d5dc72f6.chunk.js",
     "reactPlayerDailyMotion.js.map": "/TMI/static/js/reactPlayerDailyMotion.d5dc72f6.chunk.js.map",
     "reactPlayerFacebook.js": "/TMI/static/js/reactPlayerFacebook.3655d93f.chunk.js",
@@ -27,20 +27,20 @@
     "reactPlayerYouTube.js.map": "/TMI/static/js/reactPlayerYouTube.ac97e09a.chunk.js.map",
     "runtime-main.js": "/TMI/static/js/runtime-main.564f174b.js",
     "runtime-main.js.map": "/TMI/static/js/runtime-main.564f174b.js.map",
-    "static/js/13.b28986c8.chunk.js": "/TMI/static/js/13.b28986c8.chunk.js",
-    "static/js/13.b28986c8.chunk.js.map": "/TMI/static/js/13.b28986c8.chunk.js.map",
+    "static/js/13.353a873b.chunk.js": "/TMI/static/js/13.353a873b.chunk.js",
+    "static/js/13.353a873b.chunk.js.map": "/TMI/static/js/13.353a873b.chunk.js.map",
     "static/js/14.00b86641.chunk.js": "/TMI/static/js/14.00b86641.chunk.js",
     "static/js/14.00b86641.chunk.js.map": "/TMI/static/js/14.00b86641.chunk.js.map",
     "index.html": "/TMI/index.html",
-    "precache-manifest.e1ca8f6a8d33c799cacfb6185f4e3eef.js": "/TMI/precache-manifest.e1ca8f6a8d33c799cacfb6185f4e3eef.js",
+    "precache-manifest.0df1cf1234cab92663ab601c88a1b1d7.js": "/TMI/precache-manifest.0df1cf1234cab92663ab601c88a1b1d7.js",
     "service-worker.js": "/TMI/service-worker.js",
-    "static/css/main.786995d6.chunk.css.map": "/TMI/static/css/main.786995d6.chunk.css.map",
-    "static/js/13.b28986c8.chunk.js.LICENSE.txt": "/TMI/static/js/13.b28986c8.chunk.js.LICENSE.txt"
+    "static/css/main.6756f124.chunk.css.map": "/TMI/static/css/main.6756f124.chunk.css.map",
+    "static/js/13.353a873b.chunk.js.LICENSE.txt": "/TMI/static/js/13.353a873b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.564f174b.js",
-    "static/js/13.b28986c8.chunk.js",
-    "static/css/main.786995d6.chunk.css",
-    "static/js/main.26b9e44b.chunk.js"
+    "static/js/13.353a873b.chunk.js",
+    "static/css/main.6756f124.chunk.css",
+    "static/js/main.b066ce3a.chunk.js"
   ]
 }
