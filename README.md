@@ -17,15 +17,6 @@
 * Similar Movie
 * Detail Cast
 
-### TV (To Be Added)
-* Top Rated
-* Airing Today
-* On The Air
-* Popular 
-* TV Detail
-* Cast Info 
-* Detail Cast
-
 ### Project Stack
 * React
 * React Router
