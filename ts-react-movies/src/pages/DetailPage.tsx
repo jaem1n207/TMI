@@ -15,7 +15,6 @@ export interface MatchParams {
 interface DetailPageProps extends RouteComponentProps<MatchParams> {}
 const DetailPage: React.SFC<DetailPageProps> = (props) => {
   const { movieId } = props.match.params;
-  console.log("movieId: ", movieId);
 
   return (
     <div className={cx("PageTemplate")}>

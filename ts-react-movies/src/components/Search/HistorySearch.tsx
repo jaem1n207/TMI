@@ -9,7 +9,6 @@ const HistorySearch: React.FC<Props.HistorySearchProps> = ({
   onRemove,
   toggle,
 }) => {
-  console.log("historySearch: ", historySearch);
   return (
     <div className={`HistorySearch-Form ${toggle ? "block" : "none"}`}>
       {historySearch.length !== 0 && (

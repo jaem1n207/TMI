@@ -45,20 +45,15 @@ const TvDetailTopRateContiner: React.SFC<TvTopRateContainerProps> = ({
     setTvTopRateMovie(tvTopRate);
     setTvTopRateMovie([...tvTopRateMovie, moreTvTopRateMovie]);
     tvTopRate = [...tvTopRateMovie, moreTvTopRate];
-    console.log("topRateContainer: ", tvTopRate);
-    console.log("moreTvTopRateContainer: ", moreTvTopRate);
   }, [moreTvTopRate]);
 
   const getMoreTvTopMovie = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     setPage(page + 1);
-    console.log("페이지: ", page);
 
     if (totalPages >= page) {
       getMoreTvTopRate(page + 1);
-      console.log("page: ", page);
-      console.log("totalpages: ", total_pages);
     }
   };
 

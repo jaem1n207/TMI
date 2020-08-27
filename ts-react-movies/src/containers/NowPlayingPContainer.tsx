@@ -45,8 +45,6 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
     setPlayingMovies([...playingMovies, moreMovies]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     nowPlaying = [...playingMovies, morePlaying];
-    console.log("nowPlayingCont: ", nowPlaying);
-    console.log("morePlayingCont: ", morePlaying);
   }, [morePlaying]);
 
   /* 더보기 */
@@ -55,9 +53,6 @@ const NowPlayingPContainr: React.SFC<NowPlayingPContainrProps> = ({
   ) => {
     setPage(page + 1);
     if (totalPages >= page) {
-      console.log("page: ", page);
-      console.log("totalpages: ", totalPages);
-
       getMoreNowPlaying(page + 1);
     }
   };

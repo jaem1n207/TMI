@@ -154,15 +154,9 @@ const SearchCard: React.SFC<SearchCardProps> = ({
         <div
           className={cx("SearchCard-Wrap-Box")}
           onClick={() => {
-            console.log("검색 기록: ", ...historySearch);
-
             historySearch = historySearch.filter((item) => item !== title);
             localStorage.setItem(
               "TMI",
-              JSON.stringify([...historySearch, title])
-            );
-            console.log(
-              "저장됐나 혹쉬~~?: ",
               JSON.stringify([...historySearch, title])
             );
           }}

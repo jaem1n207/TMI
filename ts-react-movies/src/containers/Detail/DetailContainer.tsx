@@ -66,7 +66,6 @@ const DetailContainer: React.SFC<DetailContainerProps> = ({
   /* 클릭한 배우 정보 얻어오기 */
   const onGetCast = (id: number) => {
     setCastIdx(id);
-    console.log("castIdx: ", castIdx);
 
     getCastDetail(id);
 

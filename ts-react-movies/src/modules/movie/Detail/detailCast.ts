@@ -1,6 +1,6 @@
-import { Dispatch } from "redux";
-import * as api from "lib/api";
-import produce from "immer";
+import { Dispatch } from 'redux';
+import * as api from 'lib/api';
+import produce from 'immer';
 
 /* Types */
 export interface CastDetailState {
@@ -15,9 +15,9 @@ export interface ObjectType {
 }
 
 /* Actions */
-const GET_CAST_DETAIL_REQUEST = "detailcast/GET_CAST_DETAIL_REQUEST";
-const GET_CAST_DETAIL_SUCCESS = "detailcast/GET_CAST_DETAIL_SUCCESS";
-const GET_CAST_DETAIL_FAIL = "detailcast/GET_CAST_DETAIL_FAIL";
+const GET_CAST_DETAIL_REQUEST = 'detailcast/GET_CAST_DETAIL_REQUEST';
+const GET_CAST_DETAIL_SUCCESS = 'detailcast/GET_CAST_DETAIL_SUCCESS';
+const GET_CAST_DETAIL_FAIL = 'detailcast/GET_CAST_DETAIL_FAIL';
 
 /* Action Creator */
 export const getCastDetailRequest = (payload: CastDetailState) => ({

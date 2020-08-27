@@ -40,9 +40,6 @@ const TopRate: React.FC<TopRateProps> = ({
   pages,
   total_pages,
 }) => {
-  console.log("topRateCom: ", topRate, "moreTopRate: ", moreTopRate);
-  console.log("pagesCom: ", pages, "total_pages: ", total_pages);
-
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>TopRate Movies</h1>

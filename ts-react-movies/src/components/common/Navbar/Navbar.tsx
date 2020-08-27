@@ -77,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
 
           <br />
 
-          <li className={cx("NavItem-Ul-Title")}>TV</li>
+          {/* <li className={cx("NavItem-Ul-Title")}>TV</li>
           <li className={cx("NavItem-Ul-None NavItem-Ul-Li")}>
             <NavLink
               exact
@@ -123,7 +123,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
             >
               Popular
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

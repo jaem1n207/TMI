@@ -20,8 +20,6 @@ const NowPlayingContainer: React.SFC<NowPlayingContainerProps> = ({
   total_pages,
   getNowPlaying,
 }) => {
-  console.log(pages, total_pages);
-
   useEffect(() => {
     getNowPlaying(1);
   }, [pages]);

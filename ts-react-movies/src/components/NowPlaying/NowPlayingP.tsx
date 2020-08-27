@@ -40,9 +40,6 @@ const NowPlayingP: React.FC<NowPlayingPProps> = ({
   morePlaying,
   getLowMovie,
 }) => {
-  console.log("nowPlayingCom: ", nowPlaying, "morePlayingCom: ", morePlaying);
-
-  // console.log("pages: ", pages, "total: ", total_pages);
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>

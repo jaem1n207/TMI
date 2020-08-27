@@ -41,9 +41,6 @@ const TvTopRate: React.FC<TvTopRateProps> = ({
   getMoreMovie,
   moreTvTopRate,
 }) => {
-  console.log("TvTopRateCompo: ", tvTopRate);
-  console.log("pagesCompo: ", pages, "total_pagesCompo: ", total_pages);
-
   return (
     <>
       <h1 style={{ color: "#f5c518", paddingLeft: "16px" }}>TopRate Movies</h1>

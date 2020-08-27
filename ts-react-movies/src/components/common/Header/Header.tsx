@@ -39,7 +39,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
     <div className={cx("Header-Wrap")}>
       <div className={cx("Header-Wrap-Nav")}>
         <ul className={cx("Header-Wrap-Nav-Ul")}>
-          <li className={cx("Header-Wrap-Nav-Ul-Li")}>
+          {/* <li className={cx("Header-Wrap-Nav-Ul-Li")}>
             <NavLink
               exact
               to="/tv"
@@ -52,7 +52,7 @@ const Header: React.SFC<Props.HeaderProps> = ({
             >
               TV
             </NavLink>
-          </li>
+          </li> */}
           <li className={cx("Header-Wrap-Nav-Ul-Li")}>
             <NavLink to="" activeStyle={{ color: "#59babc" }}>
               Movies
